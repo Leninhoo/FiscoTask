@@ -1,0 +1,329 @@
+﻿using Dapper;
+using MySqlConnector;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace FiscoTask
+{
+    
+    public class Empresas : Dbase
+    {
+               
+
+        #region Propriedades da tabela
+
+        public int Empresa { get; set; }
+        public string? Nome { get; set; }
+        public string? Endereco { get; set; }
+        public string? Bairro { get; set; }
+        public string? Cidade { get; set; }
+        public string? Uf { get; set; }
+        public string? Cep { get; set; }
+        public string? Fone { get; set; }
+        public string? Cnpj { get; set; }
+        public string? Ie { get; set; }
+        public string? Email { get; set; }
+        public string? Cnae { get; set; }
+        public string? NatEstab { get; set; }
+        public string? Responsavel { get; set; }
+        public string? Cpf { get; set; }
+        public DateTime? IniAtividade { get; set; }
+        public string? Industria { get; set; }
+        public string? Comercio { get; set; }
+        public string? Servico { get; set; }
+        public string? Entidade { get; set; }
+        public string? Escola { get; set; }
+        public string? Regime { get; set; }
+        public string? Micro { get; set; }
+        public string? PequenoPorte { get; set; }
+        public string? Nenhuma { get; set; }
+        public string? Icms { get; set; }
+        public string? Iss { get; set; }
+        public string? IcmsIss { get; set; }
+        public int? CodigoLivro { get; set; }
+        public string? Prot1 { get; set; }
+        public string? Prot2 { get; set; }
+        public string? Prot3 { get; set; }
+        public string? Prot4 { get; set; }
+        public string? ProtGrPr { get; set; }
+        public int? VenProt1 { get; set; }
+        public int? VenProt2 { get; set; }
+        public int? VenProt3 { get; set; }
+        public int? VenProt4 { get; set; }
+        public int? VenProtGrPr { get; set; }
+        public int? CodigoCt { get; set; }
+        public int? TabMun { get; set; }
+        public string? Ddd { get; set; }
+        public string? PreEscola { get; set; }
+        public string? Numero { get; set; }
+        public string? Complemento { get; set; }
+        public string? Fax { get; set; }
+        public string? RegistroJunta { get; set; }
+        public DateTime? DataRegistro { get; set; }
+        public string? SociedadeAnonima { get; set; }
+        public string? EncerraTrimestr { get; set; }
+        public string? BalancoSocial { get; set; }
+        public string? Classificacao { get; set; }
+        public string? ArredondaSal { get; set; }
+        public int? NProprietarios { get; set; }
+        public int? Sindicato { get; set; }
+        public string? Fpas { get; set; }
+        public decimal? PercEmpresa { get; set; }
+        public string? CodSat { get; set; }
+        public decimal? PercSat { get; set; }
+        public decimal? PercFerias { get; set; }
+        public decimal? Capital { get; set; }
+        public string? Lei9601 { get; set; }
+        public string? HrSabInicio { get; set; }
+        public string? HrSabFinal { get; set; }
+        public string? HrSabDescanso { get; set; }
+        public string? Data1DecCaged { get; set; }
+        public string? AlterEndereco { get; set; }
+        public string? DataAlterEnd { get; set; }
+        public string? SimplesFolha { get; set; }
+        public string? CodTerceiros { get; set; }
+        public decimal? PercTerceiros { get; set; }
+        public DateTime? DataBaixa { get; set; }
+        public string? EncerraTrimestre { get; set; }
+        public string? Contador { get; set; }
+        public string? ReflexoDsr { get; set; }
+        public string? PgtoSalarioMesmoMes { get; set; }
+        public string? IdentificacaoSindicato { get; set; }
+        public string? Dirf { get; set; }
+        public string? Ipi { get; set; }
+        public string? Cmc { get; set; }
+        public string? ContadorCrc { get; set; }
+        public string? ContadorCat { get; set; }
+        public int? RegimeTributario { get; set; }
+        public double? Estoque12 { get; set; }
+        public string? CupomFiscal { get; set; }
+        public string? Substituicao { get; set; }
+        public string? Transportadora { get; set; }
+        public string? Simples { get; set; }
+        public string? Convenio { get; set; }
+        public string? ContPagRece { get; set; }
+        public int? VctoGrPr { get; set; }
+        public string? TipoInscricao { get; set; }
+        public string? ControlarSf { get; set; }
+        public string? PriDecCaged { get; set; }
+        public string? NomeContador { get; set; }
+        public string? IeSub { get; set; }
+        public string? CpfContador { get; set; }
+        public string? DescVtDiasUteis { get; set; }
+        public string? ClassCliente { get; set; }
+        public string? ClassFornecedor { get; set; }
+        public DateTime? VencimentoAidf { get; set; }
+        public string? TabMunEst { get; set; }
+        public string? Cnae1 { get; set; }
+        public string? Base30Dias { get; set; }
+        public string? ReduzAliqIr { get; set; }
+        public string? IntegraContabilidade { get; set; }
+        public string? DarfMensal { get; set; }
+        public string? RegimeFed2007 { get; set; }
+        public string? CodSeguranca { get; set; }
+        public string? NomeFantasia { get; set; }
+        public string? Cooperativa { get; set; }
+        public string? AtividadeServico { get; set; }
+        public decimal? ValorHonorario { get; set; }
+        public decimal? Multa { get; set; }
+        public decimal? Juros { get; set; }
+        public decimal? Desconto { get; set; }
+        public int? Vencimento { get; set; }
+        public string? VencMesmoMes { get; set; }
+        public decimal? CapitalAtualizado { get; set; }
+        public decimal? PercSalarioMinimo { get; set; }
+        public int? Rota { get; set; }
+        public string? CodMunIbge { get; set; }
+        public int? BancoBoleto { get; set; }
+        public string? Ecf { get; set; }
+        public string? Construtora { get; set; }
+        public int? DiaFechaPonto { get; set; }
+        public DateTime? ControleVt { get; set; }
+        public string? TipoIss { get; set; }
+        public string? SenhaInss { get; set; }
+        public string? QualificacaoPj { get; set; }
+        public string? ImprimirVt { get; set; }
+        public DateTime? DataContratoContabil { get; set; }
+        public int? MesReajuste { get; set; }
+        public int? AnoReajustado { get; set; }
+        public string? IndPerfil { get; set; }
+        public string? Suframa { get; set; }
+        public string? Cnes { get; set; }
+        public string? ReterIss { get; set; }
+        public string? PassouProduto { get; set; }
+        public string? DsrSomenteDescanso { get; set; }
+        public int? VerbaCarponAtraso { get; set; }
+        public string? DescontarDsrFalta { get; set; }
+        public string? DescontarDsrAtraso { get; set; }
+        public int? VerbaCarponFalta { get; set; }
+        public int? VerbaCarponDsr { get; set; }
+        public int? VerbaCarponIj { get; set; }
+        public int? VerbaCarponAdNot { get; set; }
+        public string? MarcarIntervalos { get; set; }
+        public string? BancoDeHoras { get; set; }
+        public int? DiaFechamentoCp { get; set; }
+        public string? PerApuracaoHe { get; set; }
+        public string? IntervalosAlternados { get; set; }
+        public int? ToleranciaAtrasoMin { get; set; }
+        public int? ToleranciaHeMin { get; set; }
+        public TimeSpan? AdNotInicio { get; set; }
+        public TimeSpan? AdNotTermino { get; set; }
+        public DateTime? BancoDeHorasInicio { get; set; }
+        public int? BancoDeHorasMesesApur { get; set; }
+        public string? InformarIncDarf { get; set; }
+        public string? SoHabilitado { get; set; }
+        public string? NaoGerarSped { get; set; }
+        public string? NaoUsaLivro { get; set; }
+        public string? NaoUsaFolha { get; set; }
+        public string? NaoUsaContabilidade { get; set; }
+        public string? NaoUsaAdministrador { get; set; }
+        public string? EmailSo { get; set; }
+        public int? EmpresaOutrosSistemas { get; set; }
+        public string? CodContPrevRecBru { get; set; }
+        public string? SenhaSiteContabilidade { get; set; }
+        public int? EmpresaCt { get; set; }
+        public int? FilialCt { get; set; }
+        public DateTime? DataIntegrarOnLine { get; set; }
+        public string? SenhaSite { get; set; }
+        public string? Sms01 { get; set; }
+        public string? Sms02 { get; set; }
+        public string? SenhaSiteFolha { get; set; }
+        public string? CredIpiPisCof { get; set; }
+        public int? TabelaNcm { get; set; }
+        public DateTime? DataIntegrarFp { get; set; }
+        public string? IntegrarFpDpto { get; set; }
+        public string? TabNcmIcms { get; set; }
+        public string? TabNcmPisCof { get; set; }
+        public string? AidfNumero { get; set; }
+        public string? AidfAno { get; set; }
+        public DateTime? DataIntegrarOnLineFp { get; set; }
+        public string? NaoUtilizaPacoteGuias { get; set; }
+        public string? EppMe { get; set; }
+        public string? ImportarFpPorDpto { get; set; }
+        public string? ImportarFpSimp { get; set; }
+        public int? VerbaCarponDsrDescontado { get; set; }
+        public string? Classtrib { get; set; }
+        public string? TpCooperativa { get; set; }
+        public string? NrProcessoRat { get; set; }
+        public string? TpProcessoRat { get; set; }
+        public string? NrProcessoFap { get; set; }
+        public string? TpProcessoFap { get; set; }
+        public string? SiglaMin { get; set; }
+        public string? NrCertifIse { get; set; }
+        public DateTime? DataEmiCertif { get; set; }
+        public DateTime? VencCertif { get; set; }
+        public string? NrProtRenovCert { get; set; }
+        public DateTime? DtProtRenovCert { get; set; }
+        public DateTime? DtDiaOf { get; set; }
+        public string? PagDiaOf { get; set; }
+        public string? BancoDeposito { get; set; }
+        public string? AgenciaDeposito { get; set; }
+        public string? TpContaDeposito { get; set; }
+        public string? NrContaDeposito { get; set; }
+        public string? FinancFgts { get; set; }
+        public string? DebFgts { get; set; }
+        public string? AvisoSms { get; set; }
+        public string? AgendaRecFgts { get; set; }
+        public string? ReciboEsocial { get; set; }
+        public string? StatusEsocial { get; set; }
+        public string? SocioOstensivo { get; set; }
+        public string? Fusao { get; set; }
+        public DateTime? DataFusao { get; set; }
+        public string? Md51000 { get; set; }
+        public string? IndAtivFinan { get; set; }
+        public string? IniMesAnoCredPis { get; set; }
+        public string? IcmsTranspLogin { get; set; }
+        public string? IcmsTranspSenha { get; set; }
+        public string? IcmsTranspCodAcesso { get; set; }
+        public string? AnexoVi { get; set; }
+        public string? SeguroDesempregoLogin { get; set; }
+        public string? SeguroDesempregoSenha { get; set; }
+        public DateTime? NascimentoResp { get; set; }
+        public string? DiaVctoIcms { get; set; }
+        public string? RegistroEletronico { get; set; }
+        public string? Siafi { get; set; }
+        public string? MultTabRubricas { get; set; }
+        public string? DescAmbTrab { get; set; }
+        public string? ProcuradorFp { get; set; }
+        public string? CpfProcuradorFp { get; set; }
+        public DateTime? DataNascEmpregador { get; set; }
+        public string? CodEsocialDom { get; set; }
+        public string? SenEsocialDom { get; set; }
+        public string? ImpFolFun { get; set; }
+        public int? ContaMultaJuros { get; set; }
+        public DateTime? EnvioEventoInicial { get; set; }
+        public int? VerbaCarponHeNot { get; set; }
+        public int? VerbaCarponDsrFeriado { get; set; }
+        public string? EmissorLiberado { get; set; }
+        public string? EntEduc { get; set; }
+        public string? NRegEmpTrabTemp { get; set; }
+        public string? CodEcac { get; set; }
+        public string? SenhaEcac { get; set; }
+        public string? SerieCertificado { get; set; }
+        public string? SenhaCertificado { get; set; }
+        public string? CaixaAltaLv { get; set; }
+        public string? ImpNomeCliFor { get; set; }
+        public DateTime? VencimentoCertificado { get; set; }
+        public string? Email2 { get; set; }
+        public string? CaminhoCertificado { get; set; }
+        public string? PrefixoEsocial { get; set; }
+        public string? EsocialProducao { get; set; }
+        public string? ReinfProducao { get; set; }
+        public string? TabDependentesOnline { get; set; }
+        public string? TabDependentesOnlineUrl { get; set; }
+        public string? TabDependentesOnlineMd5 { get; set; }
+        public string? ReinfObrigado { get; set; }
+        public string? RetencaoCaixa { get; set; }
+        public string? Caepf { get; set; }
+        public string? GrupoEsocial { get; set; }
+        public string? Porte { get; set; }
+        public string? IndObrigEntregarEcd { get; set; }
+        public string? GeraParcelaEntrada { get; set; }
+        public string? LancarFolhaDpto { get; set; }
+        public string? SomaPerInsAdiantamento { get; set; }
+        public string? CreditaStIcms { get; set; }
+        public string? ClassificacaoIndustria { get; set; }
+        public byte[]? Observacao { get; set; }
+        public string? RepLegal { get; set; }
+        public string? Token { get; set; }
+        public string? SuspendeFerias { get; set; }
+        public string? Suspende13 { get; set; }
+        public string? Reduzido13 { get; set; }
+        public string? LancarAtestado { get; set; }
+        public DateTime? ExcluirIcmsDoPisCof { get; set; }
+        public DateTime? ApiEnvio { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public string? ApiId { get; set; }
+        public string? LgpdFuncionario { get; set; }
+        public string? ExcluirIcmsEnt { get; set; }
+        public string? ExcluirIcmsSai { get; set; }
+        public DateTime? DataChegadaEscritorio { get; set; }
+        public string? NimblyApp { get; set; }
+        public string? NimblyCn { get; set; }
+        public string? NimblyHash { get; set; }
+        public string? NimblyIdUsr { get; set; }
+        public string? NimblyUsr { get; set; }
+        public string? CnpjMatriz { get; set; }
+        public DateTime BH_SALDO_ANTERIOR { get; set; }
+        public string? BH_HOLERITE { get; set; }
+        public string? UPLOAD_TAREFA { get; set; }
+        public int PAR_INT_FIS { get; set; }
+        public DateTime SOMA_ICMSST_PIS_COF { get; set; }
+
+        #endregion
+
+
+
+
+
+    }
+
+        
+   
+}
