@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Dapper;
 using System.ComponentModel;
+using System.Data;
 
 namespace FiscoTask
 {
@@ -57,9 +58,31 @@ namespace FiscoTask
                 MessageBox.Show($"Erro ao listar empresas: {ex.Message}");
                 return new BindingList<EmpresaView>();
             }
+        }
 
+        public DataTable ReadEmpresasDT()
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(stringconnection))
+                {
+                    string query = "select * from vwEmpresas";
 
+                    DataTable data = new DataTable();
 
+                    using(var adapter = new MySqlDataAdapter(query, connection))
+                    {
+                        adapter.Fill(data);
+                    }
+
+                    return data;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
         }
 
 

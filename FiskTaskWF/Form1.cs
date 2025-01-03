@@ -63,5 +63,17 @@ namespace FiscoTask
 
 
         }
+
+        private void consultaDeTarefasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaTarefaForm consult = new ConsultaTarefaForm();
+            consult.Show();
+        }
+
+        private void registroDeTarefasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroTarefaForm registro = new RegistroTarefaForm();
+            registro.Show();
+        }
     }
 }

@@ -36,10 +36,10 @@
             registrosToolStripMenuItem = new ToolStripMenuItem();
             registroDeDocumentosToolStripMenuItem = new ToolStripMenuItem();
             consultarDocumentosToolStripMenuItem = new ToolStripMenuItem();
-            Logo = new PictureBox();
             tarefasToolStripMenuItem = new ToolStripMenuItem();
             registroDeTarefasToolStripMenuItem = new ToolStripMenuItem();
             consultaDeTarefasToolStripMenuItem = new ToolStripMenuItem();
+            Logo = new PictureBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
@@ -95,17 +95,6 @@
             consultarDocumentosToolStripMenuItem.Text = "Consultar Documentos";
             consultarDocumentosToolStripMenuItem.Click += consultarDocumentosToolStripMenuItem_Click;
             // 
-            // Logo
-            // 
-            Logo.BackgroundImageLayout = ImageLayout.None;
-            Logo.Image = (Image)resources.GetObject("Logo.Image");
-            Logo.Location = new Point(396, 98);
-            Logo.Name = "Logo";
-            Logo.Size = new Size(432, 356);
-            Logo.SizeMode = PictureBoxSizeMode.Zoom;
-            Logo.TabIndex = 1;
-            Logo.TabStop = false;
-            // 
             // tarefasToolStripMenuItem
             // 
             tarefasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registroDeTarefasToolStripMenuItem, consultaDeTarefasToolStripMenuItem });
@@ -118,12 +107,25 @@
             registroDeTarefasToolStripMenuItem.Name = "registroDeTarefasToolStripMenuItem";
             registroDeTarefasToolStripMenuItem.Size = new Size(180, 22);
             registroDeTarefasToolStripMenuItem.Text = "Registro de Tarefas";
+            registroDeTarefasToolStripMenuItem.Click += registroDeTarefasToolStripMenuItem_Click;
             // 
             // consultaDeTarefasToolStripMenuItem
             // 
             consultaDeTarefasToolStripMenuItem.Name = "consultaDeTarefasToolStripMenuItem";
             consultaDeTarefasToolStripMenuItem.Size = new Size(180, 22);
             consultaDeTarefasToolStripMenuItem.Text = "Consulta de Tarefas";
+            consultaDeTarefasToolStripMenuItem.Click += consultaDeTarefasToolStripMenuItem_Click;
+            // 
+            // Logo
+            // 
+            Logo.BackgroundImageLayout = ImageLayout.None;
+            Logo.Image = (Image)resources.GetObject("Logo.Image");
+            Logo.Location = new Point(396, 98);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(432, 356);
+            Logo.SizeMode = PictureBoxSizeMode.Zoom;
+            Logo.TabIndex = 1;
+            Logo.TabStop = false;
             // 
             // Form1
             // 
