@@ -30,18 +30,18 @@
         {
             components = new System.ComponentModel.Container();
             dgConsultaDocumentos = new DataGridView();
-            idDocDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            livroDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nOMEDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cNPJDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cIDADEDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dtRegistroDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vencimentodocDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            obsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            tipoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            exercicioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            linkDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            soliatuaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            idDoc = new DataGridViewTextBoxColumn();
+            Livro = new DataGridViewTextBoxColumn();
+            NOME = new DataGridViewTextBoxColumn();
+            CNPJ = new DataGridViewTextBoxColumn();
+            CIDADE = new DataGridViewTextBoxColumn();
+            DtRegistro = new DataGridViewTextBoxColumn();
+            Vencimentodoc = new DataGridViewTextBoxColumn();
+            Obs = new DataGridViewTextBoxColumn();
+            Tipo = new DataGridViewTextBoxColumn();
+            Exercicio = new DataGridViewTextBoxColumn();
+            Link = new DataGridViewTextBoxColumn();
+            Soli_atua = new DataGridViewTextBoxColumn();
             dbDocumentsBindingSource = new BindingSource(components);
             txtPesquisa = new TextBox();
             btnRefresh = new Button();
@@ -55,100 +55,102 @@
             // 
             dgConsultaDocumentos.AllowUserToAddRows = false;
             dgConsultaDocumentos.AllowUserToDeleteRows = false;
+            dgConsultaDocumentos.AllowUserToOrderColumns = true;
             dgConsultaDocumentos.AutoGenerateColumns = false;
             dgConsultaDocumentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgConsultaDocumentos.Columns.AddRange(new DataGridViewColumn[] { idDocDataGridViewTextBoxColumn, livroDataGridViewTextBoxColumn, nOMEDataGridViewTextBoxColumn, cNPJDataGridViewTextBoxColumn, cIDADEDataGridViewTextBoxColumn, dtRegistroDataGridViewTextBoxColumn, vencimentodocDataGridViewTextBoxColumn, obsDataGridViewTextBoxColumn, tipoDataGridViewTextBoxColumn, exercicioDataGridViewTextBoxColumn, linkDataGridViewTextBoxColumn, soliatuaDataGridViewTextBoxColumn });
+            dgConsultaDocumentos.Columns.AddRange(new DataGridViewColumn[] { idDoc, Livro, NOME, CNPJ, CIDADE, DtRegistro, Vencimentodoc, Obs, Tipo, Exercicio, Link, Soli_atua });
             dgConsultaDocumentos.DataSource = dbDocumentsBindingSource;
             dgConsultaDocumentos.Location = new Point(15, 243);
             dgConsultaDocumentos.Name = "dgConsultaDocumentos";
             dgConsultaDocumentos.Size = new Size(1306, 200);
             dgConsultaDocumentos.TabIndex = 0;
+            dgConsultaDocumentos.CellDoubleClick += dgConsultaDocumentos_CellDoubleClick;
             // 
-            // idDocDataGridViewTextBoxColumn
+            // idDoc
             // 
-            idDocDataGridViewTextBoxColumn.DataPropertyName = "IdDoc";
-            idDocDataGridViewTextBoxColumn.HeaderText = "IdDoc";
-            idDocDataGridViewTextBoxColumn.Name = "idDocDataGridViewTextBoxColumn";
+            idDoc.DataPropertyName = "IdDoc";
+            idDoc.HeaderText = "IdDoc";
+            idDoc.Name = "idDoc";
             // 
-            // livroDataGridViewTextBoxColumn
+            // Livro
             // 
-            livroDataGridViewTextBoxColumn.DataPropertyName = "Livro";
-            livroDataGridViewTextBoxColumn.HeaderText = "Livro";
-            livroDataGridViewTextBoxColumn.Name = "livroDataGridViewTextBoxColumn";
+            Livro.DataPropertyName = "Livro";
+            Livro.HeaderText = "Livro";
+            Livro.Name = "Livro";
             // 
-            // nOMEDataGridViewTextBoxColumn
+            // NOME
             // 
-            nOMEDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            nOMEDataGridViewTextBoxColumn.DataPropertyName = "NOME";
-            nOMEDataGridViewTextBoxColumn.HeaderText = "NOME";
-            nOMEDataGridViewTextBoxColumn.Name = "nOMEDataGridViewTextBoxColumn";
-            nOMEDataGridViewTextBoxColumn.Width = 67;
+            NOME.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            NOME.DataPropertyName = "NOME";
+            NOME.HeaderText = "NOME";
+            NOME.Name = "NOME";
+            NOME.Width = 67;
             // 
-            // cNPJDataGridViewTextBoxColumn
+            // CNPJ
             // 
-            cNPJDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            cNPJDataGridViewTextBoxColumn.DataPropertyName = "CNPJ";
-            cNPJDataGridViewTextBoxColumn.HeaderText = "CNPJ";
-            cNPJDataGridViewTextBoxColumn.Name = "cNPJDataGridViewTextBoxColumn";
-            cNPJDataGridViewTextBoxColumn.Width = 59;
+            CNPJ.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            CNPJ.DataPropertyName = "CNPJ";
+            CNPJ.HeaderText = "CNPJ";
+            CNPJ.Name = "CNPJ";
+            CNPJ.Width = 59;
             // 
-            // cIDADEDataGridViewTextBoxColumn
+            // CIDADE
             // 
-            cIDADEDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            cIDADEDataGridViewTextBoxColumn.DataPropertyName = "CIDADE";
-            cIDADEDataGridViewTextBoxColumn.HeaderText = "CIDADE";
-            cIDADEDataGridViewTextBoxColumn.Name = "cIDADEDataGridViewTextBoxColumn";
-            cIDADEDataGridViewTextBoxColumn.Width = 73;
+            CIDADE.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            CIDADE.DataPropertyName = "CIDADE";
+            CIDADE.HeaderText = "CIDADE";
+            CIDADE.Name = "CIDADE";
+            CIDADE.Width = 73;
             // 
-            // dtRegistroDataGridViewTextBoxColumn
+            // DtRegistro
             // 
-            dtRegistroDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dtRegistroDataGridViewTextBoxColumn.DataPropertyName = "DtRegistro";
-            dtRegistroDataGridViewTextBoxColumn.HeaderText = "DtRegistro";
-            dtRegistroDataGridViewTextBoxColumn.Name = "dtRegistroDataGridViewTextBoxColumn";
-            dtRegistroDataGridViewTextBoxColumn.Width = 87;
+            DtRegistro.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            DtRegistro.DataPropertyName = "DtRegistro";
+            DtRegistro.HeaderText = "DtRegistro";
+            DtRegistro.Name = "DtRegistro";
+            DtRegistro.Width = 87;
             // 
-            // vencimentodocDataGridViewTextBoxColumn
+            // Vencimentodoc
             // 
-            vencimentodocDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            vencimentodocDataGridViewTextBoxColumn.DataPropertyName = "Vencimentodoc";
-            vencimentodocDataGridViewTextBoxColumn.HeaderText = "Vencimentodoc";
-            vencimentodocDataGridViewTextBoxColumn.Name = "vencimentodocDataGridViewTextBoxColumn";
-            vencimentodocDataGridViewTextBoxColumn.Width = 115;
+            Vencimentodoc.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Vencimentodoc.DataPropertyName = "Vencimentodoc";
+            Vencimentodoc.HeaderText = "Vencimentodoc";
+            Vencimentodoc.Name = "Vencimentodoc";
+            Vencimentodoc.Width = 115;
             // 
-            // obsDataGridViewTextBoxColumn
+            // Obs
             // 
-            obsDataGridViewTextBoxColumn.DataPropertyName = "Obs";
-            obsDataGridViewTextBoxColumn.HeaderText = "Obs";
-            obsDataGridViewTextBoxColumn.Name = "obsDataGridViewTextBoxColumn";
+            Obs.DataPropertyName = "Obs";
+            Obs.HeaderText = "Obs";
+            Obs.Name = "Obs";
             // 
-            // tipoDataGridViewTextBoxColumn
+            // Tipo
             // 
-            tipoDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            tipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo";
-            tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
-            tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
-            tipoDataGridViewTextBoxColumn.Width = 55;
+            Tipo.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Tipo.DataPropertyName = "Tipo";
+            Tipo.HeaderText = "Tipo";
+            Tipo.Name = "Tipo";
+            Tipo.Width = 55;
             // 
-            // exercicioDataGridViewTextBoxColumn
+            // Exercicio
             // 
-            exercicioDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            exercicioDataGridViewTextBoxColumn.DataPropertyName = "Exercicio";
-            exercicioDataGridViewTextBoxColumn.HeaderText = "Exercicio";
-            exercicioDataGridViewTextBoxColumn.Name = "exercicioDataGridViewTextBoxColumn";
-            exercicioDataGridViewTextBoxColumn.Width = 79;
+            Exercicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Exercicio.DataPropertyName = "Exercicio";
+            Exercicio.HeaderText = "Exercicio";
+            Exercicio.Name = "Exercicio";
+            Exercicio.Width = 79;
             // 
-            // linkDataGridViewTextBoxColumn
+            // Link
             // 
-            linkDataGridViewTextBoxColumn.DataPropertyName = "Link";
-            linkDataGridViewTextBoxColumn.HeaderText = "Link";
-            linkDataGridViewTextBoxColumn.Name = "linkDataGridViewTextBoxColumn";
+            Link.DataPropertyName = "Link";
+            Link.HeaderText = "Link";
+            Link.Name = "Link";
             // 
-            // soliatuaDataGridViewTextBoxColumn
+            // Soli_atua
             // 
-            soliatuaDataGridViewTextBoxColumn.DataPropertyName = "Soli_atua";
-            soliatuaDataGridViewTextBoxColumn.HeaderText = "Soli_atua";
-            soliatuaDataGridViewTextBoxColumn.Name = "soliatuaDataGridViewTextBoxColumn";
+            Soli_atua.DataPropertyName = "Soli_atua";
+            Soli_atua.HeaderText = "Soli_atua";
+            Soli_atua.Name = "Soli_atua";
             // 
             // dbDocumentsBindingSource
             // 
@@ -208,22 +210,22 @@
         #endregion
 
         private DataGridView dgConsultaDocumentos;
-        private DataGridViewTextBoxColumn idDocDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn livroDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nOMEDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn cNPJDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn cIDADEDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dtRegistroDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn vencimentodocDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn obsDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn exercicioDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn linkDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn soliatuaDataGridViewTextBoxColumn;
         private BindingSource dbDocumentsBindingSource;
         private TextBox txtPesquisa;
         private Button btnRefresh;
         private Label label1;
         private MySqlConnector.MySqlCommand mySqlCommand1;
+        private DataGridViewTextBoxColumn idDoc;
+        private DataGridViewTextBoxColumn Livro;
+        private DataGridViewTextBoxColumn NOME;
+        private DataGridViewTextBoxColumn CNPJ;
+        private DataGridViewTextBoxColumn CIDADE;
+        private DataGridViewTextBoxColumn DtRegistro;
+        private DataGridViewTextBoxColumn Vencimentodoc;
+        private DataGridViewTextBoxColumn Obs;
+        private DataGridViewTextBoxColumn Tipo;
+        private DataGridViewTextBoxColumn Exercicio;
+        private DataGridViewTextBoxColumn Link;
+        private DataGridViewTextBoxColumn Soli_atua;
     }
 }

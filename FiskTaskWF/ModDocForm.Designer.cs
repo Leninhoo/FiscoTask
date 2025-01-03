@@ -39,13 +39,15 @@
             label2 = new Label();
             txtEmpresa = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
+            txtCidade = new TextBox();
             label4 = new Label();
             txtId = new TextBox();
             label5 = new Label();
-            button1 = new Button();
+            btnDelete = new Button();
             button2 = new Button();
-            textBox1 = new TextBox();
+            txtTipo = new TextBox();
+            txtCNPJ = new TextBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -63,24 +65,26 @@
             btnInsert.Location = new Point(12, 479);
             btnInsert.Name = "btnInsert";
             btnInsert.Size = new Size(75, 23);
-            btnInsert.TabIndex = 47;
-            btnInsert.Text = "Atualizar";
+            btnInsert.TabIndex = 8;
+            btnInsert.Text = "Salvar";
             btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Click += btnInsert_Click;
             // 
             // rtbObs
             // 
             rtbObs.Location = new Point(69, 210);
             rtbObs.Name = "rtbObs";
             rtbObs.Size = new Size(489, 219);
-            rtbObs.TabIndex = 46;
+            rtbObs.TabIndex = 7;
             rtbObs.Text = "";
             // 
             // dtpVencimento
             // 
+            dtpVencimento.Format = DateTimePickerFormat.Short;
             dtpVencimento.Location = new Point(104, 178);
             dtpVencimento.Name = "dtpVencimento";
             dtpVencimento.Size = new Size(227, 23);
-            dtpVencimento.TabIndex = 45;
+            dtpVencimento.TabIndex = 6;
             // 
             // label17
             // 
@@ -115,7 +119,7 @@
             txtLivro.Name = "txtLivro";
             txtLivro.ReadOnly = true;
             txtLivro.Size = new Size(73, 23);
-            txtLivro.TabIndex = 40;
+            txtLivro.TabIndex = 1;
             // 
             // label2
             // 
@@ -132,7 +136,7 @@
             txtEmpresa.Name = "txtEmpresa";
             txtEmpresa.ReadOnly = true;
             txtEmpresa.Size = new Size(412, 23);
-            txtEmpresa.TabIndex = 49;
+            txtEmpresa.TabIndex = 2;
             // 
             // label3
             // 
@@ -143,13 +147,13 @@
             label3.TabIndex = 48;
             label3.Text = "Empresa";
             // 
-            // textBox2
+            // txtCidade
             // 
-            textBox2.Location = new Point(78, 113);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(158, 23);
-            textBox2.TabIndex = 51;
+            txtCidade.Location = new Point(78, 113);
+            txtCidade.Name = "txtCidade";
+            txtCidade.ReadOnly = true;
+            txtCidade.Size = new Size(158, 23);
+            txtCidade.TabIndex = 3;
             // 
             // label4
             // 
@@ -177,43 +181,64 @@
             label5.TabIndex = 52;
             label5.Text = "Id";
             // 
-            // button1
+            // btnDelete
             // 
-            button1.Location = new Point(93, 479);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 54;
-            button1.Text = "Apagar";
-            button1.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(93, 479);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 9;
+            btnDelete.Text = "Apagar";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // button2
             // 
             button2.Location = new Point(174, 479);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
-            button2.TabIndex = 55;
-            button2.Text = "Sair";
+            button2.TabIndex = 10;
+            button2.Text = "Cancelar";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // textBox1
+            // txtTipo
             // 
-            textBox1.Location = new Point(148, 144);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(158, 23);
-            textBox1.TabIndex = 56;
+            txtTipo.Location = new Point(148, 144);
+            txtTipo.Name = "txtTipo";
+            txtTipo.ReadOnly = true;
+            txtTipo.Size = new Size(158, 23);
+            txtTipo.TabIndex = 5;
+            // 
+            // txtCNPJ
+            // 
+            txtCNPJ.Location = new Point(295, 113);
+            txtCNPJ.Name = "txtCNPJ";
+            txtCNPJ.ReadOnly = true;
+            txtCNPJ.Size = new Size(158, 23);
+            txtCNPJ.TabIndex = 4;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(247, 116);
+            label7.Name = "label7";
+            label7.Size = new Size(34, 15);
+            label7.TabIndex = 57;
+            label7.Text = "CNPJ";
             // 
             // ModDocForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 582);
-            Controls.Add(textBox1);
+            Controls.Add(txtCNPJ);
+            Controls.Add(label7);
+            Controls.Add(txtTipo);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnDelete);
             Controls.Add(txtId);
             Controls.Add(label5);
-            Controls.Add(textBox2);
+            Controls.Add(txtCidade);
             Controls.Add(label4);
             Controls.Add(txtEmpresa);
             Controls.Add(label3);
@@ -227,7 +252,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ModDocForm";
-            Text = "ModDocForm";
+            Text = "Modificar Registro de Documento";
+            Load += ModDocForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -245,12 +271,14 @@
         private Label label2;
         private TextBox txtEmpresa;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox txtCidade;
         private Label label4;
         private TextBox txtId;
         private Label label5;
-        private Button button1;
+        private Button btnDelete;
         private Button button2;
-        private TextBox textBox1;
+        private TextBox txtTipo;
+        private TextBox txtCNPJ;
+        private Label label7;
     }
 }

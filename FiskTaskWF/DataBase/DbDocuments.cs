@@ -72,9 +72,9 @@ namespace FiscoTask
                                     UPDATE DOC
                                     SET
                                         Livro = @Livro,
-                                        Vencimentodoc = @Vencimentodoc
-                                        Obs = @Obs 
-                                        Tipo = @Tipo 
+                                        Vencimentodoc = @Vencimentodoc,
+                                        Obs = @Obs,
+                                        Tipo = @Tipo
                                     WHERE IdDoc = @IdDoc";
 
                     connection.Execute(query, new

@@ -14,7 +14,7 @@ namespace FiscoTask
     {
         private BindingSource bindingSource = new BindingSource();
         EmpresaView empresaView = new EmpresaView();
-        DbDocType DbDocType = new DbDocType();        
+        DbDocType DbDocType = new DbDocType();
         private BindingList<EmpresaView> empresasFiltradas = new BindingList<EmpresaView>();
 
         public RegistroDocForm()
@@ -98,7 +98,12 @@ namespace FiscoTask
             MessageBox.Show("Documento registrado com sucesso");
 
             this.Close();
-            
+
+        }
+
+        private void RegistroDocForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

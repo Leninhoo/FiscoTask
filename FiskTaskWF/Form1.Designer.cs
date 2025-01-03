@@ -32,17 +32,21 @@
             menuStrip1 = new MenuStrip();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             empresasToolStripMenuItem = new ToolStripMenuItem();
+            homeToolStripMenuItem = new ToolStripMenuItem();
             registrosToolStripMenuItem = new ToolStripMenuItem();
             registroDeDocumentosToolStripMenuItem = new ToolStripMenuItem();
             consultarDocumentosToolStripMenuItem = new ToolStripMenuItem();
-            pictureBox1 = new PictureBox();
+            Logo = new PictureBox();
+            tarefasToolStripMenuItem = new ToolStripMenuItem();
+            registroDeTarefasToolStripMenuItem = new ToolStripMenuItem();
+            consultaDeTarefasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, registrosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, registrosToolStripMenuItem, tarefasToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1130, 24);
@@ -51,7 +55,7 @@
             // 
             // clientesToolStripMenuItem
             // 
-            clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empresasToolStripMenuItem });
+            clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empresasToolStripMenuItem, homeToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             clientesToolStripMenuItem.Size = new Size(61, 20);
             clientesToolStripMenuItem.Text = "Clientes";
@@ -62,6 +66,13 @@
             empresasToolStripMenuItem.Size = new Size(124, 22);
             empresasToolStripMenuItem.Text = "Empresas";
             empresasToolStripMenuItem.Click += empresasToolStripMenuItem_Click;
+            // 
+            // homeToolStripMenuItem
+            // 
+            homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            homeToolStripMenuItem.Size = new Size(124, 22);
+            homeToolStripMenuItem.Text = "Home";
+            homeToolStripMenuItem.Click += homeToolStripMenuItem_Click;
             // 
             // registrosToolStripMenuItem
             // 
@@ -84,33 +95,55 @@
             consultarDocumentosToolStripMenuItem.Text = "Consultar Documentos";
             consultarDocumentosToolStripMenuItem.Click += consultarDocumentosToolStripMenuItem_Click;
             // 
-            // pictureBox1
+            // Logo
             // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.None;
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 40);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(88, 92);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            Logo.BackgroundImageLayout = ImageLayout.None;
+            Logo.Image = (Image)resources.GetObject("Logo.Image");
+            Logo.Location = new Point(396, 98);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(432, 356);
+            Logo.SizeMode = PictureBoxSizeMode.Zoom;
+            Logo.TabIndex = 1;
+            Logo.TabStop = false;
+            // 
+            // tarefasToolStripMenuItem
+            // 
+            tarefasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registroDeTarefasToolStripMenuItem, consultaDeTarefasToolStripMenuItem });
+            tarefasToolStripMenuItem.Name = "tarefasToolStripMenuItem";
+            tarefasToolStripMenuItem.Size = new Size(55, 20);
+            tarefasToolStripMenuItem.Text = "Tarefas";
+            // 
+            // registroDeTarefasToolStripMenuItem
+            // 
+            registroDeTarefasToolStripMenuItem.Name = "registroDeTarefasToolStripMenuItem";
+            registroDeTarefasToolStripMenuItem.Size = new Size(180, 22);
+            registroDeTarefasToolStripMenuItem.Text = "Registro de Tarefas";
+            // 
+            // consultaDeTarefasToolStripMenuItem
+            // 
+            consultaDeTarefasToolStripMenuItem.Name = "consultaDeTarefasToolStripMenuItem";
+            consultaDeTarefasToolStripMenuItem.Size = new Size(180, 22);
+            consultaDeTarefasToolStripMenuItem.Text = "Consulta de Tarefas";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1130, 518);
-            Controls.Add(pictureBox1);
+            Controls.Add(Logo);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "FiscoTask";
             WindowState = FormWindowState.Maximized;
+            Load += Form1_Load;
+            Resize += Form1_Resize;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -123,6 +156,10 @@
         private ToolStripMenuItem registrosToolStripMenuItem;
         private ToolStripMenuItem registroDeDocumentosToolStripMenuItem;
         private ToolStripMenuItem consultarDocumentosToolStripMenuItem;
-        private PictureBox pictureBox1;
+        private PictureBox Logo;
+        private ToolStripMenuItem homeToolStripMenuItem;
+        private ToolStripMenuItem tarefasToolStripMenuItem;
+        private ToolStripMenuItem registroDeTarefasToolStripMenuItem;
+        private ToolStripMenuItem consultaDeTarefasToolStripMenuItem;
     }
 }
