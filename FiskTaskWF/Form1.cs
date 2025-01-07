@@ -75,5 +75,17 @@ namespace FiscoTask
             RegistroTarefaForm registro = new RegistroTarefaForm();
             registro.Show();
         }
+
+        private void consutarProcessosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaBombeirosForm bombeiros = new ConsultaBombeirosForm();
+            bombeiros.Show();
+        }
+
+        private void registrarProcessoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroBombeiroForm registroBombeiro = new RegistroBombeiroForm();
+            registroBombeiro.Show();
+        }
     }
 }

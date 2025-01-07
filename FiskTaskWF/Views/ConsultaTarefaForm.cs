@@ -20,13 +20,14 @@ namespace FiscoTask
         {
             InitializeComponent();
 
-            TarefaLoadind();
+            TarefaLoadind("Codigo", "DESC");
         }
 
 
-        private void TarefaLoadind()
+        private void TarefaLoadind(string coluna, string ordem)
         {
             var table = dbtarefa.ReadTarefaDT();
+            table.DefaultView.Sort = $"{coluna} {ordem}";
             dgTarefas2.DataSource = table;
         }
 
@@ -46,7 +47,7 @@ namespace FiscoTask
 
         private void txtAtualizar_Click(object sender, EventArgs e)
         {
-            TarefaLoadind();
+            TarefaLoadind("Codigo", "DESC");
         }
 
         private void dgTarefas2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -75,11 +76,24 @@ namespace FiscoTask
                     nome,
                     cnpj,
                     cidade,
-                    dtregistro                    
+                    dtregistro
                     );
-                
+
                 formDetalhes.ShowDialog();
-                
+
+            }
+        }
+
+        private void cbSituacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string? filtro = cbSituacao.Text.Replace("'", "''"); // Evitar erros com apóstrofos
+            var dataTable = (dgTarefas2.DataSource as DataTable);
+
+            if (dataTable != null)
+            {
+                dataTable.DefaultView.RowFilter = string.Format(
+                    "Situacao LIKE '%{0}%'", filtro
+                );
             }
         }
     }

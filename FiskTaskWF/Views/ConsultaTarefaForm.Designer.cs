@@ -36,8 +36,6 @@ namespace FiscoTask
             colorDialog1 = new ColorDialog();
             dbTarefaBindingSource1 = new BindingSource(components);
             dgTarefas2 = new DataGridView();
-            txtPesquisa = new TextBox();
-            txtAtualizar = new Button();
             Codigo = new DataGridViewTextBoxColumn();
             Empresa = new DataGridViewTextBoxColumn();
             NOME = new DataGridViewTextBoxColumn();
@@ -47,6 +45,10 @@ namespace FiscoTask
             Situacao = new DataGridViewTextBoxColumn();
             Obs = new DataGridViewTextBoxColumn();
             Dtregistro = new DataGridViewTextBoxColumn();
+            txtPesquisa = new TextBox();
+            txtAtualizar = new Button();
+            cbSituacao = new ComboBox();
+            label2 = new Label();
             ((ISupportInitialize)dbTarefaBindingSource).BeginInit();
             ((ISupportInitialize)dbTarefaBindingSource1).BeginInit();
             ((ISupportInitialize)dgTarefas2).BeginInit();
@@ -84,24 +86,6 @@ namespace FiscoTask
             dgTarefas2.Size = new Size(1010, 225);
             dgTarefas2.TabIndex = 5;
             dgTarefas2.CellDoubleClick += dgTarefas2_CellDoubleClick;
-            // 
-            // txtPesquisa
-            // 
-            txtPesquisa.Location = new Point(28, 181);
-            txtPesquisa.Name = "txtPesquisa";
-            txtPesquisa.Size = new Size(560, 23);
-            txtPesquisa.TabIndex = 6;
-            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
-            // 
-            // txtAtualizar
-            // 
-            txtAtualizar.Location = new Point(28, 126);
-            txtAtualizar.Name = "txtAtualizar";
-            txtAtualizar.Size = new Size(75, 23);
-            txtAtualizar.TabIndex = 7;
-            txtAtualizar.Text = "Atualizar";
-            txtAtualizar.UseVisualStyleBackColor = true;
-            txtAtualizar.Click += txtAtualizar_Click;
             // 
             // Codigo
             // 
@@ -183,11 +167,52 @@ namespace FiscoTask
             Dtregistro.ReadOnly = true;
             Dtregistro.Width = 84;
             // 
+            // txtPesquisa
+            // 
+            txtPesquisa.Location = new Point(28, 181);
+            txtPesquisa.Name = "txtPesquisa";
+            txtPesquisa.Size = new Size(560, 23);
+            txtPesquisa.TabIndex = 6;
+            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
+            // 
+            // txtAtualizar
+            // 
+            txtAtualizar.Location = new Point(28, 126);
+            txtAtualizar.Name = "txtAtualizar";
+            txtAtualizar.Size = new Size(75, 23);
+            txtAtualizar.TabIndex = 7;
+            txtAtualizar.Text = "Atualizar";
+            txtAtualizar.UseVisualStyleBackColor = true;
+            txtAtualizar.Click += txtAtualizar_Click;
+            // 
+            // cbSituacao
+            // 
+            cbSituacao.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbSituacao.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbSituacao.FormattingEnabled = true;
+            cbSituacao.Items.AddRange(new object[] { "Em andamento", "Aguardando terceiro", "Encerrado", "Pagamento alvará", "Solicitar Vigilância", "Vigilância solicitada", "Solicitar Bombeiro", "Aguardando pagamento bombeiro", "Solicitar alvará", "Alvará solicitado para Prefeitura" });
+            cbSituacao.Location = new Point(790, 88);
+            cbSituacao.Name = "cbSituacao";
+            cbSituacao.Size = new Size(248, 23);
+            cbSituacao.TabIndex = 8;
+            cbSituacao.SelectedIndexChanged += cbSituacao_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(790, 45);
+            label2.Name = "label2";
+            label2.Size = new Size(105, 15);
+            label2.TabIndex = 9;
+            label2.Text = "Filtrar por situação";
+            // 
             // ConsultaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1146, 650);
+            Controls.Add(label2);
+            Controls.Add(cbSituacao);
             Controls.Add(txtAtualizar);
             Controls.Add(txtPesquisa);
             Controls.Add(dgTarefas2);
@@ -218,5 +243,7 @@ namespace FiscoTask
         private DataGridViewTextBoxColumn Situacao;
         private DataGridViewTextBoxColumn Obs;
         private DataGridViewTextBoxColumn Dtregistro;
+        private ComboBox cbSituacao;
+        private Label label2;
     }
 }
