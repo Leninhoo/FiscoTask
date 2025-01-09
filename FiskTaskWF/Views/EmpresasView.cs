@@ -12,16 +12,16 @@ namespace FiscoTask
 {
     public partial class EmpresasView : UserControl
     {
-        private BindingSource bindingSource = new BindingSource();
+
         EmpresaView empresaView = new EmpresaView();
-        private BindingList<EmpresaView> empresasFiltradas = new BindingList<EmpresaView>();
+
 
 
         public EmpresasView()
         {
             InitializeComponent();
 
-            Loadempresas();
+            Loadempresas("NOME", "ASC");
 
         }
 
@@ -30,42 +30,75 @@ namespace FiscoTask
 
         }
 
-        private void Loadempresas()
+        private void Loadempresas(string coluna, string ordem)
         {
-            try
-            {
-                var empresas = empresaView.ListEmpresas();
-                empresasFiltradas = new BindingList<EmpresaView>(empresas.ToList()); // Clona os dados
-                dgEmpresas.DataSource = empresasFiltradas; // Exibe no DataGridView
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao carregar empresas: {ex.Message}");
-            }
+            var table = empresaView.ReadEmpresasDT();
+            table.DefaultView.Sort = $"{coluna} {ordem}";
+            dgEmpresas.DataSource = table ;
         }
 
-        private void ApplyFilter(string filtro)
-        {
-            if (string.IsNullOrEmpty(filtro))
-            {
-                empresasFiltradas = new BindingList<EmpresaView>(empresaView.BDEmpresas.ToList());
-            }
-            else
-            {
-                // Aplica o filtro manualmente
-                var filtroEmpresas = empresaView.BDEmpresas
-                    .Where(c => c.NOME != null && c.NOME.Contains(filtro, StringComparison.OrdinalIgnoreCase))
-                    .ToList();
 
-                empresasFiltradas = new BindingList<EmpresaView>(filtroEmpresas);
-            }
-            // Atualiza o DataGridView com os dados filtrados
-            dgEmpresas.DataSource = empresasFiltradas;
-        }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-            ApplyFilter(txtPesquisa.Text);
+            string filtro = txtPesquisa.Text.Replace("'", "''"); // Evitar erros com apóstrofos
+            var dataTable = (dgEmpresas.DataSource as DataTable);
+
+            if (dataTable != null)
+            {
+                dataTable.DefaultView.RowFilter = string.Format(
+                    "NOME LIKE '%{0}%' OR CNPJ LIKE '%{0}%' OR CIDADE LIKE '%{0}%'",
+                    filtro
+                );
+            }
+        }
+
+        private void dgEmpresas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = dgEmpresas.Rows[e.RowIndex];
+
+            int EMPRESA = Convert.ToInt32(row.Cells["EMPRESA"].Value);
+            string NOME = row.Cells["NOME"].Value?.ToString() ?? string.Empty;
+            string CNPJ = row.Cells["CNPJ"].Value?.ToString() ?? string.Empty;
+            string NOMEFANTASIA = row.Cells["NOMEFANTASIA"].Value?.ToString() ?? string.Empty;
+            string ENDERECO = row.Cells["ENDERECO"].Value?.ToString() ?? string.Empty;
+            string NUMERO = row.Cells["NUMERO"].Value?.ToString() ?? string.Empty;
+            string BAIRRO = row.Cells["BAIRRO"].Value?.ToString() ?? string.Empty;
+            string COMPLEMENTO = row.Cells["COMPLEMENTO"].Value?.ToString() ?? string.Empty;
+            string CIDADE = row.Cells["CIDADE"].Value?.ToString() ?? string.Empty;
+            string UF = row.Cells["UF"].Value?.ToString() ?? string.Empty;
+            string CEP = row.Cells["CEP"].Value?.ToString() ?? string.Empty;
+            string REGIME = row.Cells["REGIME"].Value?.ToString() ?? string.Empty;
+            string E_MAIL = row.Cells["E_MAIL"].Value?.ToString() ?? string.Empty;
+            string FONE = row.Cells["FONE"].Value?.ToString() ?? string.Empty;
+            string RESPONSAVEL = row.Cells["RESPONSAVEL"].Value?.ToString() ?? string.Empty;
+            string IE = row.Cells["IE"].Value?.ToString() ?? string.Empty;
+
+            var formDetalhes = new ConsultaIndEmpresa(
+                EMPRESA,
+                NOME,
+                CNPJ,
+                NOMEFANTASIA,
+                ENDERECO,
+                NUMERO,
+                BAIRRO,
+                COMPLEMENTO,
+                CIDADE,
+                UF,
+                CEP,
+                REGIME,
+                E_MAIL,
+                FONE,
+                RESPONSAVEL,
+                IE
+                );
+
+            formDetalhes.ShowDialog();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            Loadempresas("NOME", "ASC");
         }
     }
 }

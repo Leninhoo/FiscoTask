@@ -48,6 +48,11 @@ namespace FiscoTask
         private void txtAtualizar_Click(object sender, EventArgs e)
         {
             TarefaLoadind("Codigo", "DESC");
+            cbSituacao.SelectedItem = -1;
+            cbSituacao.Text = "";
+            cbTipo.SelectedItem = -1;
+            cbTipo.Text = "";
+
         }
 
         private void dgTarefas2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -94,6 +99,50 @@ namespace FiscoTask
                 dataTable.DefaultView.RowFilter = string.Format(
                     "Situacao LIKE '%{0}%'", filtro
                 );
+            }
+
+            cbTipo.SelectedItem = -1;
+            cbTipo.Text = "";
+        }
+
+        private void cbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string? filtro = cbTipo.Text.Replace("'", "''"); // Evitar erros com apóstrofos
+            var dataTable = (dgTarefas2.DataSource as DataTable);
+
+            if (dataTable != null)
+            {
+                dataTable.DefaultView.RowFilter = string.Format(
+                    "Tipo LIKE '%{0}%'", filtro
+                );
+            }
+            cbSituacao.SelectedItem = -1;
+            cbSituacao.Text = "";
+        }
+
+        private void btnFitroAlvara_Click(object sender, EventArgs e)
+        {
+            var dataTable = (dgTarefas2.DataSource as DataTable);
+            if (dataTable != null)
+            {
+                dataTable.DefaultView.RowFilter = string.Format("Tipo LIKE 'Alvará' AND Situacao <> 'Encerrado'");
+            }
+            cbSituacao.SelectedItem = -1;
+            cbSituacao.Text = "";
+            cbTipo.SelectedItem = -1;
+            cbTipo.Text = "";
+        }
+
+        private void btnOutrosPendentes_Click(object sender, EventArgs e)
+        {
+            var dataTable = (dgTarefas2.DataSource as DataTable);
+            if (dataTable != null)
+            {
+                dataTable.DefaultView.RowFilter = string.Format("Tipo <> 'Alvará' AND Situacao <> 'Encerrado'");
+                cbSituacao.SelectedItem = -1;
+                cbSituacao.Text = "";
+                cbTipo.SelectedItem = -1;
+                cbTipo.Text = "";
             }
         }
     }

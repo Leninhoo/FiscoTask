@@ -14,59 +14,45 @@ namespace FiscoTask
 {
     public partial class ConsultaDocsView : UserControl
     {
-        private BindingSource bindingSource = new BindingSource();
+
         DbDocuments dbdocuments = new DbDocuments();
-        private BindingList<DbDocuments> documentosFiltrados = new BindingList<DbDocuments>();
+
 
         public ConsultaDocsView()
         {
             InitializeComponent();
 
-            LoadDocuments();
+            LoadDocuments("IdDoc", "DESC");
 
         }
 
-        private void LoadDocuments()
+        private void LoadDocuments(string coluna, string ordem)
         {
-            try
-            {
-                var documentos = dbdocuments.ReadDoc();
-                documentosFiltrados = new BindingList<DbDocuments>(documentos.ToList()); // Clona os dados
-                dgConsultaDocumentos.DataSource = documentosFiltrados; // Exibe no DataGridView
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao carregar empresas: {ex.Message}");
-            }
+
+            var documentos = dbdocuments.ReadDocDT();
+            documentos.DefaultView.Sort = $"{coluna} {ordem}";
+            dgConsultaDocumentos.DataSource = documentos;
         }
 
-        private void ApplyFilter(string filtro)
-        {
-            if (string.IsNullOrEmpty(filtro))
-            {
-                documentosFiltrados = new BindingList<DbDocuments>(dbdocuments.BDDocuments.ToList());
-            }
-            else
-            {
-                // Aplica o filtro manualmente
-                var FiltroDocumentos = dbdocuments.BDDocuments
-                    .Where(c => c.NOME != null && c.NOME.Contains(filtro, StringComparison.OrdinalIgnoreCase))
-                    .ToList();
 
-                documentosFiltrados = new BindingList<DbDocuments>(FiltroDocumentos);
-            }
-            // Atualiza o DataGridView com os dados filtrados
-            dgConsultaDocumentos.DataSource = documentosFiltrados;
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            ApplyFilter(txtPesquisa.Text);
+            string filtro = txtPesquisa.Text.Replace("'", "''"); // Evitar erros com apóstrofos
+            var dataTable = (dgConsultaDocumentos.DataSource as DataTable);
+
+            if (dataTable != null)
+            {
+                dataTable.DefaultView.RowFilter = string.Format(
+                    "NOME LIKE '%{0}%' OR CNPJ LIKE '%{0}%' OR CIDADE LIKE '%{0}%'",
+                    filtro
+                );
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadDocuments();
+            LoadDocuments("IdDoc", "DESC");
         }
 
         private void dgConsultaDocumentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

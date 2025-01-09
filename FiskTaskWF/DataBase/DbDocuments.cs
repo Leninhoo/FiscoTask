@@ -7,6 +7,7 @@ using Dapper;
 using FiscoTask;
 using System.ComponentModel;
 using MySqlConnector;
+using System.Data;
 
 namespace FiscoTask
 {
@@ -152,6 +153,42 @@ namespace FiscoTask
                 return new BindingList<DbDocuments>();
             }
 
+        }
+
+        public DataTable ReadDocDT()
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(stringconnection))
+                {
+                    string query = @"
+                                    SELECT 
+                                        DOC.*, 
+                                        vwEmpresas.Nome, 
+                                        vwEmpresas.CNPJ, 
+                                        vwEmpresas.Cidade
+                                    FROM 
+                                        DOC
+                                    INNER JOIN 
+                                        vwEmpresas
+                                    ON 
+                                        DOC.Livro = vwEmpresas.EMPRESA";
+
+                    DataTable data = new DataTable();
+                    using (var adapter = new MySqlDataAdapter(query, connection))
+                    {
+                        adapter.Fill(data);
+                    }
+
+                    return data;
+
+                }
+            }
+            catch
+            {
+                return new DataTable();
+
+            }
         }
 
     }

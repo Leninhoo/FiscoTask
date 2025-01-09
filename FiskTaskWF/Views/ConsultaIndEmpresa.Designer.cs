@@ -28,45 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaIndEmpresa));
             label1 = new Label();
             groupBox1 = new GroupBox();
-            textBox9 = new TextBox();
+            txtIE = new TextBox();
             label11 = new Label();
-            textBox8 = new TextBox();
+            txtResponsavel = new TextBox();
             label10 = new Label();
-            textBox7 = new TextBox();
+            txtTelefone = new TextBox();
             label9 = new Label();
-            textBox6 = new TextBox();
+            txtEmail = new TextBox();
             label8 = new Label();
-            textBox5 = new TextBox();
+            txtRegime = new TextBox();
             label7 = new Label();
-            textBox3 = new TextBox();
+            txtNomeFantasia = new TextBox();
             label5 = new Label();
-            textBox2 = new TextBox();
+            txtCNPJ = new TextBox();
             label4 = new Label();
-            textBox1 = new TextBox();
+            txtNome = new TextBox();
             label3 = new Label();
             txtLivro = new TextBox();
             label2 = new Label();
             groupBox2 = new GroupBox();
-            textBox13 = new TextBox();
+            txtCEP = new TextBox();
             label15 = new Label();
-            textBox14 = new TextBox();
+            txtEstado = new TextBox();
             label16 = new Label();
-            textBox15 = new TextBox();
+            txtCidade = new TextBox();
             label17 = new Label();
-            textBox16 = new TextBox();
+            txtComplemento = new TextBox();
             label18 = new Label();
-            textBox17 = new TextBox();
+            txtBairro = new TextBox();
             label19 = new Label();
-            textBox18 = new TextBox();
+            txtNumero = new TextBox();
             label20 = new Label();
-            textBox19 = new TextBox();
+            txtEndereco = new TextBox();
             label21 = new Label();
             label12 = new Label();
-            richTextBox1 = new RichTextBox();
-            richTextBox2 = new RichTextBox();
+            rtbQualificacao = new RichTextBox();
+            rtbNotas = new RichTextBox();
             label13 = new Label();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -83,21 +85,21 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox9);
+            groupBox1.Controls.Add(txtIE);
             groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(textBox8);
+            groupBox1.Controls.Add(txtResponsavel);
             groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(textBox7);
+            groupBox1.Controls.Add(txtTelefone);
             groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(textBox6);
+            groupBox1.Controls.Add(txtEmail);
             groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(textBox5);
+            groupBox1.Controls.Add(txtRegime);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(txtNomeFantasia);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(txtCNPJ);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtNome);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtLivro);
             groupBox1.Controls.Add(label2);
@@ -108,13 +110,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Dados Empresa";
             // 
-            // textBox9
+            // txtIE
             // 
-            textBox9.Location = new Point(95, 258);
-            textBox9.Name = "textBox9";
-            textBox9.ReadOnly = true;
-            textBox9.Size = new Size(394, 23);
-            textBox9.TabIndex = 19;
+            txtIE.Location = new Point(95, 258);
+            txtIE.Name = "txtIE";
+            txtIE.ReadOnly = true;
+            txtIE.Size = new Size(394, 23);
+            txtIE.TabIndex = 12;
             // 
             // label11
             // 
@@ -125,13 +127,13 @@
             label11.TabIndex = 18;
             label11.Text = "Insc. Estadual";
             // 
-            // textBox8
+            // txtResponsavel
             // 
-            textBox8.Location = new Point(95, 229);
-            textBox8.Name = "textBox8";
-            textBox8.ReadOnly = true;
-            textBox8.Size = new Size(394, 23);
-            textBox8.TabIndex = 17;
+            txtResponsavel.Location = new Point(95, 229);
+            txtResponsavel.Name = "txtResponsavel";
+            txtResponsavel.ReadOnly = true;
+            txtResponsavel.Size = new Size(394, 23);
+            txtResponsavel.TabIndex = 11;
             // 
             // label10
             // 
@@ -142,13 +144,13 @@
             label10.TabIndex = 16;
             label10.Text = "Responsável";
             // 
-            // textBox7
+            // txtTelefone
             // 
-            textBox7.Location = new Point(95, 200);
-            textBox7.Name = "textBox7";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new Size(394, 23);
-            textBox7.TabIndex = 15;
+            txtTelefone.Location = new Point(95, 200);
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.ReadOnly = true;
+            txtTelefone.Size = new Size(394, 23);
+            txtTelefone.TabIndex = 10;
             // 
             // label9
             // 
@@ -159,13 +161,13 @@
             label9.TabIndex = 14;
             label9.Text = "Telefone";
             // 
-            // textBox6
+            // txtEmail
             // 
-            textBox6.Location = new Point(95, 171);
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.Size = new Size(394, 23);
-            textBox6.TabIndex = 13;
+            txtEmail.Location = new Point(95, 171);
+            txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new Size(394, 23);
+            txtEmail.TabIndex = 9;
             // 
             // label8
             // 
@@ -176,13 +178,13 @@
             label8.TabIndex = 12;
             label8.Text = "E-Mail";
             // 
-            // textBox5
+            // txtRegime
             // 
-            textBox5.Location = new Point(95, 142);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(394, 23);
-            textBox5.TabIndex = 11;
+            txtRegime.Location = new Point(95, 142);
+            txtRegime.Name = "txtRegime";
+            txtRegime.ReadOnly = true;
+            txtRegime.Size = new Size(394, 23);
+            txtRegime.TabIndex = 8;
             // 
             // label7
             // 
@@ -193,13 +195,13 @@
             label7.TabIndex = 10;
             label7.Text = "Regime";
             // 
-            // textBox3
+            // txtNomeFantasia
             // 
-            textBox3.Location = new Point(95, 109);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(394, 23);
-            textBox3.TabIndex = 7;
+            txtNomeFantasia.Location = new Point(95, 109);
+            txtNomeFantasia.Name = "txtNomeFantasia";
+            txtNomeFantasia.ReadOnly = true;
+            txtNomeFantasia.Size = new Size(394, 23);
+            txtNomeFantasia.TabIndex = 7;
             // 
             // label5
             // 
@@ -210,13 +212,13 @@
             label5.TabIndex = 6;
             label5.Text = "Nome Fantasia";
             // 
-            // textBox2
+            // txtCNPJ
             // 
-            textBox2.Location = new Point(95, 80);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(394, 23);
-            textBox2.TabIndex = 5;
+            txtCNPJ.Location = new Point(95, 80);
+            txtCNPJ.Name = "txtCNPJ";
+            txtCNPJ.ReadOnly = true;
+            txtCNPJ.Size = new Size(394, 23);
+            txtCNPJ.TabIndex = 6;
             // 
             // label4
             // 
@@ -227,13 +229,13 @@
             label4.TabIndex = 4;
             label4.Text = "CNPJ";
             // 
-            // textBox1
+            // txtNome
             // 
-            textBox1.Location = new Point(95, 51);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(394, 23);
-            textBox1.TabIndex = 3;
+            txtNome.Location = new Point(95, 51);
+            txtNome.Name = "txtNome";
+            txtNome.ReadOnly = true;
+            txtNome.Size = new Size(394, 23);
+            txtNome.TabIndex = 5;
             // 
             // label3
             // 
@@ -250,7 +252,7 @@
             txtLivro.Name = "txtLivro";
             txtLivro.ReadOnly = true;
             txtLivro.Size = new Size(394, 23);
-            txtLivro.TabIndex = 1;
+            txtLivro.TabIndex = 4;
             // 
             // label2
             // 
@@ -263,19 +265,19 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(textBox13);
+            groupBox2.Controls.Add(txtCEP);
             groupBox2.Controls.Add(label15);
-            groupBox2.Controls.Add(textBox14);
+            groupBox2.Controls.Add(txtEstado);
             groupBox2.Controls.Add(label16);
-            groupBox2.Controls.Add(textBox15);
+            groupBox2.Controls.Add(txtCidade);
             groupBox2.Controls.Add(label17);
-            groupBox2.Controls.Add(textBox16);
+            groupBox2.Controls.Add(txtComplemento);
             groupBox2.Controls.Add(label18);
-            groupBox2.Controls.Add(textBox17);
+            groupBox2.Controls.Add(txtBairro);
             groupBox2.Controls.Add(label19);
-            groupBox2.Controls.Add(textBox18);
+            groupBox2.Controls.Add(txtNumero);
             groupBox2.Controls.Add(label20);
-            groupBox2.Controls.Add(textBox19);
+            groupBox2.Controls.Add(txtEndereco);
             groupBox2.Controls.Add(label21);
             groupBox2.Location = new Point(663, 63);
             groupBox2.Name = "groupBox2";
@@ -284,13 +286,13 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Endereço Empresa";
             // 
-            // textBox13
+            // txtCEP
             // 
-            textBox13.Location = new Point(95, 196);
-            textBox13.Name = "textBox13";
-            textBox13.ReadOnly = true;
-            textBox13.Size = new Size(394, 23);
-            textBox13.TabIndex = 13;
+            txtCEP.Location = new Point(95, 196);
+            txtCEP.Name = "txtCEP";
+            txtCEP.ReadOnly = true;
+            txtCEP.Size = new Size(394, 23);
+            txtCEP.TabIndex = 19;
             // 
             // label15
             // 
@@ -301,13 +303,13 @@
             label15.TabIndex = 12;
             label15.Text = "CEP";
             // 
-            // textBox14
+            // txtEstado
             // 
-            textBox14.Location = new Point(95, 167);
-            textBox14.Name = "textBox14";
-            textBox14.ReadOnly = true;
-            textBox14.Size = new Size(394, 23);
-            textBox14.TabIndex = 11;
+            txtEstado.Location = new Point(95, 167);
+            txtEstado.Name = "txtEstado";
+            txtEstado.ReadOnly = true;
+            txtEstado.Size = new Size(394, 23);
+            txtEstado.TabIndex = 18;
             // 
             // label16
             // 
@@ -318,13 +320,13 @@
             label16.TabIndex = 10;
             label16.Text = "Estado";
             // 
-            // textBox15
+            // txtCidade
             // 
-            textBox15.Location = new Point(95, 138);
-            textBox15.Name = "textBox15";
-            textBox15.ReadOnly = true;
-            textBox15.Size = new Size(394, 23);
-            textBox15.TabIndex = 9;
+            txtCidade.Location = new Point(95, 138);
+            txtCidade.Name = "txtCidade";
+            txtCidade.ReadOnly = true;
+            txtCidade.Size = new Size(394, 23);
+            txtCidade.TabIndex = 17;
             // 
             // label17
             // 
@@ -335,13 +337,13 @@
             label17.TabIndex = 8;
             label17.Text = "Cidade";
             // 
-            // textBox16
+            // txtComplemento
             // 
-            textBox16.Location = new Point(95, 109);
-            textBox16.Name = "textBox16";
-            textBox16.ReadOnly = true;
-            textBox16.Size = new Size(394, 23);
-            textBox16.TabIndex = 7;
+            txtComplemento.Location = new Point(95, 109);
+            txtComplemento.Name = "txtComplemento";
+            txtComplemento.ReadOnly = true;
+            txtComplemento.Size = new Size(394, 23);
+            txtComplemento.TabIndex = 16;
             // 
             // label18
             // 
@@ -352,13 +354,13 @@
             label18.TabIndex = 6;
             label18.Text = "Complemento";
             // 
-            // textBox17
+            // txtBairro
             // 
-            textBox17.Location = new Point(95, 80);
-            textBox17.Name = "textBox17";
-            textBox17.ReadOnly = true;
-            textBox17.Size = new Size(394, 23);
-            textBox17.TabIndex = 5;
+            txtBairro.Location = new Point(95, 80);
+            txtBairro.Name = "txtBairro";
+            txtBairro.ReadOnly = true;
+            txtBairro.Size = new Size(394, 23);
+            txtBairro.TabIndex = 15;
             // 
             // label19
             // 
@@ -369,13 +371,13 @@
             label19.TabIndex = 4;
             label19.Text = "Bairro";
             // 
-            // textBox18
+            // txtNumero
             // 
-            textBox18.Location = new Point(95, 51);
-            textBox18.Name = "textBox18";
-            textBox18.ReadOnly = true;
-            textBox18.Size = new Size(394, 23);
-            textBox18.TabIndex = 3;
+            txtNumero.Location = new Point(95, 51);
+            txtNumero.Name = "txtNumero";
+            txtNumero.ReadOnly = true;
+            txtNumero.Size = new Size(394, 23);
+            txtNumero.TabIndex = 14;
             // 
             // label20
             // 
@@ -386,13 +388,13 @@
             label20.TabIndex = 2;
             label20.Text = "Número";
             // 
-            // textBox19
+            // txtEndereco
             // 
-            textBox19.Location = new Point(95, 22);
-            textBox19.Name = "textBox19";
-            textBox19.ReadOnly = true;
-            textBox19.Size = new Size(394, 23);
-            textBox19.TabIndex = 1;
+            txtEndereco.Location = new Point(95, 22);
+            txtEndereco.Name = "txtEndereco";
+            txtEndereco.ReadOnly = true;
+            txtEndereco.Size = new Size(394, 23);
+            txtEndereco.TabIndex = 13;
             // 
             // label21
             // 
@@ -406,52 +408,66 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(602, 325);
+            label12.Location = new Point(12, 374);
             label12.Name = "label12";
             label12.Size = new Size(124, 15);
             label12.TabIndex = 14;
             label12.Text = "Qualificação em Texto";
             // 
-            // richTextBox1
+            // rtbQualificacao
             // 
-            richTextBox1.BackColor = SystemColors.Info;
-            richTextBox1.Location = new Point(602, 346);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(576, 136);
-            richTextBox1.TabIndex = 21;
-            richTextBox1.Text = "";
+            rtbQualificacao.BackColor = SystemColors.Info;
+            rtbQualificacao.Location = new Point(12, 395);
+            rtbQualificacao.Name = "rtbQualificacao";
+            rtbQualificacao.ReadOnly = true;
+            rtbQualificacao.Size = new Size(576, 136);
+            rtbQualificacao.TabIndex = 1;
+            rtbQualificacao.Text = "";
             // 
-            // richTextBox2
+            // rtbNotas
             // 
-            richTextBox2.Location = new Point(12, 510);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(576, 136);
-            richTextBox2.TabIndex = 23;
-            richTextBox2.Text = "";
+            rtbNotas.Location = new Point(12, 569);
+            rtbNotas.Name = "rtbNotas";
+            rtbNotas.Size = new Size(576, 136);
+            rtbNotas.TabIndex = 2;
+            rtbNotas.Text = "";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(12, 489);
+            label13.Location = new Point(12, 548);
             label13.Name = "label13";
             label13.Size = new Size(38, 15);
             label13.TabIndex = 22;
             label13.Text = "Notas";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(594, 569);
+            button1.Name = "button1";
+            button1.Size = new Size(145, 23);
+            button1.TabIndex = 3;
+            button1.Text = "Salvar nota";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ConsultaIndEmpresa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1190, 778);
-            Controls.Add(richTextBox2);
+            Controls.Add(button1);
+            Controls.Add(rtbNotas);
             Controls.Add(label13);
-            Controls.Add(richTextBox1);
+            Controls.Add(rtbQualificacao);
             Controls.Add(label12);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ConsultaIndEmpresa";
             Text = "Consulta Empresa";
+            Load += ConsultaIndEmpresa_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -466,42 +482,43 @@
         private GroupBox groupBox1;
         private TextBox txtLivro;
         private Label label2;
-        private TextBox textBox9;
+        private TextBox txtIE;
         private Label label11;
-        private TextBox textBox8;
+        private TextBox txtResponsavel;
         private Label label10;
-        private TextBox textBox7;
+        private TextBox txtTelefone;
         private Label label9;
-        private TextBox textBox6;
+        private TextBox txtEmail;
         private Label label8;
-        private TextBox textBox5;
+        private TextBox txtRegime;
         private Label label7;
         private TextBox textBox4;
         private Label label6;
-        private TextBox textBox3;
+        private TextBox txtNomeFantasia;
         private Label label5;
-        private TextBox textBox2;
+        private TextBox txtCNPJ;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtNome;
         private Label label3;
         private GroupBox groupBox2;
-        private TextBox textBox13;
+        private TextBox txtCEP;
         private Label label15;
-        private TextBox textBox14;
+        private TextBox txtEstado;
         private Label label16;
-        private TextBox textBox15;
+        private TextBox txtCidade;
         private Label label17;
-        private TextBox textBox16;
+        private TextBox txtComplemento;
         private Label label18;
-        private TextBox textBox17;
+        private TextBox txtBairro;
         private Label label19;
-        private TextBox textBox18;
+        private TextBox txtNumero;
         private Label label20;
-        private TextBox textBox19;
+        private TextBox txtEndereco;
         private Label label21;
         private Label label12;
-        private RichTextBox richTextBox1;
-        private RichTextBox richTextBox2;
+        private RichTextBox rtbQualificacao;
+        private RichTextBox rtbNotas;
         private Label label13;
+        private Button button1;
     }
 }

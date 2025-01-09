@@ -66,6 +66,7 @@
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.Size = new Size(296, 23);
             txtPesquisa.TabIndex = 39;
+            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
             // 
             // dgEmpresas
             // 
@@ -154,6 +155,7 @@
             // 
             txtLivro.Location = new Point(92, 293);
             txtLivro.Name = "txtLivro";
+            txtLivro.ReadOnly = true;
             txtLivro.Size = new Size(96, 23);
             txtLivro.TabIndex = 43;
             // 
@@ -208,7 +210,7 @@
             btnCancelar.TabIndex = 49;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += this.btnCancelar_Click;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // RegistroBombeiroForm
             // 

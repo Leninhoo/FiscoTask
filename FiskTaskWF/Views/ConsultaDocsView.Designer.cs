@@ -47,6 +47,7 @@
             btnRefresh = new Button();
             label1 = new Label();
             mySqlCommand1 = new MySqlConnector.MySqlCommand();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgConsultaDocumentos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dbDocumentsBindingSource).BeginInit();
             SuspendLayout();
@@ -158,7 +159,7 @@
             // 
             // txtPesquisa
             // 
-            txtPesquisa.Location = new Point(15, 183);
+            txtPesquisa.Location = new Point(155, 185);
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.Size = new Size(703, 23);
             txtPesquisa.TabIndex = 1;
@@ -191,10 +192,20 @@
             mySqlCommand1.Transaction = null;
             mySqlCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(15, 188);
+            label2.Name = "label2";
+            label2.Size = new Size(126, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Pesquisar por Empresa";
+            // 
             // ConsultaDocsView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnRefresh);
             Controls.Add(txtPesquisa);
@@ -227,5 +238,6 @@
         private DataGridViewTextBoxColumn Exercicio;
         private DataGridViewTextBoxColumn Link;
         private DataGridViewTextBoxColumn Soli_atua;
+        private Label label2;
     }
 }

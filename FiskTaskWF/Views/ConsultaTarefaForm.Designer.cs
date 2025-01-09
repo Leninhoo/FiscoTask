@@ -49,6 +49,11 @@ namespace FiscoTask
             txtAtualizar = new Button();
             cbSituacao = new ComboBox();
             label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            cbTipo = new ComboBox();
+            btnFitroAlvara = new Button();
+            btnOutrosPendentes = new Button();
             ((ISupportInitialize)dbTarefaBindingSource).BeginInit();
             ((ISupportInitialize)dbTarefaBindingSource1).BeginInit();
             ((ISupportInitialize)dgTarefas2).BeginInit();
@@ -83,7 +88,7 @@ namespace FiscoTask
             dgTarefas2.Location = new Point(28, 282);
             dgTarefas2.Name = "dgTarefas2";
             dgTarefas2.ReadOnly = true;
-            dgTarefas2.Size = new Size(1010, 225);
+            dgTarefas2.Size = new Size(1304, 356);
             dgTarefas2.TabIndex = 5;
             dgTarefas2.CellDoubleClick += dgTarefas2_CellDoubleClick;
             // 
@@ -169,9 +174,9 @@ namespace FiscoTask
             // 
             // txtPesquisa
             // 
-            txtPesquisa.Location = new Point(28, 181);
+            txtPesquisa.Location = new Point(156, 181);
             txtPesquisa.Name = "txtPesquisa";
-            txtPesquisa.Size = new Size(560, 23);
+            txtPesquisa.Size = new Size(432, 23);
             txtPesquisa.TabIndex = 6;
             txtPesquisa.TextChanged += txtPesquisa_TextChanged;
             // 
@@ -200,17 +205,73 @@ namespace FiscoTask
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(790, 45);
+            label2.Location = new Point(790, 70);
             label2.Name = "label2";
             label2.Size = new Size(105, 15);
             label2.TabIndex = 9;
             label2.Text = "Filtrar por situação";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(28, 184);
+            label3.Name = "label3";
+            label3.Size = new Size(122, 15);
+            label3.TabIndex = 10;
+            label3.Text = "Pesquisa por Empresa";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(790, 114);
+            label4.Name = "label4";
+            label4.Size = new Size(84, 15);
+            label4.TabIndex = 14;
+            label4.Text = "Filtrar por Tipo";
+            // 
+            // cbTipo
+            // 
+            cbTipo.AllowDrop = true;
+            cbTipo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbTipo.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbTipo.FormattingEnabled = true;
+            cbTipo.Items.AddRange(new object[] { "Alvará", "Bombeiro", "Vigilância Sanitária", "Consulta Jurídica", "Documentos gerais", "Outro", "Segunda via alvará", "Licença de transporte", "Alteração Ata/Documento", "Débitos", "Atualizar Alvará" });
+            cbTipo.Location = new Point(790, 132);
+            cbTipo.Name = "cbTipo";
+            cbTipo.Size = new Size(248, 23);
+            cbTipo.TabIndex = 15;
+            cbTipo.SelectedIndexChanged += cbTipo_SelectedIndexChanged;
+            // 
+            // btnFitroAlvara
+            // 
+            btnFitroAlvara.Location = new Point(790, 176);
+            btnFitroAlvara.Name = "btnFitroAlvara";
+            btnFitroAlvara.Size = new Size(128, 28);
+            btnFitroAlvara.TabIndex = 16;
+            btnFitroAlvara.Text = "Alvarás Pendentes";
+            btnFitroAlvara.UseVisualStyleBackColor = true;
+            btnFitroAlvara.Click += btnFitroAlvara_Click;
+            // 
+            // btnOutrosPendentes
+            // 
+            btnOutrosPendentes.Location = new Point(790, 210);
+            btnOutrosPendentes.Name = "btnOutrosPendentes";
+            btnOutrosPendentes.Size = new Size(128, 28);
+            btnOutrosPendentes.TabIndex = 17;
+            btnOutrosPendentes.Text = "Outros Pendentes";
+            btnOutrosPendentes.UseVisualStyleBackColor = true;
+            btnOutrosPendentes.Click += btnOutrosPendentes_Click;
+            // 
             // ConsultaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1146, 650);
+            ClientSize = new Size(1344, 650);
+            Controls.Add(btnOutrosPendentes);
+            Controls.Add(btnFitroAlvara);
+            Controls.Add(cbTipo);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(cbSituacao);
             Controls.Add(txtAtualizar);
@@ -245,5 +306,10 @@ namespace FiscoTask
         private DataGridViewTextBoxColumn Dtregistro;
         private ComboBox cbSituacao;
         private Label label2;
+        private Label label3;
+        private Label label4;
+        private ComboBox cbTipo;
+        private Button btnFitroAlvara;
+        private Button btnOutrosPendentes;
     }
 }
