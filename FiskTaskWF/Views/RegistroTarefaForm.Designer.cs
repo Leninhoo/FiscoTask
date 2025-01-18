@@ -75,6 +75,7 @@
             // 
             txtLivro.Location = new Point(67, 123);
             txtLivro.Name = "txtLivro";
+            txtLivro.ReadOnly = true;
             txtLivro.Size = new Size(94, 23);
             txtLivro.TabIndex = 2;
             // 

@@ -30,17 +30,7 @@ namespace FiscoTask
             ConsultaEmpresa.BringToFront();
         }
 
-        private void consultarDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConsultaDocsView.Visible = true;
-            ConsultaDocsView.BringToFront();
-        }
 
-        private void registroDeDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RegistroDocForm registroDocForm = new RegistroDocForm();
-            registroDocForm.Show();
-        }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -86,6 +76,32 @@ namespace FiscoTask
         {
             RegistroBombeiroForm registroBombeiro = new RegistroBombeiroForm();
             registroBombeiro.Show();
+        }
+
+        private void responsávelInternoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaResponsavel consultaResponsavel = new ConsultaResponsavel();
+            consultaResponsavel.Show();
+        }
+
+        private void consultarSóciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaSociosForm constaSocio = new ConsultaSociosForm();
+            constaSocio.Show();
+        }
+
+
+
+        private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroDocForm registroDocForm = new RegistroDocForm();
+            registroDocForm.Show();
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaDocsView.Visible = true;
+            ConsultaDocsView.BringToFront();
         }
     }
 }

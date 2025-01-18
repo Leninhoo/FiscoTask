@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaIndEmpresa));
             label1 = new Label();
             groupBox1 = new GroupBox();
@@ -69,8 +70,42 @@
             rtbNotas = new RichTextBox();
             label13 = new Label();
             button1 = new Button();
+            txtResponsavelInterno = new TextBox();
+            label14 = new Label();
+            dgSocios = new DataGridView();
+            iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            eMPRESADataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cPFDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            rGDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            sOCIODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            eNDERECODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            bAIRRODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cEPDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fONEDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cAPITALDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fUNCAODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            aSSINADataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dATANASCIMENTODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dATAADMISSAODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dATADESLIGAMENTODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dTALTSOCDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dTFIMSOCDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fUNDOINVESTDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pERCCAPVOTDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cPFREPLEGDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            qUALIFICACAODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            qUALIFREPLEGDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dISTLUCRODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            iRDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pROLABOREDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            sIGNATARIODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dbSocioBindingSource = new BindingSource(components);
+            label22 = new Label();
+            lblEscritorio = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgSocios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dbSocioBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -408,7 +443,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(12, 374);
+            label12.Location = new Point(12, 531);
             label12.Name = "label12";
             label12.Size = new Size(124, 15);
             label12.TabIndex = 14;
@@ -417,7 +452,7 @@
             // rtbQualificacao
             // 
             rtbQualificacao.BackColor = SystemColors.Info;
-            rtbQualificacao.Location = new Point(12, 395);
+            rtbQualificacao.Location = new Point(12, 552);
             rtbQualificacao.Name = "rtbQualificacao";
             rtbQualificacao.ReadOnly = true;
             rtbQualificacao.Size = new Size(576, 136);
@@ -426,7 +461,7 @@
             // 
             // rtbNotas
             // 
-            rtbNotas.Location = new Point(12, 569);
+            rtbNotas.Location = new Point(12, 726);
             rtbNotas.Name = "rtbNotas";
             rtbNotas.Size = new Size(576, 136);
             rtbNotas.TabIndex = 2;
@@ -435,7 +470,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(12, 548);
+            label13.Location = new Point(12, 705);
             label13.Name = "label13";
             label13.Size = new Size(38, 15);
             label13.TabIndex = 22;
@@ -443,7 +478,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(594, 569);
+            button1.Location = new Point(12, 868);
             button1.Name = "button1";
             button1.Size = new Size(145, 23);
             button1.TabIndex = 3;
@@ -451,11 +486,271 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // txtResponsavelInterno
+            // 
+            txtResponsavelInterno.Location = new Point(758, 322);
+            txtResponsavelInterno.Name = "txtResponsavelInterno";
+            txtResponsavelInterno.ReadOnly = true;
+            txtResponsavelInterno.Size = new Size(394, 23);
+            txtResponsavelInterno.TabIndex = 23;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(669, 326);
+            label14.Name = "label14";
+            label14.Size = new Size(76, 15);
+            label14.TabIndex = 24;
+            label14.Text = "Resp. Interno";
+            // 
+            // dgSocios
+            // 
+            dgSocios.AllowUserToAddRows = false;
+            dgSocios.AllowUserToDeleteRows = false;
+            dgSocios.AutoGenerateColumns = false;
+            dgSocios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgSocios.Columns.AddRange(new DataGridViewColumn[] { iDDataGridViewTextBoxColumn, eMPRESADataGridViewTextBoxColumn, cPFDataGridViewTextBoxColumn, rGDataGridViewTextBoxColumn, sOCIODataGridViewTextBoxColumn, eNDERECODataGridViewTextBoxColumn, bAIRRODataGridViewTextBoxColumn, cEPDataGridViewTextBoxColumn, fONEDataGridViewTextBoxColumn, cAPITALDataGridViewTextBoxColumn, fUNCAODataGridViewTextBoxColumn, aSSINADataGridViewTextBoxColumn, dATANASCIMENTODataGridViewTextBoxColumn, dATAADMISSAODataGridViewTextBoxColumn, dATADESLIGAMENTODataGridViewTextBoxColumn, dTALTSOCDataGridViewTextBoxColumn, dTFIMSOCDataGridViewTextBoxColumn, fUNDOINVESTDataGridViewTextBoxColumn, pERCCAPVOTDataGridViewTextBoxColumn, cPFREPLEGDataGridViewTextBoxColumn, qUALIFICACAODataGridViewTextBoxColumn, qUALIFREPLEGDataGridViewTextBoxColumn, dISTLUCRODataGridViewTextBoxColumn, iRDataGridViewTextBoxColumn, pROLABOREDataGridViewTextBoxColumn, sIGNATARIODataGridViewTextBoxColumn });
+            dgSocios.DataSource = dbSocioBindingSource;
+            dgSocios.Location = new Point(12, 400);
+            dgSocios.Name = "dgSocios";
+            dgSocios.ReadOnly = true;
+            dgSocios.Size = new Size(1166, 128);
+            dgSocios.TabIndex = 25;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            iDDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            iDDataGridViewTextBoxColumn.ReadOnly = true;
+            iDDataGridViewTextBoxColumn.Width = 43;
+            // 
+            // eMPRESADataGridViewTextBoxColumn
+            // 
+            eMPRESADataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            eMPRESADataGridViewTextBoxColumn.DataPropertyName = "EMPRESA";
+            eMPRESADataGridViewTextBoxColumn.HeaderText = "EMPRESA";
+            eMPRESADataGridViewTextBoxColumn.Name = "eMPRESADataGridViewTextBoxColumn";
+            eMPRESADataGridViewTextBoxColumn.ReadOnly = true;
+            eMPRESADataGridViewTextBoxColumn.Width = 83;
+            // 
+            // cPFDataGridViewTextBoxColumn
+            // 
+            cPFDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            cPFDataGridViewTextBoxColumn.DataPropertyName = "CPF";
+            cPFDataGridViewTextBoxColumn.HeaderText = "CPF";
+            cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
+            cPFDataGridViewTextBoxColumn.ReadOnly = true;
+            cPFDataGridViewTextBoxColumn.Width = 53;
+            // 
+            // rGDataGridViewTextBoxColumn
+            // 
+            rGDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            rGDataGridViewTextBoxColumn.DataPropertyName = "RG";
+            rGDataGridViewTextBoxColumn.HeaderText = "RG";
+            rGDataGridViewTextBoxColumn.Name = "rGDataGridViewTextBoxColumn";
+            rGDataGridViewTextBoxColumn.ReadOnly = true;
+            rGDataGridViewTextBoxColumn.Width = 47;
+            // 
+            // sOCIODataGridViewTextBoxColumn
+            // 
+            sOCIODataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            sOCIODataGridViewTextBoxColumn.DataPropertyName = "SOCIO";
+            sOCIODataGridViewTextBoxColumn.HeaderText = "SOCIO";
+            sOCIODataGridViewTextBoxColumn.Name = "sOCIODataGridViewTextBoxColumn";
+            sOCIODataGridViewTextBoxColumn.ReadOnly = true;
+            sOCIODataGridViewTextBoxColumn.Width = 67;
+            // 
+            // eNDERECODataGridViewTextBoxColumn
+            // 
+            eNDERECODataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            eNDERECODataGridViewTextBoxColumn.DataPropertyName = "ENDERECO";
+            eNDERECODataGridViewTextBoxColumn.HeaderText = "ENDERECO";
+            eNDERECODataGridViewTextBoxColumn.Name = "eNDERECODataGridViewTextBoxColumn";
+            eNDERECODataGridViewTextBoxColumn.ReadOnly = true;
+            eNDERECODataGridViewTextBoxColumn.Width = 91;
+            // 
+            // bAIRRODataGridViewTextBoxColumn
+            // 
+            bAIRRODataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            bAIRRODataGridViewTextBoxColumn.DataPropertyName = "BAIRRO";
+            bAIRRODataGridViewTextBoxColumn.HeaderText = "BAIRRO";
+            bAIRRODataGridViewTextBoxColumn.Name = "bAIRRODataGridViewTextBoxColumn";
+            bAIRRODataGridViewTextBoxColumn.ReadOnly = true;
+            bAIRRODataGridViewTextBoxColumn.Width = 73;
+            // 
+            // cEPDataGridViewTextBoxColumn
+            // 
+            cEPDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            cEPDataGridViewTextBoxColumn.DataPropertyName = "CEP";
+            cEPDataGridViewTextBoxColumn.HeaderText = "CEP";
+            cEPDataGridViewTextBoxColumn.Name = "cEPDataGridViewTextBoxColumn";
+            cEPDataGridViewTextBoxColumn.ReadOnly = true;
+            cEPDataGridViewTextBoxColumn.Width = 53;
+            // 
+            // fONEDataGridViewTextBoxColumn
+            // 
+            fONEDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            fONEDataGridViewTextBoxColumn.DataPropertyName = "FONE";
+            fONEDataGridViewTextBoxColumn.HeaderText = "FONE";
+            fONEDataGridViewTextBoxColumn.Name = "fONEDataGridViewTextBoxColumn";
+            fONEDataGridViewTextBoxColumn.ReadOnly = true;
+            fONEDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // cAPITALDataGridViewTextBoxColumn
+            // 
+            cAPITALDataGridViewTextBoxColumn.DataPropertyName = "CAPITAL";
+            cAPITALDataGridViewTextBoxColumn.HeaderText = "CAPITAL";
+            cAPITALDataGridViewTextBoxColumn.Name = "cAPITALDataGridViewTextBoxColumn";
+            cAPITALDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fUNCAODataGridViewTextBoxColumn
+            // 
+            fUNCAODataGridViewTextBoxColumn.DataPropertyName = "FUNCAO";
+            fUNCAODataGridViewTextBoxColumn.HeaderText = "FUNCAO";
+            fUNCAODataGridViewTextBoxColumn.Name = "fUNCAODataGridViewTextBoxColumn";
+            fUNCAODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aSSINADataGridViewTextBoxColumn
+            // 
+            aSSINADataGridViewTextBoxColumn.DataPropertyName = "ASSINA";
+            aSSINADataGridViewTextBoxColumn.HeaderText = "ASSINA";
+            aSSINADataGridViewTextBoxColumn.Name = "aSSINADataGridViewTextBoxColumn";
+            aSSINADataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dATANASCIMENTODataGridViewTextBoxColumn
+            // 
+            dATANASCIMENTODataGridViewTextBoxColumn.DataPropertyName = "DATA_NASCIMENTO";
+            dATANASCIMENTODataGridViewTextBoxColumn.HeaderText = "DATA_NASCIMENTO";
+            dATANASCIMENTODataGridViewTextBoxColumn.Name = "dATANASCIMENTODataGridViewTextBoxColumn";
+            dATANASCIMENTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dATAADMISSAODataGridViewTextBoxColumn
+            // 
+            dATAADMISSAODataGridViewTextBoxColumn.DataPropertyName = "DATA_ADMISSAO";
+            dATAADMISSAODataGridViewTextBoxColumn.HeaderText = "DATA_ADMISSAO";
+            dATAADMISSAODataGridViewTextBoxColumn.Name = "dATAADMISSAODataGridViewTextBoxColumn";
+            dATAADMISSAODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dATADESLIGAMENTODataGridViewTextBoxColumn
+            // 
+            dATADESLIGAMENTODataGridViewTextBoxColumn.DataPropertyName = "DATA_DESLIGAMENTO";
+            dATADESLIGAMENTODataGridViewTextBoxColumn.HeaderText = "DATA_DESLIGAMENTO";
+            dATADESLIGAMENTODataGridViewTextBoxColumn.Name = "dATADESLIGAMENTODataGridViewTextBoxColumn";
+            dATADESLIGAMENTODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dTALTSOCDataGridViewTextBoxColumn
+            // 
+            dTALTSOCDataGridViewTextBoxColumn.DataPropertyName = "DT_ALT_SOC";
+            dTALTSOCDataGridViewTextBoxColumn.HeaderText = "DT_ALT_SOC";
+            dTALTSOCDataGridViewTextBoxColumn.Name = "dTALTSOCDataGridViewTextBoxColumn";
+            dTALTSOCDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dTFIMSOCDataGridViewTextBoxColumn
+            // 
+            dTFIMSOCDataGridViewTextBoxColumn.DataPropertyName = "DT_FIM_SOC";
+            dTFIMSOCDataGridViewTextBoxColumn.HeaderText = "DT_FIM_SOC";
+            dTFIMSOCDataGridViewTextBoxColumn.Name = "dTFIMSOCDataGridViewTextBoxColumn";
+            dTFIMSOCDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fUNDOINVESTDataGridViewTextBoxColumn
+            // 
+            fUNDOINVESTDataGridViewTextBoxColumn.DataPropertyName = "FUNDO_INVEST";
+            fUNDOINVESTDataGridViewTextBoxColumn.HeaderText = "FUNDO_INVEST";
+            fUNDOINVESTDataGridViewTextBoxColumn.Name = "fUNDOINVESTDataGridViewTextBoxColumn";
+            fUNDOINVESTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pERCCAPVOTDataGridViewTextBoxColumn
+            // 
+            pERCCAPVOTDataGridViewTextBoxColumn.DataPropertyName = "PERC_CAP_VOT";
+            pERCCAPVOTDataGridViewTextBoxColumn.HeaderText = "PERC_CAP_VOT";
+            pERCCAPVOTDataGridViewTextBoxColumn.Name = "pERCCAPVOTDataGridViewTextBoxColumn";
+            pERCCAPVOTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cPFREPLEGDataGridViewTextBoxColumn
+            // 
+            cPFREPLEGDataGridViewTextBoxColumn.DataPropertyName = "CPF_REP_LEG";
+            cPFREPLEGDataGridViewTextBoxColumn.HeaderText = "CPF_REP_LEG";
+            cPFREPLEGDataGridViewTextBoxColumn.Name = "cPFREPLEGDataGridViewTextBoxColumn";
+            cPFREPLEGDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // qUALIFICACAODataGridViewTextBoxColumn
+            // 
+            qUALIFICACAODataGridViewTextBoxColumn.DataPropertyName = "QUALIFICACAO";
+            qUALIFICACAODataGridViewTextBoxColumn.HeaderText = "QUALIFICACAO";
+            qUALIFICACAODataGridViewTextBoxColumn.Name = "qUALIFICACAODataGridViewTextBoxColumn";
+            qUALIFICACAODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // qUALIFREPLEGDataGridViewTextBoxColumn
+            // 
+            qUALIFREPLEGDataGridViewTextBoxColumn.DataPropertyName = "QUALIF_REP_LEG";
+            qUALIFREPLEGDataGridViewTextBoxColumn.HeaderText = "QUALIF_REP_LEG";
+            qUALIFREPLEGDataGridViewTextBoxColumn.Name = "qUALIFREPLEGDataGridViewTextBoxColumn";
+            qUALIFREPLEGDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dISTLUCRODataGridViewTextBoxColumn
+            // 
+            dISTLUCRODataGridViewTextBoxColumn.DataPropertyName = "DIST_LUCRO";
+            dISTLUCRODataGridViewTextBoxColumn.HeaderText = "DIST_LUCRO";
+            dISTLUCRODataGridViewTextBoxColumn.Name = "dISTLUCRODataGridViewTextBoxColumn";
+            dISTLUCRODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iRDataGridViewTextBoxColumn
+            // 
+            iRDataGridViewTextBoxColumn.DataPropertyName = "IR";
+            iRDataGridViewTextBoxColumn.HeaderText = "IR";
+            iRDataGridViewTextBoxColumn.Name = "iRDataGridViewTextBoxColumn";
+            iRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pROLABOREDataGridViewTextBoxColumn
+            // 
+            pROLABOREDataGridViewTextBoxColumn.DataPropertyName = "PRO_LABORE";
+            pROLABOREDataGridViewTextBoxColumn.HeaderText = "PRO_LABORE";
+            pROLABOREDataGridViewTextBoxColumn.Name = "pROLABOREDataGridViewTextBoxColumn";
+            pROLABOREDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sIGNATARIODataGridViewTextBoxColumn
+            // 
+            sIGNATARIODataGridViewTextBoxColumn.DataPropertyName = "SIGNATARIO";
+            sIGNATARIODataGridViewTextBoxColumn.HeaderText = "SIGNATARIO";
+            sIGNATARIODataGridViewTextBoxColumn.Name = "sIGNATARIODataGridViewTextBoxColumn";
+            sIGNATARIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dbSocioBindingSource
+            // 
+            dbSocioBindingSource.DataSource = typeof(DbSocio);
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(12, 382);
+            label22.Name = "label22";
+            label22.Size = new Size(41, 15);
+            label22.TabIndex = 26;
+            label22.Text = "Sócios";
+            // 
+            // lblEscritorio
+            // 
+            lblEscritorio.AutoSize = true;
+            lblEscritorio.Font = new Font("SimSun", 13F, FontStyle.Bold);
+            lblEscritorio.ForeColor = Color.IndianRed;
+            lblEscritorio.Location = new Point(393, 18);
+            lblEscritorio.Name = "lblEscritorio";
+            lblEscritorio.Size = new Size(108, 18);
+            lblEscritorio.TabIndex = 27;
+            lblEscritorio.Text = "ESCRITORIO";
+            // 
             // ConsultaIndEmpresa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1190, 778);
+            ClientSize = new Size(1190, 898);
+            Controls.Add(lblEscritorio);
+            Controls.Add(label22);
+            Controls.Add(dgSocios);
+            Controls.Add(txtResponsavelInterno);
+            Controls.Add(label14);
             Controls.Add(button1);
             Controls.Add(rtbNotas);
             Controls.Add(label13);
@@ -472,6 +767,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgSocios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dbSocioBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -520,5 +817,37 @@
         private RichTextBox rtbNotas;
         private Label label13;
         private Button button1;
+        private TextBox txtResponsavelInterno;
+        private Label label14;
+        private DataGridView dgSocios;
+        private BindingSource dbSocioBindingSource;
+        private Label label22;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn eMPRESADataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn rGDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn sOCIODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn eNDERECODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn bAIRRODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cEPDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fONEDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cAPITALDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fUNCAODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn aSSINADataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dATANASCIMENTODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dATAADMISSAODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dATADESLIGAMENTODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dTALTSOCDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dTFIMSOCDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fUNDOINVESTDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn pERCCAPVOTDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cPFREPLEGDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn qUALIFICACAODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn qUALIFREPLEGDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dISTLUCRODataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn iRDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn pROLABOREDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn sIGNATARIODataGridViewTextBoxColumn;
+        private Label lblEscritorio;
     }
 }

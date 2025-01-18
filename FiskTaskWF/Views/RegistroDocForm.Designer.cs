@@ -77,6 +77,7 @@
             // 
             txtLivro.Location = new Point(74, 290);
             txtLivro.Name = "txtLivro";
+            txtLivro.ReadOnly = true;
             txtLivro.Size = new Size(109, 23);
             txtLivro.TabIndex = 2;
             // 
@@ -184,6 +185,7 @@
             // 
             // dtpVencimento
             // 
+            dtpVencimento.Format = DateTimePickerFormat.Short;
             dtpVencimento.Location = new Point(109, 348);
             dtpVencimento.Name = "dtpVencimento";
             dtpVencimento.Size = new Size(227, 23);

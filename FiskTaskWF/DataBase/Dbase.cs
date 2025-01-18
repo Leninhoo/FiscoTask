@@ -12,7 +12,7 @@ using MySqlConnector;
 
 namespace FiscoTask
 {
-    public class Dbase
+    public class Dbase 
     {
         
         public const string stringconnection = "datasource=srv1067.hstgr.io;username=u551083917_FiscoTask;password=Fisconorte6027;database=u551083917_Fiscotask";

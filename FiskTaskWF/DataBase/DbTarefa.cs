@@ -137,9 +137,10 @@ namespace FiscoTask
                     using (var adapter = new MySqlDataAdapter(query, connection))
                     {
                         adapter.Fill(data);
+                        
                     }
 
-                   return data;
+                    return data;
 
                 }
             }

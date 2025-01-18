@@ -32,10 +32,13 @@
             menuStrip1 = new MenuStrip();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             empresasToolStripMenuItem = new ToolStripMenuItem();
+            consultarSóciosToolStripMenuItem = new ToolStripMenuItem();
+            responsávelInternoToolStripMenuItem = new ToolStripMenuItem();
             homeToolStripMenuItem = new ToolStripMenuItem();
             registrosToolStripMenuItem = new ToolStripMenuItem();
-            registroDeDocumentosToolStripMenuItem = new ToolStripMenuItem();
-            consultarDocumentosToolStripMenuItem = new ToolStripMenuItem();
+            documentosToolStripMenuItem = new ToolStripMenuItem();
+            registrarToolStripMenuItem = new ToolStripMenuItem();
+            consultarToolStripMenuItem = new ToolStripMenuItem();
             bombeirosToolStripMenuItem = new ToolStripMenuItem();
             registrarProcessoToolStripMenuItem = new ToolStripMenuItem();
             consutarProcessosToolStripMenuItem = new ToolStripMenuItem();
@@ -58,7 +61,7 @@
             // 
             // clientesToolStripMenuItem
             // 
-            clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empresasToolStripMenuItem, homeToolStripMenuItem });
+            clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empresasToolStripMenuItem, consultarSóciosToolStripMenuItem, responsávelInternoToolStripMenuItem, homeToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             clientesToolStripMenuItem.Size = new Size(61, 20);
             clientesToolStripMenuItem.Text = "Clientes";
@@ -66,56 +69,77 @@
             // empresasToolStripMenuItem
             // 
             empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
-            empresasToolStripMenuItem.Size = new Size(124, 22);
+            empresasToolStripMenuItem.Size = new Size(180, 22);
             empresasToolStripMenuItem.Text = "Empresas";
             empresasToolStripMenuItem.Click += empresasToolStripMenuItem_Click;
+            // 
+            // consultarSóciosToolStripMenuItem
+            // 
+            consultarSóciosToolStripMenuItem.Name = "consultarSóciosToolStripMenuItem";
+            consultarSóciosToolStripMenuItem.Size = new Size(180, 22);
+            consultarSóciosToolStripMenuItem.Text = "Consultar Sócios";
+            consultarSóciosToolStripMenuItem.Click += consultarSóciosToolStripMenuItem_Click;
+            // 
+            // responsávelInternoToolStripMenuItem
+            // 
+            responsávelInternoToolStripMenuItem.Name = "responsávelInternoToolStripMenuItem";
+            responsávelInternoToolStripMenuItem.Size = new Size(180, 22);
+            responsávelInternoToolStripMenuItem.Text = "Responsável Interno";
+            responsávelInternoToolStripMenuItem.Click += responsávelInternoToolStripMenuItem_Click;
             // 
             // homeToolStripMenuItem
             // 
             homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            homeToolStripMenuItem.Size = new Size(124, 22);
+            homeToolStripMenuItem.Size = new Size(180, 22);
             homeToolStripMenuItem.Text = "Home";
             homeToolStripMenuItem.Click += homeToolStripMenuItem_Click;
             // 
             // registrosToolStripMenuItem
             // 
-            registrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registroDeDocumentosToolStripMenuItem, consultarDocumentosToolStripMenuItem, bombeirosToolStripMenuItem });
+            registrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { documentosToolStripMenuItem, bombeirosToolStripMenuItem });
             registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
             registrosToolStripMenuItem.Size = new Size(67, 20);
             registrosToolStripMenuItem.Text = "Registros";
             // 
-            // registroDeDocumentosToolStripMenuItem
+            // documentosToolStripMenuItem
             // 
-            registroDeDocumentosToolStripMenuItem.Name = "registroDeDocumentosToolStripMenuItem";
-            registroDeDocumentosToolStripMenuItem.Size = new Size(204, 22);
-            registroDeDocumentosToolStripMenuItem.Text = "Registro de Documentos";
-            registroDeDocumentosToolStripMenuItem.Click += registroDeDocumentosToolStripMenuItem_Click;
+            documentosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarToolStripMenuItem, consultarToolStripMenuItem });
+            documentosToolStripMenuItem.Name = "documentosToolStripMenuItem";
+            documentosToolStripMenuItem.Size = new Size(180, 22);
+            documentosToolStripMenuItem.Text = "Documentos";
             // 
-            // consultarDocumentosToolStripMenuItem
+            // registrarToolStripMenuItem
             // 
-            consultarDocumentosToolStripMenuItem.Name = "consultarDocumentosToolStripMenuItem";
-            consultarDocumentosToolStripMenuItem.Size = new Size(204, 22);
-            consultarDocumentosToolStripMenuItem.Text = "Consultar Documentos";
-            consultarDocumentosToolStripMenuItem.Click += consultarDocumentosToolStripMenuItem_Click;
+            registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
+            registrarToolStripMenuItem.Size = new Size(180, 22);
+            registrarToolStripMenuItem.Text = "Registrar";
+            registrarToolStripMenuItem.Click += registrarToolStripMenuItem_Click;
+            // 
+            // consultarToolStripMenuItem
+            // 
+            consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            consultarToolStripMenuItem.Size = new Size(180, 22);
+            consultarToolStripMenuItem.Text = "Consultar";
+            consultarToolStripMenuItem.Click += consultarToolStripMenuItem_Click;
             // 
             // bombeirosToolStripMenuItem
             // 
             bombeirosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarProcessoToolStripMenuItem, consutarProcessosToolStripMenuItem });
             bombeirosToolStripMenuItem.Name = "bombeirosToolStripMenuItem";
-            bombeirosToolStripMenuItem.Size = new Size(204, 22);
+            bombeirosToolStripMenuItem.Size = new Size(180, 22);
             bombeirosToolStripMenuItem.Text = "Bombeiros";
             // 
             // registrarProcessoToolStripMenuItem
             // 
             registrarProcessoToolStripMenuItem.Name = "registrarProcessoToolStripMenuItem";
-            registrarProcessoToolStripMenuItem.Size = new Size(180, 22);
+            registrarProcessoToolStripMenuItem.Size = new Size(177, 22);
             registrarProcessoToolStripMenuItem.Text = "Registrar Processo";
             registrarProcessoToolStripMenuItem.Click += registrarProcessoToolStripMenuItem_Click;
             // 
             // consutarProcessosToolStripMenuItem
             // 
             consutarProcessosToolStripMenuItem.Name = "consutarProcessosToolStripMenuItem";
-            consutarProcessosToolStripMenuItem.Size = new Size(180, 22);
+            consutarProcessosToolStripMenuItem.Size = new Size(177, 22);
             consutarProcessosToolStripMenuItem.Text = "Consutar Processos";
             consutarProcessosToolStripMenuItem.Click += consutarProcessosToolStripMenuItem_Click;
             // 
@@ -129,14 +153,14 @@
             // registroDeTarefasToolStripMenuItem
             // 
             registroDeTarefasToolStripMenuItem.Name = "registroDeTarefasToolStripMenuItem";
-            registroDeTarefasToolStripMenuItem.Size = new Size(180, 22);
+            registroDeTarefasToolStripMenuItem.Size = new Size(176, 22);
             registroDeTarefasToolStripMenuItem.Text = "Registro de Tarefas";
             registroDeTarefasToolStripMenuItem.Click += registroDeTarefasToolStripMenuItem_Click;
             // 
             // consultaDeTarefasToolStripMenuItem
             // 
             consultaDeTarefasToolStripMenuItem.Name = "consultaDeTarefasToolStripMenuItem";
-            consultaDeTarefasToolStripMenuItem.Size = new Size(180, 22);
+            consultaDeTarefasToolStripMenuItem.Size = new Size(176, 22);
             consultaDeTarefasToolStripMenuItem.Text = "Consulta de Tarefas";
             consultaDeTarefasToolStripMenuItem.Click += consultaDeTarefasToolStripMenuItem_Click;
             // 
@@ -160,7 +184,6 @@
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FiscoTask";
@@ -180,8 +203,6 @@
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem empresasToolStripMenuItem;
         private ToolStripMenuItem registrosToolStripMenuItem;
-        private ToolStripMenuItem registroDeDocumentosToolStripMenuItem;
-        private ToolStripMenuItem consultarDocumentosToolStripMenuItem;
         private PictureBox Logo;
         private ToolStripMenuItem homeToolStripMenuItem;
         private ToolStripMenuItem tarefasToolStripMenuItem;
@@ -190,5 +211,10 @@
         private ToolStripMenuItem bombeirosToolStripMenuItem;
         private ToolStripMenuItem registrarProcessoToolStripMenuItem;
         private ToolStripMenuItem consutarProcessosToolStripMenuItem;
+        private ToolStripMenuItem responsávelInternoToolStripMenuItem;
+        private ToolStripMenuItem documentosToolStripMenuItem;
+        private ToolStripMenuItem consultarSóciosToolStripMenuItem;
+        private ToolStripMenuItem registrarToolStripMenuItem;
+        private ToolStripMenuItem consultarToolStripMenuItem;
     }
 }

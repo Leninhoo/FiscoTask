@@ -12,6 +12,9 @@ namespace FiscoTask
 {
     public partial class ConsultaIndEmpresa : Form
     {
+        DbSocio dbsocio = new DbSocio();
+
+
         private int _EMPRESA;
         private string _NOME;
         private string _CNPJ;
@@ -104,6 +107,34 @@ namespace FiscoTask
                 rtbNotas.Text = "ID inválida. Por favor, insira um número válido.";
             }
 
+            var responsavel = new DbResponsaveis();
+            DataTable dt1 = responsavel.ReadResponsaveis();
+
+            if (int.TryParse(txtLivro.Text, out int livro1))
+            {
+                // Filtre as linhas do DataTable pela ID especificada
+                DataRow[] rows = dt1.Select($"LIVRO = {livro1}");
+
+                if (rows.Length > 0)
+                {
+                    // Obtenha o conteúdo do campo NOTAS da primeira linha encontrada
+                    string resp = rows[0]["RESPONSAVEL"]?.ToString() ?? "Nota não disponível";
+
+                    // Exiba apenas o conteúdo do campo NOTAS no RichTextBox
+                    txtResponsavelInterno.Text = resp;
+                }
+                else
+                {
+                    txtResponsavelInterno.Text = "Nenhum responsável cadastrado.";
+                }
+            }
+            else
+            {
+                rtbNotas.Text = "ID inválida. Por favor, insira um número válido.";
+            }
+
+            LoadSocios("SOCIO", "ASC", txtLivro.Text);
+            DescobrirEscritorio(int.Parse(txtLivro.Text));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -111,6 +142,30 @@ namespace FiscoTask
             var notas = new dbNotas();
             notas.UpdateInsertNotas(int.Parse(txtLivro.Text), rtbNotas.Text);
 
+        }
+
+        private void LoadSocios (string coluna, string ordem, string livro)
+        {
+            string filtroempresa = livro;
+            var table = dbsocio.ReadSocio();
+            if (!string.IsNullOrEmpty(filtroempresa))
+            {
+                table.DefaultView.RowFilter = $"EMPRESA = '{filtroempresa}'";
+            }
+            table.DefaultView.Sort = $"{coluna} {ordem}";
+            dgSocios.DataSource = table.DefaultView.ToTable();
+        }
+
+        private void DescobrirEscritorio (int livro)
+        {
+            if (livro <= 0)
+            {
+                lblEscritorio.Text = "EMPRESA CADASTRADA NO ESCRITÓRIO DO PETÉ";
+            }
+            else
+            {
+                lblEscritorio.Text = "EMPRESA CADASTRADA NA FISCONORTE";
+            }
         }
     }
 }

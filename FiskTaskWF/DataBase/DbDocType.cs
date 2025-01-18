@@ -36,7 +36,7 @@ namespace FiscoTask
                 }
 
             }
-            catch (Exception ex)
+            catch
             {
                 return new BindingList<DbDocType>();
             }

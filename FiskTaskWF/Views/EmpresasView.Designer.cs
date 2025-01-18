@@ -47,10 +47,10 @@
             RESPONSAVEL = new DataGridViewTextBoxColumn();
             IE = new DataGridViewTextBoxColumn();
             empresaViewBindingSource = new BindingSource(components);
-            label1 = new Label();
             txtPesquisa = new TextBox();
             btnAtualizar = new Button();
             label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgEmpresas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).BeginInit();
             SuspendLayout();
@@ -216,15 +216,6 @@
             // 
             empresaViewBindingSource.DataSource = typeof(EmpresaView);
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(57, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(165, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Lista de empresas cadastradas";
-            // 
             // txtPesquisa
             // 
             txtPesquisa.Location = new Point(153, 144);
@@ -252,14 +243,24 @@
             label2.TabIndex = 5;
             label2.Text = "Pesquisar Empresas";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(13, 10);
+            label3.Name = "label3";
+            label3.Size = new Size(305, 30);
+            label3.TabIndex = 6;
+            label3.Text = "Lista de empresas cadastradas";
+            // 
             // EmpresasView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(btnAtualizar);
             Controls.Add(txtPesquisa);
-            Controls.Add(label1);
             Controls.Add(dgEmpresas);
             Name = "EmpresasView";
             Size = new Size(1377, 530);
@@ -274,7 +275,6 @@
 
         private DataGridView dgEmpresas;
         private BindingSource empresaViewBindingSource;
-        private Label label1;
         private TextBox txtPesquisa;
         private DataGridViewTextBoxColumn EMPRESA;
         private DataGridViewTextBoxColumn NOME;
@@ -294,5 +294,6 @@
         private DataGridViewTextBoxColumn IE;
         private Button btnAtualizar;
         private Label label2;
+        private Label label3;
     }
 }
