@@ -230,6 +230,7 @@
             Controls.Add(txtPesquisa);
             Controls.Add(dgEmpresas);
             Name = "RegistroBombeiroForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro de Processo Bombeiro";
             ((System.ComponentModel.ISupportInitialize)dgEmpresas).EndInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).EndInit();

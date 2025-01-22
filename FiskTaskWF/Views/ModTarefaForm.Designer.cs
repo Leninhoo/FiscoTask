@@ -77,9 +77,9 @@
             label5.AutoSize = true;
             label5.Location = new Point(11, 194);
             label5.Name = "label5";
-            label5.Size = new Size(152, 15);
+            label5.Size = new Size(135, 15);
             label5.TabIndex = 22;
-            label5.Text = "Observações e comentários";
+            label5.Text = "Histórico e Comentários";
             // 
             // cbSituacao
             // 
@@ -294,6 +294,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ModTarefaForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Alterar Tarefa";
             Load += ModTarefaForm_Load;
             groupBox1.ResumeLayout(false);

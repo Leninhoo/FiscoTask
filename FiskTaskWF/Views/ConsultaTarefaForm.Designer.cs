@@ -31,20 +31,8 @@ namespace FiscoTask
         private void InitializeComponent()
         {
             components = new Container();
-            dbTarefaBindingSource = new BindingSource(components);
             label1 = new Label();
             colorDialog1 = new ColorDialog();
-            dbTarefaBindingSource1 = new BindingSource(components);
-            dgTarefas2 = new DataGridView();
-            Codigo = new DataGridViewTextBoxColumn();
-            Empresa = new DataGridViewTextBoxColumn();
-            NOME = new DataGridViewTextBoxColumn();
-            CNPJ = new DataGridViewTextBoxColumn();
-            CIDADE = new DataGridViewTextBoxColumn();
-            Tipo = new DataGridViewTextBoxColumn();
-            Situacao = new DataGridViewTextBoxColumn();
-            Obs = new DataGridViewTextBoxColumn();
-            Dtregistro = new DataGridViewTextBoxColumn();
             txtPesquisa = new TextBox();
             txtAtualizar = new Button();
             cbSituacao = new ComboBox();
@@ -54,14 +42,21 @@ namespace FiscoTask
             cbTipo = new ComboBox();
             btnFitroAlvara = new Button();
             btnOutrosPendentes = new Button();
-            ((ISupportInitialize)dbTarefaBindingSource).BeginInit();
-            ((ISupportInitialize)dbTarefaBindingSource1).BeginInit();
+            btnExport = new Button();
+            dgTarefas2 = new DataGridView();
+            dbTarefaBindingSource3 = new BindingSource(components);
+            Codigo = new DataGridViewTextBoxColumn();
+            Empresa = new DataGridViewTextBoxColumn();
+            NOME = new DataGridViewTextBoxColumn();
+            CNPJs = new DataGridViewTextBoxColumn();
+            CIDADE = new DataGridViewTextBoxColumn();
+            Situacao = new DataGridViewTextBoxColumn();
+            Tipo = new DataGridViewTextBoxColumn();
+            Obs = new DataGridViewTextBoxColumn();
+            Dtregistro = new DataGridViewTextBoxColumn();
             ((ISupportInitialize)dgTarefas2).BeginInit();
+            ((ISupportInitialize)dbTarefaBindingSource3).BeginInit();
             SuspendLayout();
-            // 
-            // dbTarefaBindingSource
-            // 
-            dbTarefaBindingSource.DataSource = typeof(DbTarefa);
             // 
             // label1
             // 
@@ -72,105 +67,6 @@ namespace FiscoTask
             label1.Size = new Size(173, 30);
             label1.TabIndex = 4;
             label1.Text = "Consulta Tarefas";
-            // 
-            // dbTarefaBindingSource1
-            // 
-            dbTarefaBindingSource1.DataSource = typeof(DbTarefa);
-            // 
-            // dgTarefas2
-            // 
-            dgTarefas2.AllowUserToAddRows = false;
-            dgTarefas2.AllowUserToDeleteRows = false;
-            dgTarefas2.AutoGenerateColumns = false;
-            dgTarefas2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgTarefas2.Columns.AddRange(new DataGridViewColumn[] { Codigo, Empresa, NOME, CNPJ, CIDADE, Tipo, Situacao, Obs, Dtregistro });
-            dgTarefas2.DataSource = dbTarefaBindingSource;
-            dgTarefas2.Location = new Point(28, 282);
-            dgTarefas2.Name = "dgTarefas2";
-            dgTarefas2.ReadOnly = true;
-            dgTarefas2.Size = new Size(1304, 356);
-            dgTarefas2.TabIndex = 5;
-            dgTarefas2.CellDoubleClick += dgTarefas2_CellDoubleClick;
-            // 
-            // Codigo
-            // 
-            Codigo.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            Codigo.DataPropertyName = "Codigo";
-            Codigo.HeaderText = "Codigo";
-            Codigo.Name = "Codigo";
-            Codigo.ReadOnly = true;
-            Codigo.Width = 71;
-            // 
-            // Empresa
-            // 
-            Empresa.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            Empresa.DataPropertyName = "Empresa";
-            Empresa.HeaderText = "Empresa";
-            Empresa.Name = "Empresa";
-            Empresa.ReadOnly = true;
-            Empresa.Width = 77;
-            // 
-            // NOME
-            // 
-            NOME.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            NOME.DataPropertyName = "NOME";
-            NOME.HeaderText = "NOME";
-            NOME.Name = "NOME";
-            NOME.ReadOnly = true;
-            NOME.Width = 67;
-            // 
-            // CNPJ
-            // 
-            CNPJ.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            CNPJ.DataPropertyName = "CNPJ";
-            CNPJ.HeaderText = "CNPJ";
-            CNPJ.Name = "CNPJ";
-            CNPJ.ReadOnly = true;
-            CNPJ.Width = 59;
-            // 
-            // CIDADE
-            // 
-            CIDADE.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            CIDADE.DataPropertyName = "CIDADE";
-            CIDADE.HeaderText = "CIDADE";
-            CIDADE.Name = "CIDADE";
-            CIDADE.ReadOnly = true;
-            CIDADE.Width = 73;
-            // 
-            // Tipo
-            // 
-            Tipo.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            Tipo.DataPropertyName = "Tipo";
-            Tipo.HeaderText = "Tipo";
-            Tipo.Name = "Tipo";
-            Tipo.ReadOnly = true;
-            Tipo.Width = 55;
-            // 
-            // Situacao
-            // 
-            Situacao.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            Situacao.DataPropertyName = "Situacao";
-            Situacao.HeaderText = "Situacao";
-            Situacao.Name = "Situacao";
-            Situacao.ReadOnly = true;
-            Situacao.Width = 77;
-            // 
-            // Obs
-            // 
-            Obs.DataPropertyName = "Obs";
-            Obs.HeaderText = "Obs";
-            Obs.Name = "Obs";
-            Obs.ReadOnly = true;
-            Obs.Width = 53;
-            // 
-            // Dtregistro
-            // 
-            Dtregistro.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            Dtregistro.DataPropertyName = "Dtregistro";
-            Dtregistro.HeaderText = "Dtregistro";
-            Dtregistro.Name = "Dtregistro";
-            Dtregistro.ReadOnly = true;
-            Dtregistro.Width = 84;
             // 
             // txtPesquisa
             // 
@@ -262,11 +158,125 @@ namespace FiscoTask
             btnOutrosPendentes.UseVisualStyleBackColor = true;
             btnOutrosPendentes.Click += btnOutrosPendentes_Click;
             // 
+            // btnExport
+            // 
+            btnExport.Image = Properties.Resources.file_type_excel_icon_130611__1_;
+            btnExport.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExport.Location = new Point(28, 238);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(93, 38);
+            btnExport.TabIndex = 18;
+            btnExport.Text = "Exportar";
+            btnExport.TextAlign = ContentAlignment.MiddleRight;
+            btnExport.UseVisualStyleBackColor = true;
+            btnExport.Click += btnExport_Click;
+            // 
+            // dgTarefas2
+            // 
+            dgTarefas2.AllowUserToAddRows = false;
+            dgTarefas2.AllowUserToDeleteRows = false;
+            dgTarefas2.AutoGenerateColumns = false;
+            dgTarefas2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgTarefas2.Columns.AddRange(new DataGridViewColumn[] { Codigo, Empresa, NOME, CNPJs, CIDADE, Situacao, Tipo, Obs, Dtregistro });
+            dgTarefas2.DataSource = dbTarefaBindingSource3;
+            dgTarefas2.Location = new Point(28, 292);
+            dgTarefas2.Name = "dgTarefas2";
+            dgTarefas2.ReadOnly = true;
+            dgTarefas2.Size = new Size(1304, 346);
+            dgTarefas2.TabIndex = 19;
+            dgTarefas2.CellDoubleClick += dgTarefas2_CellDoubleClick_1;
+            // 
+            // dbTarefaBindingSource3
+            // 
+            dbTarefaBindingSource3.DataSource = typeof(DbTarefa);
+            // 
+            // Codigo
+            // 
+            Codigo.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Codigo.DataPropertyName = "Codigo";
+            Codigo.HeaderText = "Codigo";
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
+            Codigo.Width = 71;
+            // 
+            // Empresa
+            // 
+            Empresa.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Empresa.DataPropertyName = "Empresa";
+            Empresa.HeaderText = "Empresa";
+            Empresa.Name = "Empresa";
+            Empresa.ReadOnly = true;
+            Empresa.Width = 77;
+            // 
+            // NOME
+            // 
+            NOME.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            NOME.DataPropertyName = "NOME";
+            NOME.HeaderText = "NOME";
+            NOME.Name = "NOME";
+            NOME.ReadOnly = true;
+            NOME.Width = 67;
+            // 
+            // CNPJs
+            // 
+            CNPJs.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            CNPJs.DataPropertyName = "CNPJ";
+            CNPJs.HeaderText = "CNPJ";
+            CNPJs.Name = "CNPJs";
+            CNPJs.ReadOnly = true;
+            CNPJs.Width = 59;
+            // 
+            // CIDADE
+            // 
+            CIDADE.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            CIDADE.DataPropertyName = "CIDADE";
+            CIDADE.HeaderText = "CIDADE";
+            CIDADE.Name = "CIDADE";
+            CIDADE.ReadOnly = true;
+            CIDADE.Width = 73;
+            // 
+            // Situacao
+            // 
+            Situacao.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Situacao.DataPropertyName = "Situacao";
+            Situacao.HeaderText = "Situacao";
+            Situacao.Name = "Situacao";
+            Situacao.ReadOnly = true;
+            Situacao.Width = 77;
+            // 
+            // Tipo
+            // 
+            Tipo.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Tipo.DataPropertyName = "Tipo";
+            Tipo.HeaderText = "Tipo";
+            Tipo.Name = "Tipo";
+            Tipo.ReadOnly = true;
+            Tipo.Width = 55;
+            // 
+            // Obs
+            // 
+            Obs.DataPropertyName = "Obs";
+            Obs.HeaderText = "Obs";
+            Obs.MinimumWidth = 10;
+            Obs.Name = "Obs";
+            Obs.ReadOnly = true;
+            // 
+            // Dtregistro
+            // 
+            Dtregistro.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Dtregistro.DataPropertyName = "Dtregistro";
+            Dtregistro.HeaderText = "Dtregistro";
+            Dtregistro.Name = "Dtregistro";
+            Dtregistro.ReadOnly = true;
+            Dtregistro.Width = 84;
+            // 
             // ConsultaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1344, 650);
+            Controls.Add(dgTarefas2);
+            Controls.Add(btnExport);
             Controls.Add(btnOutrosPendentes);
             Controls.Add(btnFitroAlvara);
             Controls.Add(cbTipo);
@@ -276,34 +286,22 @@ namespace FiscoTask
             Controls.Add(cbSituacao);
             Controls.Add(txtAtualizar);
             Controls.Add(txtPesquisa);
-            Controls.Add(dgTarefas2);
             Controls.Add(label1);
             Name = "ConsultaTarefaForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Consultar tarefas";
-            ((ISupportInitialize)dbTarefaBindingSource).EndInit();
-            ((ISupportInitialize)dbTarefaBindingSource1).EndInit();
             ((ISupportInitialize)dgTarefas2).EndInit();
+            ((ISupportInitialize)dbTarefaBindingSource3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Label label1;
-        private BindingSource dbTarefaBindingSource;
         private ColorDialog colorDialog1;
-        private BindingSource dbTarefaBindingSource1;
-        private DataGridView dgTarefas2;
         private TextBox txtPesquisa;
         private Button txtAtualizar;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Empresa;
-        private DataGridViewTextBoxColumn NOME;
         private DataGridViewTextBoxColumn CNPJ;
-        private DataGridViewTextBoxColumn CIDADE;
-        private DataGridViewTextBoxColumn Tipo;
-        private DataGridViewTextBoxColumn Situacao;
-        private DataGridViewTextBoxColumn Obs;
-        private DataGridViewTextBoxColumn Dtregistro;
         private ComboBox cbSituacao;
         private Label label2;
         private Label label3;
@@ -311,5 +309,17 @@ namespace FiscoTask
         private ComboBox cbTipo;
         private Button btnFitroAlvara;
         private Button btnOutrosPendentes;
+        private Button btnExport;
+        private DataGridView dgTarefas2;
+        private BindingSource dbTarefaBindingSource3;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Empresa;
+        private DataGridViewTextBoxColumn NOME;
+        private DataGridViewTextBoxColumn CNPJs;
+        private DataGridViewTextBoxColumn CIDADE;
+        private DataGridViewTextBoxColumn Situacao;
+        private DataGridViewTextBoxColumn Tipo;
+        private DataGridViewTextBoxColumn Obs;
+        private DataGridViewTextBoxColumn Dtregistro;
     }
 }

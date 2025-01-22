@@ -59,5 +59,15 @@ namespace FiscoTask.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap file_type_excel_icon_130611__1_ {
+            get {
+                object obj = ResourceManager.GetObject("file_type_excel_icon_130611 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

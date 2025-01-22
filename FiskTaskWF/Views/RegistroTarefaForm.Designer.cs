@@ -248,6 +248,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "RegistroTarefaForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro de Tarefas";
             ((System.ComponentModel.ISupportInitialize)dgPesquisaEmpresa).EndInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).EndInit();

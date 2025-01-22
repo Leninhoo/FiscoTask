@@ -184,6 +184,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ConsultaBombeirosForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta Processos Bombeiros";
             ((System.ComponentModel.ISupportInitialize)dgBombeiros).EndInit();
             ((System.ComponentModel.ISupportInitialize)dbBombeirosBindingSource).EndInit();

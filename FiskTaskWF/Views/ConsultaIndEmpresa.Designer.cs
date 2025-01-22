@@ -761,6 +761,7 @@
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ConsultaIndEmpresa";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta Empresa";
             Load += ConsultaIndEmpresa_Load;
             groupBox1.ResumeLayout(false);

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,7 @@ namespace FiscoTask
             InitializeComponent();
 
             LoadDocuments("IdDoc", "DESC");
+            LoadVencendo("Vencimentodoc", "ASC");
 
         }
 
@@ -32,6 +34,26 @@ namespace FiscoTask
             var documentos = dbdocuments.ReadDocDT();
             documentos.DefaultView.Sort = $"{coluna} {ordem}";
             dgConsultaDocumentos.DataSource = documentos;
+        }
+
+
+        private void LoadVencendo(string coluna, string ordem)
+        {
+            var documentos = dbdocuments.ReadDocDT();
+
+            // Converter DataTable para Enumerable (LINQ)
+            var rows = documentos.AsEnumerable()
+                .Where(row =>
+                    row.Field<DateTime>("Vencimentodoc") >= DateTime.Now &&
+                    row.Field<DateTime>("Vencimentodoc") <= DateTime.Now.AddDays(30))
+                .OrderBy(row => row.Field<DateTime>(coluna)); // Ordena pela coluna especificada
+
+            // Recriar DataTable com os dados filtrados
+            DataTable documentosFiltrados = rows.Any() ? rows.CopyToDataTable() : documentos.Clone();
+
+            // Atualizar o DataGrid
+            dgVencendo.DataSource = documentosFiltrados;
+
         }
 
 

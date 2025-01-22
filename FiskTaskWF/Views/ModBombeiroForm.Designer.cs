@@ -264,6 +264,7 @@
             Controls.Add(label5);
             Controls.Add(label1);
             Name = "ModBombeiroForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Anotações Processo Bombeiro";
             Load += ModBombeiroForm_Load;
             groupBox1.ResumeLayout(false);

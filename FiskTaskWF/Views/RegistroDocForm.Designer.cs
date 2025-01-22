@@ -237,6 +237,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "RegistroDocForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Documentos";
             FormClosing += RegistroDocForm_FormClosing;
             ((System.ComponentModel.ISupportInitialize)dgEmpresas).EndInit();

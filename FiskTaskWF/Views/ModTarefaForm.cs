@@ -12,6 +12,7 @@ namespace FiscoTask
 {
     public partial class ModTarefaForm : Form
     {
+        private readonly ConsultaTarefaForm _parentForm;
         private int _Codigo;
         private int _Livro;
         private string _Tipo;
@@ -22,11 +23,12 @@ namespace FiscoTask
         private string _Cidade;
         private string _dtRegistro;
 
-        public ModTarefaForm(int codigo, int livro, string tipo, string situacao,
+        public ModTarefaForm(ConsultaTarefaForm parentForm, int codigo, int livro, string tipo, string situacao,
                              string obs, string empresa, string cnpj, string cidade, string dtregistro)
         {
             InitializeComponent();
 
+            _parentForm = parentForm;
             _Codigo = codigo;
             _Livro = livro;
             _Tipo = tipo;
@@ -39,7 +41,7 @@ namespace FiscoTask
 
 
         }
-
+        
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             var db = new DbTarefa();
@@ -55,7 +57,10 @@ namespace FiscoTask
             db.UptadeTarefa(tarefaAtualizada);
             MessageBox.Show("Tarefa atualizada com sucesso.");
 
-           this.Close();
+            
+            _parentForm.TarefaLoadind("Codigo", "DESC");
+
+            this.Close();
         }
 
         private void btnApagar_Click(object sender, EventArgs e)
@@ -68,12 +73,15 @@ namespace FiscoTask
                 var db = new DbTarefa();
                 db.DeleteTarefa(_Codigo);
                 MessageBox.Show($"O Registro foi definitivamente apagado.");
+                _parentForm.TarefaLoadind("Codigo", "DESC");
                 this.Close();
             }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            _parentForm.TarefaLoadind("Codigo", "DESC");
             this.Close();
         }
 
@@ -88,6 +96,8 @@ namespace FiscoTask
             txtEmpresa.Text = _Empresa.ToString();
             txtCNPJ.Text = _CNPJ.ToString();
             txtDataRegistro.Text = _dtRegistro.ToString();
+
+            rtbObs.Text += $" \n--------------------------- \n{DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")} \n";
         }
     }
 }

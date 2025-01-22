@@ -252,6 +252,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ModDocForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Modificar Registro de Documento";
             Load += ModDocForm_Load;
             ResumeLayout(false);
