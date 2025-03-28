@@ -29,19 +29,45 @@ namespace FiscoTask
             var table = dbtarefa.ReadTarefaDT();
             table.DefaultView.Sort = $"{coluna} {ordem}";
             dgTarefas2.DataSource = table;
+
+            int rowCount = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Situacao = 'Em Andamento'").Length;
+            lblTarefasPendentes.Text = $"O número de tarefas pendentes no total é de: {rowCount}";
+
         }
+        public void ApagarPesquisa()
+        {
+            txtPesquisa.Clear();
+        }
+
+
+
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             string filtro = txtPesquisa.Text.Replace("'", "''"); // Evitar erros com apóstrofos
             var dataTable = (dgTarefas2.DataSource as DataTable);
 
-            if (dataTable != null)
+            if (cbEmAndamento.Checked == true)
             {
-                dataTable.DefaultView.RowFilter = string.Format(
-                    "NOME LIKE '%{0}%' OR CNPJ LIKE '%{0}%' OR CIDADE LIKE '%{0}%'",
-                    filtro
-                );
+
+                if (dataTable != null)
+                {
+                    dataTable.DefaultView.RowFilter = string.Format(
+                        "(NOME LIKE '%{0}%' OR CNPJ LIKE '%{0}%' OR CIDADE LIKE '%{0}%') AND Situacao LIKE 'Em andamento'",
+                        filtro
+                    );
+                }
+            }
+            else
+            {
+                if (dataTable != null)
+                {
+                    dataTable.DefaultView.RowFilter = string.Format(
+                        "NOME LIKE '%{0}%' OR CNPJ LIKE '%{0}%' OR CIDADE LIKE '%{0}%'",
+                        filtro
+                    );
+                }
+
             }
         }
 
@@ -55,7 +81,7 @@ namespace FiscoTask
 
         }
 
-       
+
         private void cbSituacao_SelectedIndexChanged(object sender, EventArgs e)
         {
             string? filtro = cbSituacao.Text.Replace("'", "''"); // Evitar erros com apóstrofos
@@ -133,6 +159,10 @@ namespace FiscoTask
                 string situacao = row.Cells["Situacao"].Value?.ToString() ?? string.Empty;
                 string obs = row.Cells["Obs"].Value?.ToString() ?? string.Empty;
                 string dtregistro = row.Cells["Dtregistro"].Value?.ToString() ?? string.Empty;
+                bool bombeiro = Convert.ToBoolean(row.Cells["Bombeiro"].Value);
+                bool vigilanciasanitaria = Convert.ToBoolean(row.Cells["VigilanciaSanitaria"].Value);
+                bool taxaalvarapgto = Convert.ToBoolean(row.Cells["TaxaAlvaraPgto"].Value);
+                bool entregataxaalvara = Convert.ToBoolean(row.Cells["EntregaTaxaAlvara"].Value);
 
                 var formDetalhes = new ModTarefaForm(
                     this,
@@ -144,11 +174,85 @@ namespace FiscoTask
                     nome,
                     cnpj,
                     cidade,
-                    dtregistro
+                    dtregistro,
+                    bombeiro,
+                    vigilanciasanitaria,
+                    taxaalvarapgto,
+                    entregataxaalvara
                 );
 
                 formDetalhes.ShowDialog();
             }
         }
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                FiltroDocumentos(e);
+            }));
+        }
+
+        private void FiltroDocumentos(ItemCheckEventArgs e)
+        {
+            var tabela = (dgTarefas2.DataSource as DataTable);
+            if (tabela == null) return;
+
+            List<string> filtros = new List<string>();
+            string filtroSituacao = "Situacao <> 'Encerrado'";
+
+            for (int i = 0; i < clbDocumentos.Items.Count; i++)
+            {
+                string item = clbDocumentos.Items[i].ToString();
+                bool isChecked = clbDocumentos.GetItemChecked(i);
+
+                // Ajusta o estado do item que está sendo alterado
+                if (i == e.Index)
+                {
+                    isChecked = (e.NewValue == CheckState.Checked);
+                }
+
+                string clausula = "";
+                if (isChecked)
+                {
+                    if (item == "Bombeiro")
+                    {
+                        clausula = "Bombeiro = true";
+                    }
+                    else if (item == "Vigilância Sanitária")
+                    {
+                        clausula = "VigilanciaSanitaria = true";
+                    }
+                    else if (item == "Taxa de alvará paga")
+                    {
+                        clausula = "TaxaAlvaraPgto = true";
+                    }
+                    else if (item == "Taxa de Alvará Entregue")
+                    {
+                        clausula = "EntregaTaxaAlvara = true";
+                    }
+
+                    if (!string.IsNullOrEmpty(clausula))
+                    {
+                        filtros.Add(clausula);
+                    }
+                }
+            }
+
+            string filtroDocumentos = "";
+            if (filtros.Count > 0)
+            {
+                filtroDocumentos = "(" + string.Join(" OR ", filtros) + ")";
+            }
+
+            string filtroFinal = filtroSituacao;
+            if (!string.IsNullOrEmpty(filtroDocumentos))
+            {
+                filtroFinal += " AND " + filtroDocumentos;
+            }
+
+            tabela.DefaultView.RowFilter = filtroFinal;
+        }
+
     }
 }

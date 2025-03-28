@@ -89,7 +89,7 @@ namespace FiscoTask
             {
                 Livro = int.Parse(txtLivro.Text),
                 DtRegistro = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss"),
-                Vencimentodoc = dtpVencimento.Value,
+                Vencimentodoc = DateTime.Parse(txtVencimento.Text),
                 Obs = rtbObs.Text,
                 Tipo = cbTipoDoc.Text,
             };

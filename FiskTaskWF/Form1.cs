@@ -1,3 +1,4 @@
+using FiscoTask.Views;
 using System.Windows.Forms;
 
 namespace FiscoTask
@@ -102,6 +103,24 @@ namespace FiscoTask
         {
             ConsultaDocsView.Visible = true;
             ConsultaDocsView.BringToFront();
+        }
+
+        private void consultarAtosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dbAtos = new ConsultaAtosEmpresariaisForm();
+            dbAtos.Show();
+        }
+
+        private void registrarAtoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var registrarAto = new RegAtosEmpresariaisForm();
+            registrarAto.Show();
+        }
+
+        private void atualizarBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var updatedb = new UpdateDataBase();
+            updatedb.Show();
         }
     }
 }

@@ -13,12 +13,13 @@ namespace FiscoTask
     {
         public int LIVRO { get; set; }
         public string? NOTAS { get; set; }
+        public string InfoCNPJ { get; set; }
 
         public string NOME { get; set; }
         public string CNPJ { get; set; }
         public string CIDADE { get; set; }
 
-        public void UpdateInsertNotas(int livros, string notas)
+        public void UpdateInsertNotas(int livros, string notas, string infocnpj)
         {
             try
             {
@@ -28,13 +29,13 @@ namespace FiscoTask
                 using (var connection = new MySqlConnection(stringconnection))
                 {
                     string query = @"
-                INSERT INTO NOTES (LIVRO, NOTAS)
-                VALUES (@LIVRO, @NOTAS)
+                INSERT INTO NOTES (LIVRO, NOTAS, InfoCNPJ)
+                VALUES (@LIVRO, @NOTAS, @InfoCNPJ)
                 ON DUPLICATE KEY UPDATE
                     NOTAS = VALUES(NOTAS);";
 
                     // Executa o comando SQL
-                    connection.Execute(query, new { LIVRO = livro, NOTAS = notas });
+                    connection.Execute(query, new { LIVRO = livro, NOTAS = notas, InfoCNPJ = infocnpj });
                 }
 
                 MessageBox.Show("Nota salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

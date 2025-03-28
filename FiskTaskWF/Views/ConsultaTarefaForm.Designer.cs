@@ -45,15 +45,22 @@ namespace FiscoTask
             btnExport = new Button();
             dgTarefas2 = new DataGridView();
             dbTarefaBindingSource3 = new BindingSource(components);
+            cbEmAndamento = new CheckBox();
+            lblTarefasPendentes = new Label();
+            clbDocumentos = new CheckedListBox();
             Codigo = new DataGridViewTextBoxColumn();
             Empresa = new DataGridViewTextBoxColumn();
             NOME = new DataGridViewTextBoxColumn();
-            CNPJs = new DataGridViewTextBoxColumn();
             CIDADE = new DataGridViewTextBoxColumn();
             Situacao = new DataGridViewTextBoxColumn();
             Tipo = new DataGridViewTextBoxColumn();
+            EntregaTaxaAlvara = new DataGridViewCheckBoxColumn();
+            Bombeiro = new DataGridViewCheckBoxColumn();
+            VigilanciaSanitaria = new DataGridViewCheckBoxColumn();
+            TaxaAlvaraPgto = new DataGridViewCheckBoxColumn();
             Obs = new DataGridViewTextBoxColumn();
             Dtregistro = new DataGridViewTextBoxColumn();
+            CNPJs = new DataGridViewTextBoxColumn();
             ((ISupportInitialize)dgTarefas2).BeginInit();
             ((ISupportInitialize)dbTarefaBindingSource3).BeginInit();
             SuspendLayout();
@@ -73,7 +80,7 @@ namespace FiscoTask
             txtPesquisa.Location = new Point(156, 181);
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.Size = new Size(432, 23);
-            txtPesquisa.TabIndex = 6;
+            txtPesquisa.TabIndex = 1;
             txtPesquisa.TextChanged += txtPesquisa_TextChanged;
             // 
             // txtAtualizar
@@ -81,7 +88,7 @@ namespace FiscoTask
             txtAtualizar.Location = new Point(28, 126);
             txtAtualizar.Name = "txtAtualizar";
             txtAtualizar.Size = new Size(75, 23);
-            txtAtualizar.TabIndex = 7;
+            txtAtualizar.TabIndex = 3;
             txtAtualizar.Text = "Atualizar";
             txtAtualizar.UseVisualStyleBackColor = true;
             txtAtualizar.Click += txtAtualizar_Click;
@@ -91,8 +98,9 @@ namespace FiscoTask
             cbSituacao.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbSituacao.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbSituacao.FormattingEnabled = true;
+            cbSituacao.ItemHeight = 15;
             cbSituacao.Items.AddRange(new object[] { "Em andamento", "Aguardando terceiro", "Encerrado", "Pagamento alvará", "Solicitar Vigilância", "Vigilância solicitada", "Solicitar Bombeiro", "Aguardando pagamento bombeiro", "Solicitar alvará", "Alvará solicitado para Prefeitura" });
-            cbSituacao.Location = new Point(790, 88);
+            cbSituacao.Location = new Point(926, 88);
             cbSituacao.Name = "cbSituacao";
             cbSituacao.Size = new Size(248, 23);
             cbSituacao.TabIndex = 8;
@@ -101,7 +109,7 @@ namespace FiscoTask
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(790, 70);
+            label2.Location = new Point(926, 70);
             label2.Name = "label2";
             label2.Size = new Size(105, 15);
             label2.TabIndex = 9;
@@ -119,7 +127,7 @@ namespace FiscoTask
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(790, 114);
+            label4.Location = new Point(926, 114);
             label4.Name = "label4";
             label4.Size = new Size(84, 15);
             label4.TabIndex = 14;
@@ -131,8 +139,9 @@ namespace FiscoTask
             cbTipo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbTipo.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbTipo.FormattingEnabled = true;
+            cbTipo.ItemHeight = 15;
             cbTipo.Items.AddRange(new object[] { "Alvará", "Bombeiro", "Vigilância Sanitária", "Consulta Jurídica", "Documentos gerais", "Outro", "Segunda via alvará", "Licença de transporte", "Alteração Ata/Documento", "Débitos", "Atualizar Alvará" });
-            cbTipo.Location = new Point(790, 132);
+            cbTipo.Location = new Point(926, 132);
             cbTipo.Name = "cbTipo";
             cbTipo.Size = new Size(248, 23);
             cbTipo.TabIndex = 15;
@@ -140,20 +149,20 @@ namespace FiscoTask
             // 
             // btnFitroAlvara
             // 
-            btnFitroAlvara.Location = new Point(790, 176);
+            btnFitroAlvara.Location = new Point(926, 176);
             btnFitroAlvara.Name = "btnFitroAlvara";
             btnFitroAlvara.Size = new Size(128, 28);
-            btnFitroAlvara.TabIndex = 16;
+            btnFitroAlvara.TabIndex = 6;
             btnFitroAlvara.Text = "Alvarás Pendentes";
             btnFitroAlvara.UseVisualStyleBackColor = true;
             btnFitroAlvara.Click += btnFitroAlvara_Click;
             // 
             // btnOutrosPendentes
             // 
-            btnOutrosPendentes.Location = new Point(790, 210);
+            btnOutrosPendentes.Location = new Point(926, 210);
             btnOutrosPendentes.Name = "btnOutrosPendentes";
             btnOutrosPendentes.Size = new Size(128, 28);
-            btnOutrosPendentes.TabIndex = 17;
+            btnOutrosPendentes.TabIndex = 7;
             btnOutrosPendentes.Text = "Outros Pendentes";
             btnOutrosPendentes.UseVisualStyleBackColor = true;
             btnOutrosPendentes.Click += btnOutrosPendentes_Click;
@@ -165,7 +174,7 @@ namespace FiscoTask
             btnExport.Location = new Point(28, 238);
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(93, 38);
-            btnExport.TabIndex = 18;
+            btnExport.TabIndex = 8;
             btnExport.Text = "Exportar";
             btnExport.TextAlign = ContentAlignment.MiddleRight;
             btnExport.UseVisualStyleBackColor = true;
@@ -177,18 +186,49 @@ namespace FiscoTask
             dgTarefas2.AllowUserToDeleteRows = false;
             dgTarefas2.AutoGenerateColumns = false;
             dgTarefas2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgTarefas2.Columns.AddRange(new DataGridViewColumn[] { Codigo, Empresa, NOME, CNPJs, CIDADE, Situacao, Tipo, Obs, Dtregistro });
+            dgTarefas2.Columns.AddRange(new DataGridViewColumn[] { Codigo, Empresa, NOME, CIDADE, Situacao, Tipo, EntregaTaxaAlvara, Bombeiro, VigilanciaSanitaria, TaxaAlvaraPgto, Obs, Dtregistro, CNPJs });
             dgTarefas2.DataSource = dbTarefaBindingSource3;
             dgTarefas2.Location = new Point(28, 292);
             dgTarefas2.Name = "dgTarefas2";
             dgTarefas2.ReadOnly = true;
             dgTarefas2.Size = new Size(1304, 346);
-            dgTarefas2.TabIndex = 19;
+            dgTarefas2.TabIndex = 2;
             dgTarefas2.CellDoubleClick += dgTarefas2_CellDoubleClick_1;
             // 
             // dbTarefaBindingSource3
             // 
             dbTarefaBindingSource3.DataSource = typeof(DbTarefa);
+            // 
+            // cbEmAndamento
+            // 
+            cbEmAndamento.AutoSize = true;
+            cbEmAndamento.Checked = true;
+            cbEmAndamento.CheckState = CheckState.Checked;
+            cbEmAndamento.Location = new Point(156, 219);
+            cbEmAndamento.Name = "cbEmAndamento";
+            cbEmAndamento.Size = new Size(131, 19);
+            cbEmAndamento.TabIndex = 20;
+            cbEmAndamento.Text = "Somente Pendentes";
+            cbEmAndamento.UseVisualStyleBackColor = true;
+            // 
+            // lblTarefasPendentes
+            // 
+            lblTarefasPendentes.AutoSize = true;
+            lblTarefasPendentes.Location = new Point(1002, 9);
+            lblTarefasPendentes.Name = "lblTarefasPendentes";
+            lblTarefasPendentes.Size = new Size(277, 15);
+            lblTarefasPendentes.TabIndex = 21;
+            lblTarefasPendentes.Text = "O número de tarefas pendentes no momento é de: ";
+            // 
+            // clbDocumentos
+            // 
+            clbDocumentos.FormattingEnabled = true;
+            clbDocumentos.Items.AddRange(new object[] { "Taxa de alvará paga", "Bombeiro", "Vigilância Sanitária", "Taxa de Alvará Entregue" });
+            clbDocumentos.Location = new Point(729, 88);
+            clbDocumentos.Name = "clbDocumentos";
+            clbDocumentos.Size = new Size(165, 76);
+            clbDocumentos.TabIndex = 23;
+            clbDocumentos.ItemCheck += checkedListBox1_ItemCheck;
             // 
             // Codigo
             // 
@@ -217,15 +257,6 @@ namespace FiscoTask
             NOME.ReadOnly = true;
             NOME.Width = 67;
             // 
-            // CNPJs
-            // 
-            CNPJs.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            CNPJs.DataPropertyName = "CNPJ";
-            CNPJs.HeaderText = "CNPJ";
-            CNPJs.Name = "CNPJs";
-            CNPJs.ReadOnly = true;
-            CNPJs.Width = 59;
-            // 
             // CIDADE
             // 
             CIDADE.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -253,11 +284,44 @@ namespace FiscoTask
             Tipo.ReadOnly = true;
             Tipo.Width = 55;
             // 
+            // EntregaTaxaAlvara
+            // 
+            EntregaTaxaAlvara.DataPropertyName = "EntregaTaxaAlvara";
+            EntregaTaxaAlvara.HeaderText = "EntregaTaxaAlvara";
+            EntregaTaxaAlvara.Name = "EntregaTaxaAlvara";
+            EntregaTaxaAlvara.ReadOnly = true;
+            // 
+            // Bombeiro
+            // 
+            Bombeiro.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Bombeiro.DataPropertyName = "Bombeiro";
+            Bombeiro.HeaderText = "Bombeiro";
+            Bombeiro.Name = "Bombeiro";
+            Bombeiro.ReadOnly = true;
+            Bombeiro.Width = 65;
+            // 
+            // VigilanciaSanitaria
+            // 
+            VigilanciaSanitaria.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            VigilanciaSanitaria.DataPropertyName = "VigilanciaSanitaria";
+            VigilanciaSanitaria.HeaderText = "VigilanciaSanitaria";
+            VigilanciaSanitaria.Name = "VigilanciaSanitaria";
+            VigilanciaSanitaria.ReadOnly = true;
+            VigilanciaSanitaria.Width = 109;
+            // 
+            // TaxaAlvaraPgto
+            // 
+            TaxaAlvaraPgto.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            TaxaAlvaraPgto.DataPropertyName = "TaxaAlvaraPgto";
+            TaxaAlvaraPgto.HeaderText = "TaxaAlvaraPgto";
+            TaxaAlvaraPgto.Name = "TaxaAlvaraPgto";
+            TaxaAlvaraPgto.ReadOnly = true;
+            TaxaAlvaraPgto.Width = 94;
+            // 
             // Obs
             // 
             Obs.DataPropertyName = "Obs";
             Obs.HeaderText = "Obs";
-            Obs.MinimumWidth = 10;
             Obs.Name = "Obs";
             Obs.ReadOnly = true;
             // 
@@ -265,16 +329,28 @@ namespace FiscoTask
             // 
             Dtregistro.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             Dtregistro.DataPropertyName = "Dtregistro";
-            Dtregistro.HeaderText = "Dtregistro";
+            Dtregistro.HeaderText = "Data Registro";
             Dtregistro.Name = "Dtregistro";
             Dtregistro.ReadOnly = true;
-            Dtregistro.Width = 84;
+            Dtregistro.Width = 102;
+            // 
+            // CNPJs
+            // 
+            CNPJs.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            CNPJs.DataPropertyName = "CNPJ";
+            CNPJs.HeaderText = "CNPJ";
+            CNPJs.Name = "CNPJs";
+            CNPJs.ReadOnly = true;
+            CNPJs.Width = 59;
             // 
             // ConsultaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1344, 650);
+            Controls.Add(clbDocumentos);
+            Controls.Add(lblTarefasPendentes);
+            Controls.Add(cbEmAndamento);
             Controls.Add(dgTarefas2);
             Controls.Add(btnExport);
             Controls.Add(btnOutrosPendentes);
@@ -312,14 +388,21 @@ namespace FiscoTask
         private Button btnExport;
         private DataGridView dgTarefas2;
         private BindingSource dbTarefaBindingSource3;
+        private CheckBox cbEmAndamento;
+        private Label lblTarefasPendentes;
+        private CheckedListBox clbDocumentos;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Empresa;
         private DataGridViewTextBoxColumn NOME;
-        private DataGridViewTextBoxColumn CNPJs;
         private DataGridViewTextBoxColumn CIDADE;
         private DataGridViewTextBoxColumn Situacao;
         private DataGridViewTextBoxColumn Tipo;
+        private DataGridViewCheckBoxColumn EntregaTaxaAlvara;
+        private DataGridViewCheckBoxColumn Bombeiro;
+        private DataGridViewCheckBoxColumn VigilanciaSanitaria;
+        private DataGridViewCheckBoxColumn TaxaAlvaraPgto;
         private DataGridViewTextBoxColumn Obs;
         private DataGridViewTextBoxColumn Dtregistro;
+        private DataGridViewTextBoxColumn CNPJs;
     }
 }

@@ -22,9 +22,13 @@ namespace FiscoTask
         private string _CNPJ;
         private string _Cidade;
         private string _dtRegistro;
+        private bool _Bombeiro;
+        private bool _VigilanciaSanitaria;
+        private bool _TaxaAlvaraPgto;
+        private bool _EntregaTaxaAlvara;
 
         public ModTarefaForm(ConsultaTarefaForm parentForm, int codigo, int livro, string tipo, string situacao,
-                             string obs, string empresa, string cnpj, string cidade, string dtregistro)
+                             string obs, string empresa, string cnpj, string cidade, string dtregistro, bool bombeiro, bool vigilanciasanitaria, bool taxaalvarapgto, bool EntregaTaxaAlvara)
         {
             InitializeComponent();
 
@@ -38,7 +42,10 @@ namespace FiscoTask
             _CNPJ = cnpj;
             _Cidade = cidade;
             _dtRegistro = dtregistro;
-
+            _Bombeiro = bombeiro;
+            _VigilanciaSanitaria = vigilanciasanitaria;
+            _TaxaAlvaraPgto = taxaalvarapgto;
+            _EntregaTaxaAlvara = EntregaTaxaAlvara;
 
         }
         
@@ -52,6 +59,10 @@ namespace FiscoTask
                 Tipo = cbTipo.Text,
                 Situacao = cbSituacao.Text,
                 Obs = rtbObs.Text,
+                Bombeiro = cbBombeiro.Checked,
+                VigilanciaSanitaria = cbVigilanciaSanitaria.Checked,
+                TaxaAlvaraPgto = cbTaxaAlvaraPgto.Checked,
+                EntregaTaxaAlvara = cbEntregaTaxaAlvara.Checked,
             };
 
             db.UptadeTarefa(tarefaAtualizada);
@@ -59,6 +70,7 @@ namespace FiscoTask
 
             
             _parentForm.TarefaLoadind("Codigo", "DESC");
+            _parentForm.ApagarPesquisa();
 
             this.Close();
         }
@@ -74,6 +86,7 @@ namespace FiscoTask
                 db.DeleteTarefa(_Codigo);
                 MessageBox.Show($"O Registro foi definitivamente apagado.");
                 _parentForm.TarefaLoadind("Codigo", "DESC");
+                _parentForm.ApagarPesquisa();
                 this.Close();
             }
 
@@ -82,6 +95,7 @@ namespace FiscoTask
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             _parentForm.TarefaLoadind("Codigo", "DESC");
+            _parentForm.ApagarPesquisa();
             this.Close();
         }
 
@@ -96,8 +110,12 @@ namespace FiscoTask
             txtEmpresa.Text = _Empresa.ToString();
             txtCNPJ.Text = _CNPJ.ToString();
             txtDataRegistro.Text = _dtRegistro.ToString();
+            cbBombeiro.Checked = _Bombeiro;
+            cbVigilanciaSanitaria.Checked = _VigilanciaSanitaria;
+            cbTaxaAlvaraPgto.Checked = _TaxaAlvaraPgto;
+            cbEntregaTaxaAlvara.Checked = _EntregaTaxaAlvara;
 
-            rtbObs.Text += $" \n--------------------------- \n{DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")} \n";
+            rtbObs.Text += $" \n\n--------------------------- \n{DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")} \n";
         }
     }
 }

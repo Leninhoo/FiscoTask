@@ -102,6 +102,9 @@
             dbSocioBindingSource = new BindingSource(components);
             label22 = new Label();
             lblEscritorio = new Label();
+            rtbInfoCNPJ = new RichTextBox();
+            label6 = new Label();
+            btnInfoCNPJ = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgSocios).BeginInit();
@@ -741,11 +744,41 @@
             lblEscritorio.TabIndex = 27;
             lblEscritorio.Text = "ESCRITORIO";
             // 
+            // rtbInfoCNPJ
+            // 
+            rtbInfoCNPJ.Location = new Point(1272, 85);
+            rtbInfoCNPJ.Name = "rtbInfoCNPJ";
+            rtbInfoCNPJ.Size = new Size(533, 944);
+            rtbInfoCNPJ.TabIndex = 28;
+            rtbInfoCNPJ.Text = "";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(1272, 63);
+            label6.Name = "label6";
+            label6.Size = new Size(114, 15);
+            label6.TabIndex = 29;
+            label6.Text = "Informações Receita";
+            // 
+            // btnInfoCNPJ
+            // 
+            btnInfoCNPJ.Location = new Point(1678, 55);
+            btnInfoCNPJ.Name = "btnInfoCNPJ";
+            btnInfoCNPJ.Size = new Size(127, 23);
+            btnInfoCNPJ.TabIndex = 30;
+            btnInfoCNPJ.Text = "Buscar Informações";
+            btnInfoCNPJ.UseVisualStyleBackColor = true;
+            btnInfoCNPJ.Click += btnInfoCNPJ_Click;
+            // 
             // ConsultaIndEmpresa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1190, 898);
+            ClientSize = new Size(1904, 1041);
+            Controls.Add(btnInfoCNPJ);
+            Controls.Add(label6);
+            Controls.Add(rtbInfoCNPJ);
             Controls.Add(lblEscritorio);
             Controls.Add(label22);
             Controls.Add(dgSocios);
@@ -850,5 +883,7 @@
         private DataGridViewTextBoxColumn pROLABOREDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn sIGNATARIODataGridViewTextBoxColumn;
         private Label lblEscritorio;
+        private RichTextBox rtbInfoCNPJ;
+        private Button btnInfoCNPJ;
     }
 }

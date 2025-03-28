@@ -6,12 +6,17 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyVersion></AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
     <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="EntityFramework.Firebird" Version="10.1.0" />
     <PackageReference Include="EPPlus" Version="7.5.3" />
+    <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="10.3.2" />
     <PackageReference Include="MySqlConnector" Version="2.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,5 +33,91 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="FirebirdEmbeddedArchives\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="FirebirdEmbeddedArchives\fbclient.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\fbembed.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\fbintl.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\firebird.conf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\firebird.log">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\firebird.msg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\icudt52.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\icudt52l.dat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\icuin52.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\icuuc52.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\intl\fbintl.conf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\intl\fbintl.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\engine12.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\fbtrace.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\fbtrace.pdb">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\legacy_auth.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\legacy_auth.pdb">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\legacy_usermanager.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\legacy_usermanager.pdb">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\srp.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\srp.pdb">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\udr\udrcpp_example.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\udr_engine.conf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\udr_engine.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="FirebirdEmbeddedArchives\plugins\udr_engine.pdb">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /E /Y /I &quot;$(ProjectDir)FirebirdEmbeddedArchives\*&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;" />
+  </Target>
 
 </Project>

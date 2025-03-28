@@ -168,7 +168,7 @@
             cbSituacao.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbSituacao.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbSituacao.FormattingEnabled = true;
-            cbSituacao.Items.AddRange(new object[] { "Em andamento", "Aguardando terceiro", "Encerrado", "Pagamento alvará", "Solicitar Vigilância", "Vigilância solicitada", "Solicitar Bombeiro", "Aguardando pagamento bombeiro", "Solicitar alvará", "Alvará solicitado para Prefeitura" });
+            cbSituacao.Items.AddRange(new object[] { "Em andamento", "Encerrado" });
             cbSituacao.Location = new Point(67, 181);
             cbSituacao.Name = "cbSituacao";
             cbSituacao.Size = new Size(248, 23);

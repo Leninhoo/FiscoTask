@@ -45,10 +45,10 @@
             label17 = new Label();
             cbTipoDoc = new ComboBox();
             bDdoctypeBindingSource = new BindingSource(components);
-            dtpVencimento = new DateTimePicker();
             rtbObs = new RichTextBox();
             label3 = new Label();
             btnInsert = new Button();
+            txtVencimento = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)dgEmpresas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bDdoctypeBindingSource).BeginInit();
@@ -183,14 +183,6 @@
             // 
             bDdoctypeBindingSource.DataMember = "BDdoctype";
             // 
-            // dtpVencimento
-            // 
-            dtpVencimento.Format = DateTimePickerFormat.Short;
-            dtpVencimento.Location = new Point(109, 348);
-            dtpVencimento.Name = "dtpVencimento";
-            dtpVencimento.Size = new Size(227, 23);
-            dtpVencimento.TabIndex = 35;
-            // 
             // rtbObs
             // 
             rtbObs.Location = new Point(74, 380);
@@ -218,15 +210,24 @@
             btnInsert.UseVisualStyleBackColor = true;
             btnInsert.Click += btnInsert_Click;
             // 
+            // txtVencimento
+            // 
+            txtVencimento.Location = new Point(111, 348);
+            txtVencimento.Mask = "00/00/0000";
+            txtVencimento.Name = "txtVencimento";
+            txtVencimento.Size = new Size(72, 23);
+            txtVencimento.TabIndex = 39;
+            txtVencimento.ValidatingType = typeof(DateTime);
+            // 
             // RegistroDocForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(956, 631);
+            Controls.Add(txtVencimento);
             Controls.Add(btnInsert);
             Controls.Add(label3);
             Controls.Add(rtbObs);
-            Controls.Add(dtpVencimento);
             Controls.Add(cbTipoDoc);
             Controls.Add(label17);
             Controls.Add(label16);
@@ -269,5 +270,6 @@
         private Label label3;
         private BindingSource bDdoctypeBindingSource;
         private Button btnInsert;
+        private MaskedTextBox txtVencimento;
     }
 }

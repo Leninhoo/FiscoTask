@@ -13,6 +13,7 @@ namespace FiscoTask
     public partial class ConsultaIndEmpresa : Form
     {
         DbSocio dbsocio = new DbSocio();
+        private readonly ConsultaCNPJ consultacnpj = new ConsultaCNPJ();
 
 
         private int _EMPRESA;
@@ -77,7 +78,7 @@ namespace FiscoTask
             txtCEP.Text = _CEP.ToString();
 
             rtbQualificacao.Text = $"{_NOME}, pessoa jurídica de direito privado inscrita no CNPJ sob n° {_CNPJ}," +
-                $"com sede no endereço {_ENDERECO}, n° {_NUMERO}, {_COMPLEMENTO}, bairro {_BAIRRO}, na cidade de {_CIDADE} - {_UF}," +
+                $" com sede no endereço {_ENDERECO}, n° {_NUMERO}, {_COMPLEMENTO}, bairro {_BAIRRO}, na cidade de {_CIDADE} - {_UF}," +
                 $" CEP: {_CEP}";
 
             var notes = new dbNotas();
@@ -93,18 +94,22 @@ namespace FiscoTask
                 {
                     // Obtenha o conteúdo do campo NOTAS da primeira linha encontrada
                     string nota = rows[0]["NOTAS"]?.ToString() ?? "Nota não disponível";
+                    string ApiCNPJ = rows[0]["InfoCNPJ"]?.ToString() ?? "informações naõ registradas no Banco de dados";
 
                     // Exiba apenas o conteúdo do campo NOTAS no RichTextBox
                     rtbNotas.Text = nota;
+                    rtbInfoCNPJ.Text = ApiCNPJ;
                 }
                 else
                 {
                     rtbNotas.Text = $"Nenhuma nota encontrada para a ID: {livro}.";
+                    rtbInfoCNPJ.Text = $"informações não registradas no Banco de dados para a ID: {livro}.";
                 }
             }
             else
             {
                 rtbNotas.Text = "ID inválida. Por favor, insira um número válido.";
+                rtbInfoCNPJ.Text = $"inválida. Por favor, insira um número válido.";
             }
 
             var responsavel = new DbResponsaveis();
@@ -140,11 +145,11 @@ namespace FiscoTask
         private void button1_Click(object sender, EventArgs e)
         {
             var notas = new dbNotas();
-            notas.UpdateInsertNotas(int.Parse(txtLivro.Text), rtbNotas.Text);
+            notas.UpdateInsertNotas(int.Parse(txtLivro.Text), rtbNotas.Text, rtbInfoCNPJ.Text);
 
         }
 
-        private void LoadSocios (string coluna, string ordem, string livro)
+        private void LoadSocios(string coluna, string ordem, string livro)
         {
             string filtroempresa = livro;
             var table = dbsocio.ReadSocio();
@@ -156,7 +161,7 @@ namespace FiscoTask
             dgSocios.DataSource = table.DefaultView.ToTable();
         }
 
-        private void DescobrirEscritorio (int livro)
+        private void DescobrirEscritorio(int livro)
         {
             if (livro <= 0)
             {
@@ -165,6 +170,89 @@ namespace FiscoTask
             else
             {
                 lblEscritorio.Text = "EMPRESA CADASTRADA NA FISCONORTE";
+            }
+        }
+
+        private async void btnInfoCNPJ_Click(object sender, EventArgs e)
+        {
+            string cnpj = txtCNPJ.Text.Trim().Replace(".", "").Replace("/", "").Replace("-", "");
+
+            if (cnpj.Length != 14)
+            {
+                MessageBox.Show("CNPJ inválido! Insira um CNPJ com 14 números.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            rtbInfoCNPJ.Clear();
+            rtbInfoCNPJ.Text = "Buscando...";
+
+            EmpresaAPI? empresa = await consultacnpj.BuscarEmpresaCNPJ(cnpj);
+
+            string canesSecundarios = empresa.cnaes_secundarios != null && empresa.cnaes_secundarios.Count > 0
+                ? string.Join(", ", empresa.cnaes_secundarios.Select(c => $"{c.codigo} - {c.descricao}")) : "Nenhum CNAE secundário encontrado.";
+
+            string QSA = empresa.qsa != null && empresa.qsa.Count > 0
+                ? string.Join("\n", empresa.qsa.Select(s => $"{s.nome_socio} - {s.qualificacao_socio}")) : "Nenhum sócio cadastrado.";
+      
+
+
+            if (empresa != null)
+            {
+                rtbInfoCNPJ.Text = $"Razão Social: {empresa.razao_social}\n" +
+                                    $"Nome Fantasia: {empresa.nome_fantasia}\n" +
+
+                                    "\n" +
+                                    "CNAE PRINCIPAL \n" +
+                                    "\n" +
+                                    $"CNAE: {empresa.cnae_fiscal}\n" +
+                                    $"Descrição: {empresa.cnae_fiscal_descricao}\n" +
+
+                                    "\n" +
+                                    "CNAEs  SECUNDÁRIOS \n" +
+                                    "\n" +
+
+                                    $"CNAEs Secundários: {canesSecundarios}\n" +
+
+                                    "\n" +
+                                    "SÓCIOS REGISTRADOS NA RECEITA \n" +
+                                    "\n" +
+
+                                    $"Sócios: {QSA}\n" +
+
+                                    "\n" +
+                                    "ENDEREÇO \n" +
+                                    "\n" +
+
+
+                                    $"Município: {empresa.municipio} - {empresa.uf}\n" +
+                                    $"Rua: {empresa.logradouro}\n" +
+                                    $"Número: {empresa.numero}\n" +
+                                    $"Complemento: {empresa.complemento}\n" +
+                                    $"Bairro: {empresa.bairro}\n" +
+                                    $"CEP: {empresa.cep}\n" +
+                                    $"Número: {empresa.numero}\n" +
+
+                                    "\n" +
+                                    "CONTATOS \n" +
+                                    "\n" +
+
+                                    $"Fax: {empresa.ddd_fax} - Telefone 1 {empresa.ddd_telefone_1} - Telefone 2 {empresa.ddd_telefone_2}\n" +
+
+                                    "\n" +
+                                    "OUTRAS INFORMAÇÕES \n" +
+                                    "\n" +
+
+                                    $"Início Atividade: {empresa.data_inicio_atividade}\n" +
+                                    $"Situação Cadastral: {empresa.situacao_cadastral} com data de {empresa.data_situacao_cadastral} \n" +
+                                    $"Opção pelo simples: {empresa.opcao_pelo_simples} - Data: {empresa.data_opcao_pelo_simples} - Data da Exclusão: {empresa.data_exclusao_do_simples}\n" +
+                                    $"Opção pelo MEI: {empresa.opcao_pelo_mei} - Data: {empresa.data_opcao_pelo_mei} - Data da Exclusão: {empresa.data_exclusao_do_mei}\n" +
+                                    $"Capital Social: {empresa.capital_social}\n" +
+                                    $"Porte da empresa: {empresa.codigo_porte} - {empresa.porte} - {empresa.descricao_porte}\n" 
+                                    
+                                    ;
+            }
+            else
+            {
+                rtbInfoCNPJ.Text = "Empresa não encontrada.";
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dapper;
 using MySqlConnector;
 using System.Data;
+using System.Reflection;
 
 namespace FiscoTask
 {
@@ -43,6 +44,8 @@ namespace FiscoTask
         public string NOME { get; set; }
         public string CNPJ { get; set; }
         public string CIDADE { get; set; }
+
+
         public DataTable ReadSocio()
         {
             try
@@ -81,6 +84,90 @@ namespace FiscoTask
 
             }
 
+        }
+
+        public void InserirSociosNoBanco(List<DbSocio> socios)
+        {
+            try
+            {
+                using var connection = new MySqlConnection(stringconnection);
+                connection.Open();
+
+                connection.Execute("DELETE FROM SOCIOS");
+
+
+
+
+
+                string sql = $@"INSERT INTO SOCIOS (
+                                    EMPRESA,
+                                    CPF,
+                                    RG,
+                                    SOCIO,
+                                    ENDERECO,
+                                    BAIRRO,
+                                    CEP,
+                                    FONE,
+                                    CAPITAL,
+                                    FUNCAO,
+                                    ASSINA,
+                                    DATA_NASCIMENTO,
+                                    DATA_ADMISSAO,
+                                    DATA_DESLIGAMENTO,
+                                    DT_ALT_SOC,
+                                    DT_FIM_SOC,
+                                    FUNDO_INVEST,
+                                    PERC_CAP_VOT,
+                                    CPF_REP_LEG,
+                                    QUALIFICACAO,
+                                    QUALIF_REP_LEG,
+                                    DIST_LUCRO,
+                                    IR,
+                                    PRO_LABORE,
+                                    BIN_ASSINATURA,
+                                    SIGNATARIO
+                                )
+                                VALUES (
+                                    @EMPRESA,
+                                    @CPF,
+                                    @RG,
+                                    @SOCIO,
+                                    @ENDERECO,
+                                    @BAIRRO,
+                                    @CEP,
+                                    @FONE,
+                                    @CAPITAL,
+                                    @FUNCAO,
+                                    @ASSINA,
+                                    @DATA_NASCIMENTO,
+                                    @DATA_ADMISSAO,
+                                    @DATA_DESLIGAMENTO,
+                                    @DT_ALT_SOC,
+                                    @DT_FIM_SOC,
+                                    @FUNDO_INVEST,
+                                    @PERC_CAP_VOT,
+                                    @CPF_REP_LEG,
+                                    @QUALIFICACAO,
+                                    @QUALIF_REP_LEG,
+                                    @DIST_LUCRO,
+                                    @IR,
+                                    @PRO_LABORE,
+                                    @BIN_ASSINATURA,
+                                    @SIGNATARIO
+                                );
+                                ";
+
+                foreach (var socio in socios)
+                {
+                    connection.Execute(sql, socio);
+                }
+
+                MessageBox.Show("Empresas inseridas com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

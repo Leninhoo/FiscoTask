@@ -75,6 +75,7 @@ namespace FiscoTask
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadDocuments("IdDoc", "DESC");
+            LoadVencendo("Vencimentodoc", "ASC");
         }
 
         private void dgConsultaDocumentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -84,7 +85,7 @@ namespace FiscoTask
                 var row = dgConsultaDocumentos.Rows[e.RowIndex];
 
                 // Extrai os dados da linha, com tratamento para valores nulos
-                int idDoc = Convert.ToInt32(row.Cells["IdDoc"].Value);
+                int idDoc = Convert.ToInt32(row.Cells["Id"].Value);
                 int livro = Convert.ToInt32(row.Cells["Livro"].Value);
                 string dtRegistro = row.Cells["DtRegistro"].Value?.ToString() ?? string.Empty;
                 DateTime vencimentoDoc = Convert.ToDateTime(row.Cells["Vencimentodoc"].Value);
@@ -93,6 +94,49 @@ namespace FiscoTask
                 string nome = row.Cells["NOME"].Value?.ToString() ?? string.Empty;
                 string cnpj = row.Cells["CNPJ"].Value?.ToString() ?? string.Empty;
                 string cidade = row.Cells["CIDADE"].Value?.ToString() ?? string.Empty;
+
+                // Passa os dados para o formulário secundário
+                var formDetalhes = new ModDocForm(
+                    idDoc,
+                    livro,
+                    dtRegistro,
+                    vencimentoDoc,
+                    obs,
+                    tipo,
+                    nome,
+                    cnpj,
+                    cidade
+                );
+                formDetalhes.ShowDialog();
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            ExportExcel.ExportarParaExcel(dgConsultaDocumentos);
+        }
+
+        private void btnExportarVencendo_Click(object sender, EventArgs e)
+        {
+            ExportExcel.ExportarParaExcel(dgVencendo);
+        }
+
+        private void dgVencendo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var row = dgVencendo.Rows[e.RowIndex];
+
+                // Extrai os dados da linha, com tratamento para valores nulos
+                int idDoc = Convert.ToInt32(row.Cells["IdDoc1"].Value);
+                int livro = Convert.ToInt32(row.Cells["Livro1"].Value);
+                string dtRegistro = row.Cells["DtRegistro1"].Value?.ToString() ?? string.Empty;
+                DateTime vencimentoDoc = Convert.ToDateTime(row.Cells["Vencimentodoc1"].Value);
+                string obs = row.Cells["Obs1"].Value?.ToString() ?? string.Empty;
+                string tipo = row.Cells["Tipo1"].Value?.ToString() ?? string.Empty;
+                string nome = row.Cells["NOME1"].Value?.ToString() ?? string.Empty;
+                string cnpj = row.Cells["CNPJ1"].Value?.ToString() ?? string.Empty;
+                string cidade = row.Cells["CIDADE1"].Value?.ToString() ?? string.Empty;
 
                 // Passa os dados para o formulário secundário
                 var formDetalhes = new ModDocForm(
