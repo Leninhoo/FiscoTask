@@ -344,11 +344,11 @@ namespace FiscoTask
                     connection.Execute(sql, empresa);
                 }
 
-                MessageBox.Show("Empresas inseridas com sucesso!");
+                System.Windows.Forms.MessageBox.Show("Empresas inseridas com sucesso!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 

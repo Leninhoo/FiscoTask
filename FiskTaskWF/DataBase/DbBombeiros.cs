@@ -92,6 +92,7 @@ namespace FiscoTask
             }
             catch (Exception ex)
             {
+                throw new Exception($"Erro ao deletar a Processo: {ex.Message}");
 
             }
         }

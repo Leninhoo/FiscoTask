@@ -22,10 +22,13 @@ namespace FiscoTask
         public bool VigilanciaSanitaria { get; set; }
         public bool TaxaAlvaraPgto { get; set; }
         public bool EntregaTaxaAlvara { get; set; }
+        public string? Fase { get; set; }
+        public bool Ativo { get; set; }
+        public byte[]? Arquivo { get; set; } 
 
-        public string NOME { get; set; }
-        public string CNPJ { get; set; }
-        public string CIDADE { get; set; }
+        public string? NOME { get; set; }
+        public string? CNPJ { get; set; }
+        public string? CIDADE { get; set; }
 
         
 
@@ -39,9 +42,9 @@ namespace FiscoTask
                 {
                     string query = @"
                                     INSERT INTO Tarefas
-                                        (Empresa, Situacao, Obs, Dtregistro, Tipo, Bombeiro, VigilanciaSanitaria, TaxaAlvaraPgto, EntregaTaxaAlvara)
+                                        (Empresa, Situacao, Obs, Dtregistro, Tipo, Bombeiro, VigilanciaSanitaria, TaxaAlvaraPgto, EntregaTaxaAlvara, Fase, Ativo, Arquivo)
                                     VALUES
-                                        ( @Empresa, @Situacao, @Obs, @Dtregistro, @Tipo, @Bombeiro, @VigilanciaSanitaria, @TaxaAlvaraPgto, @EntregaTaxaAlvara)";
+                                        ( @Empresa, @Situacao, @Obs, @Dtregistro, @Tipo, @Bombeiro, @VigilanciaSanitaria, @TaxaAlvaraPgto, @EntregaTaxaAlvara, @Fase, @Ativo, @Arquivo)";
 
                     connection.Execute(query, new
                     {
@@ -54,6 +57,9 @@ namespace FiscoTask
                         dbTarefa.VigilanciaSanitaria,
                         dbTarefa.TaxaAlvaraPgto,
                         dbTarefa.EntregaTaxaAlvara,
+                        dbTarefa.Fase,
+                        dbTarefa.Ativo,
+                        dbTarefa.Arquivo,
 
                     });
 
@@ -82,7 +88,10 @@ namespace FiscoTask
                                         Bombeiro = @Bombeiro,
                                         VigilanciaSanitaria = @VigilanciaSanitaria,
                                         TaxaAlvaraPgto = @TaxaAlvaraPgto,
-                                        EntregaTaxaAlvara = @EntregaTaxaAlvara
+                                        EntregaTaxaAlvara = @EntregaTaxaAlvara,
+                                        Fase = @Fase,
+                                        Ativo = @Ativo,
+                                        Arquivo = @Arquivo
                                     WHERE Codigo = @Codigo";
 
                     connection.Execute(query, new
@@ -96,6 +105,10 @@ namespace FiscoTask
                         dbTarefa.VigilanciaSanitaria,
                         dbTarefa.TaxaAlvaraPgto,
                         dbTarefa.EntregaTaxaAlvara,
+                        dbTarefa.Fase,
+                        dbTarefa.Ativo,
+                        dbTarefa.Arquivo
+
 
                     });
 
@@ -166,6 +179,34 @@ namespace FiscoTask
 
             }
 
+        }
+        public DbTarefa ReadTarefaByCodigo(int codigo)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(stringconnection))
+                {
+                    string query = @"
+                SELECT
+                    Tarefas.*,
+                    vwEmpresas.Nome,
+                    vwEmpresas.CNPJ,
+                    vwEmpresas.Cidade
+                FROM
+                    Tarefas
+                INNER JOIN
+                    vwEmpresas
+                ON
+                    Tarefas.Empresa = vwEmpresas.EMPRESA
+                WHERE
+                    Tarefas.Codigo = @Codigo";
+                    return connection.QueryFirstOrDefault<DbTarefa>(query, new { Codigo = codigo });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao buscar Tarefa: {ex.Message}");
+            }
         }
 
     }

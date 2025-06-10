@@ -54,8 +54,8 @@ namespace FiscoTask
 
             }
             catch (Exception ex)
-            {                
-                MessageBox.Show($"Erro ao listar empresas: {ex.Message}");
+            {
+                System.Windows.Forms.MessageBox.Show($"Erro ao listar empresas: {ex.Message}");
                 return new BindingList<EmpresaView>();
             }
         }

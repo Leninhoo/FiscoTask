@@ -33,6 +33,9 @@ namespace FiscoTask
             int rowCount = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Situacao = 'Em Andamento'").Length;
             lblTarefasPendentes.Text = $"O número de tarefas pendentes no total é de: {rowCount}";
 
+            int rowCountAtivo = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Ativo = true").Length;
+            lblTarefasAtivas.Text = $"O número de tarefas ativas no total é de: {rowCountAtivo}";
+
         }
         public void ApagarPesquisa()
         {
@@ -90,7 +93,7 @@ namespace FiscoTask
             if (dataTable != null)
             {
                 dataTable.DefaultView.RowFilter = string.Format(
-                    "Situacao LIKE '%{0}%'", filtro
+                    "Fase LIKE '%{0}%'", filtro
                 );
             }
 
@@ -106,7 +109,7 @@ namespace FiscoTask
             if (dataTable != null)
             {
                 dataTable.DefaultView.RowFilter = string.Format(
-                    "Tipo LIKE '%{0}%'", filtro
+                    "Situacao LIKE '%{0}%'", filtro
                 );
             }
             cbSituacao.SelectedItem = -1;
@@ -118,7 +121,7 @@ namespace FiscoTask
             var dataTable = (dgTarefas2.DataSource as DataTable);
             if (dataTable != null)
             {
-                dataTable.DefaultView.RowFilter = string.Format("Tipo LIKE 'Alvará' AND Situacao <> 'Encerrado'");
+                dataTable.DefaultView.RowFilter = string.Format("Ativo = true");
             }
             cbSituacao.SelectedItem = -1;
             cbSituacao.Text = "";
@@ -155,7 +158,7 @@ namespace FiscoTask
                 string nome = row.Cells["NOME"].Value?.ToString() ?? string.Empty;
                 string cnpj = row.Cells["CNPJs"].Value?.ToString() ?? string.Empty;
                 string cidade = row.Cells["CIDADE"].Value?.ToString() ?? string.Empty;
-                string tipo = row.Cells["Tipo"].Value?.ToString() ?? string.Empty;
+                //string tipo = row.Cells["Tipo"].Value?.ToString() ?? string.Empty;
                 string situacao = row.Cells["Situacao"].Value?.ToString() ?? string.Empty;
                 string obs = row.Cells["Obs"].Value?.ToString() ?? string.Empty;
                 string dtregistro = row.Cells["Dtregistro"].Value?.ToString() ?? string.Empty;
@@ -163,12 +166,13 @@ namespace FiscoTask
                 bool vigilanciasanitaria = Convert.ToBoolean(row.Cells["VigilanciaSanitaria"].Value);
                 bool taxaalvarapgto = Convert.ToBoolean(row.Cells["TaxaAlvaraPgto"].Value);
                 bool entregataxaalvara = Convert.ToBoolean(row.Cells["EntregaTaxaAlvara"].Value);
+                string fase = row.Cells["Fase"].Value?.ToString() ?? string.Empty;
+                bool ativo = Convert.ToBoolean(row.Cells["Ativo"].Value);
 
                 var formDetalhes = new ModTarefaForm(
                     this,
                     codigo,
                     livro,
-                    tipo,
                     situacao,
                     obs,
                     nome,
@@ -178,7 +182,9 @@ namespace FiscoTask
                     bombeiro,
                     vigilanciasanitaria,
                     taxaalvarapgto,
-                    entregataxaalvara
+                    entregataxaalvara,
+                    fase,
+                    ativo
                 );
 
                 formDetalhes.ShowDialog();
@@ -203,7 +209,7 @@ namespace FiscoTask
 
             for (int i = 0; i < clbDocumentos.Items.Count; i++)
             {
-                string item = clbDocumentos.Items[i].ToString();
+                string? item = clbDocumentos.Items[i].ToString();
                 bool isChecked = clbDocumentos.GetItemChecked(i);
 
                 // Ajusta o estado do item que está sendo alterado

@@ -7,11 +7,17 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyVersion></AssemblyVersion>
+    <ApplicationIcon>image sem fundo.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="image sem fundo.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="33.0.1" />
     <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="DevExpress.Win.Design" Version="24.2.7" />
     <PackageReference Include="EntityFramework.Firebird" Version="10.1.0" />
     <PackageReference Include="EPPlus" Version="7.5.3" />
     <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="10.3.2" />

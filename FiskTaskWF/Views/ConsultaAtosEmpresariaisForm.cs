@@ -53,7 +53,7 @@ namespace FiscoTask
 
         private void dgAtosEmpresariais_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 var row = dgAtosEmpresariais.Rows[e.RowIndex];
 
@@ -82,9 +82,14 @@ namespace FiscoTask
                     OBS);
 
                 formDetalhes.ShowDialog();
-                
+
 
             }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

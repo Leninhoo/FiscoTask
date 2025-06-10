@@ -19,12 +19,13 @@ namespace FiscoTask
         public string CNPJ { get; set; }
         public string CIDADE { get; set; }
 
-        public void UpdateInsertNotas(int livros, string notas, string infocnpj)
+        public void UpdateInsertNotas(int livros, string notas, string infocnpjs)
         {
             try
             {
-                int livro = livros; // Obtém o valor do LIVRO do TextBox
-                string nota = notas;        // Obtém o valor das NOTAS do RichTextBox
+                //int livro = livros; // Obtém o valor do LIVRO do TextBox
+                //string nota = notas;        // Obtém o valor das NOTAS do RichTextBox
+                //string infocnpj = infocnpjs; // Obtém o valor do InfoCNPJ do RichTextBox    
 
                 using (var connection = new MySqlConnection(stringconnection))
                 {
@@ -32,10 +33,11 @@ namespace FiscoTask
                 INSERT INTO NOTES (LIVRO, NOTAS, InfoCNPJ)
                 VALUES (@LIVRO, @NOTAS, @InfoCNPJ)
                 ON DUPLICATE KEY UPDATE
-                    NOTAS = VALUES(NOTAS);";
+                    NOTAS = VALUES(NOTAS),
+                    InfoCNPJ = VALUES(InfoCNPJ)";
 
                     // Executa o comando SQL
-                    connection.Execute(query, new { LIVRO = livro, NOTAS = notas, InfoCNPJ = infocnpj });
+                    connection.Execute(query, new { LIVRO = livros, NOTAS = notas, InfoCNPJ = infocnpjs });
                 }
 
                 MessageBox.Show("Nota salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

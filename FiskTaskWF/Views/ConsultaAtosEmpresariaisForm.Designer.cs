@@ -205,6 +205,7 @@
             btnExport.Text = "Exportar";
             btnExport.TextAlign = ContentAlignment.MiddleRight;
             btnExport.UseVisualStyleBackColor = true;
+            btnExport.Click += btnExport_Click;
             // 
             // ConsultaAtosEmpresariaisForm
             // 

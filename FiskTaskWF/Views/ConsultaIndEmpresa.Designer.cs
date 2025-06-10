@@ -195,7 +195,7 @@
             label9.AutoSize = true;
             label9.Location = new Point(6, 204);
             label9.Name = "label9";
-            label9.Size = new Size(51, 15);
+            label9.Size = new Size(52, 15);
             label9.TabIndex = 14;
             label9.Text = "Telefone";
             // 
@@ -748,7 +748,7 @@
             // 
             rtbInfoCNPJ.Location = new Point(1272, 85);
             rtbInfoCNPJ.Name = "rtbInfoCNPJ";
-            rtbInfoCNPJ.Size = new Size(533, 944);
+            rtbInfoCNPJ.Size = new Size(533, 855);
             rtbInfoCNPJ.TabIndex = 28;
             rtbInfoCNPJ.Text = "";
             // 
@@ -775,7 +775,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(1904, 957);
             Controls.Add(btnInfoCNPJ);
             Controls.Add(label6);
             Controls.Add(rtbInfoCNPJ);

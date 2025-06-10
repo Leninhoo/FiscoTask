@@ -48,9 +48,9 @@
             atosEmpresariaisToolStripMenuItem = new ToolStripMenuItem();
             consultarAtosToolStripMenuItem = new ToolStripMenuItem();
             registrarAtoToolStripMenuItem = new ToolStripMenuItem();
-            Logo = new PictureBox();
             ajustesToolStripMenuItem = new ToolStripMenuItem();
             atualizarBancoDeDadosToolStripMenuItem = new ToolStripMenuItem();
+            Logo = new PictureBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
@@ -152,20 +152,20 @@
             // 
             tarefasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registroDeTarefasToolStripMenuItem, consultaDeTarefasToolStripMenuItem, atosEmpresariaisToolStripMenuItem });
             tarefasToolStripMenuItem.Name = "tarefasToolStripMenuItem";
-            tarefasToolStripMenuItem.Size = new Size(55, 20);
+            tarefasToolStripMenuItem.Size = new Size(56, 20);
             tarefasToolStripMenuItem.Text = "Tarefas";
             // 
             // registroDeTarefasToolStripMenuItem
             // 
             registroDeTarefasToolStripMenuItem.Name = "registroDeTarefasToolStripMenuItem";
-            registroDeTarefasToolStripMenuItem.Size = new Size(180, 22);
+            registroDeTarefasToolStripMenuItem.Size = new Size(177, 22);
             registroDeTarefasToolStripMenuItem.Text = "Registro de Tarefas";
             registroDeTarefasToolStripMenuItem.Click += registroDeTarefasToolStripMenuItem_Click;
             // 
             // consultaDeTarefasToolStripMenuItem
             // 
             consultaDeTarefasToolStripMenuItem.Name = "consultaDeTarefasToolStripMenuItem";
-            consultaDeTarefasToolStripMenuItem.Size = new Size(180, 22);
+            consultaDeTarefasToolStripMenuItem.Size = new Size(177, 22);
             consultaDeTarefasToolStripMenuItem.Text = "Consulta de Tarefas";
             consultaDeTarefasToolStripMenuItem.Click += consultaDeTarefasToolStripMenuItem_Click;
             // 
@@ -173,7 +173,7 @@
             // 
             atosEmpresariaisToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultarAtosToolStripMenuItem, registrarAtoToolStripMenuItem });
             atosEmpresariaisToolStripMenuItem.Name = "atosEmpresariaisToolStripMenuItem";
-            atosEmpresariaisToolStripMenuItem.Size = new Size(180, 22);
+            atosEmpresariaisToolStripMenuItem.Size = new Size(177, 22);
             atosEmpresariaisToolStripMenuItem.Text = "Atos Empresariais";
             // 
             // consultarAtosToolStripMenuItem
@@ -190,17 +190,6 @@
             registrarAtoToolStripMenuItem.Text = "Registrar Ato";
             registrarAtoToolStripMenuItem.Click += registrarAtoToolStripMenuItem_Click;
             // 
-            // Logo
-            // 
-            Logo.BackgroundImageLayout = ImageLayout.None;
-            Logo.Image = (Image)resources.GetObject("Logo.Image");
-            Logo.Location = new Point(396, 98);
-            Logo.Name = "Logo";
-            Logo.Size = new Size(432, 356);
-            Logo.SizeMode = PictureBoxSizeMode.Zoom;
-            Logo.TabIndex = 1;
-            Logo.TabStop = false;
-            // 
             // ajustesToolStripMenuItem
             // 
             ajustesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { atualizarBancoDeDadosToolStripMenuItem });
@@ -214,6 +203,17 @@
             atualizarBancoDeDadosToolStripMenuItem.Size = new Size(208, 22);
             atualizarBancoDeDadosToolStripMenuItem.Text = "Atualizar Banco de Dados";
             atualizarBancoDeDadosToolStripMenuItem.Click += atualizarBancoDeDadosToolStripMenuItem_Click;
+            // 
+            // Logo
+            // 
+            Logo.BackgroundImageLayout = ImageLayout.None;
+            Logo.Image = (Image)resources.GetObject("Logo.Image");
+            Logo.Location = new Point(396, 98);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(432, 356);
+            Logo.SizeMode = PictureBoxSizeMode.Zoom;
+            Logo.TabIndex = 1;
+            Logo.TabStop = false;
             // 
             // Form1
             // 
