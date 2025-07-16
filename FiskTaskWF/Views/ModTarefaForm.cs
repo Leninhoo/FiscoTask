@@ -65,7 +65,7 @@ namespace FiscoTask
             byte[] fileData;
             using (MemoryStream ms = new MemoryStream())
             {
-                recNotas.Rec.SaveDocument(ms, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+                recControl1.Rec.SaveDocument(ms, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
                 fileData = ms.ToArray();
             }
 
@@ -142,6 +142,9 @@ namespace FiscoTask
 
             CorAtividade();
 
+            registrarBombeiroControl1.NumeroLivro = txtLivro.Text;
+            registroDocumentoControl1.NumeroLivro = txtLivro.Text;
+
             try
             {
                 DadosEmpresas();
@@ -149,6 +152,7 @@ namespace FiscoTask
                 DadosProcessoBombeiro(txtLivro.Text, "DATA_REGISTRO", "DESC");
                 DadosDocumentos(txtLivro.Text, "Vencimentodoc", "DESC");
                 Anotacoes();
+
             }
             catch (Exception ex)
             {
@@ -212,13 +216,13 @@ namespace FiscoTask
                     byte[] fileData = tarefa.Arquivo;
                     using (MemoryStream ms = new MemoryStream(fileData))
                     {
-                        recNotas.Rec.LoadDocument(ms, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+                        recControl1.Rec.LoadDocument(ms, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
                     }
                 }
                 else
                 {
                     // Limpa o editor se não houver arquivo no banco
-                    recNotas.Rec.CreateNewDocument();
+                    recControl1.Rec.CreateNewDocument();
                     MessageBox.Show("Nenhuma anotação encontrada. Um novo documento foi criado.");
                 }
             }
@@ -313,7 +317,7 @@ namespace FiscoTask
             try
             {
                 // Obtém o RichEditControl do UserControl
-                var richEditControl = recNotas.Rec;
+                var richEditControl = recControl1.Rec;
 
                 // Define o texto do carimbo (pode ser personalizado)
                 string carimbo = $" \n\n--------------------------- \n{DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")} \n";
@@ -328,6 +332,12 @@ namespace FiscoTask
             {
                 MessageBox.Show("Erro ao adicionar carimbo: " + ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DadosProcessoBombeiro(txtLivro.Text, "DATA_REGISTRO", "DESC");
+            DadosDocumentos(txtLivro.Text, "Vencimentodoc", "DESC");
         }
     }
 }

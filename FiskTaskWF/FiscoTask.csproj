@@ -7,11 +7,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyVersion></AssemblyVersion>
-    <ApplicationIcon>image sem fundo.ico</ApplicationIcon>
+    <ApplicationIcon>Gemini_Generated_Image_glfn3oglfn3oglfn.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="image sem fundo.ico" />
+    <Content Include="Gemini_Generated_Image_glfn3oglfn3oglfn.ico" />
   </ItemGroup>
 
   <ItemGroup>

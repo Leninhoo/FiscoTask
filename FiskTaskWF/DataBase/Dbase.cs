@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Dapper;
 using MySqlConnector;
+using System.Configuration;
 
 
 
@@ -15,15 +16,24 @@ namespace FiscoTask
     public class Dbase 
     {
         
-        public const string stringconnection = "datasource=srv1067.hstgr.io;username=u551083917_FiscoTask;password=Fisconorte6027;database=u551083917_Fiscotask";
+        public static readonly string? stringconnection;
 
+        static Dbase()
+        {
+            stringconnection = ConfigurationManager.ConnectionStrings["MinhaConexaoBD"]?.ConnectionString;
 
+            if (string.IsNullOrEmpty(stringconnection))
+            {
+                System.Windows.Forms.MessageBox.Show("A string de conexão não está configurada corretamente.", "Erro de Conexão", System.Windows.Forms.MessageBoxButtons.OK);
+                return;
+            }
+        }
         public Dbase() 
         {
 
 
 
         }
-        
+
     }
 }
