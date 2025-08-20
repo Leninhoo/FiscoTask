@@ -29,6 +29,7 @@ O sistema atua como um hub para cadastro de clientes, controle de vencimentos de
 - Cada tarefa ou processo permite a associação de documentos e anotações detalhadas.
 - Cada documento fica vinculado ao cadastro dos clientes relacionados para fácil consulta de vencimentos e datas de registro.
 
+![fiscotask-original](https://github.com/user-attachments/assets/e51ce6af-d01b-401f-9ed1-8bd356b46867)
 
 
 ---
@@ -48,6 +49,11 @@ O projeto foi construído com as seguintes tecnologias:
 | **IDE** | Visual Studio 2022 |
 
 
+
+## 📝 Status do Projeto
+
+O FiscoTask foi desenvolvido como um projeto particular e para solucionar problemas locais com C# e .NET. O projeto está em constante atualização de arquitetura e funcionalidades, conforme novas necessidades surgem e também conforme avanço em meus estudos particulares. 
+Este projeto **não se destina à distribuição pública**, não ao menos neste momento.
 
 ---
 
