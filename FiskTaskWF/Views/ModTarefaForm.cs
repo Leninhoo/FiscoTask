@@ -126,6 +126,8 @@ namespace FiscoTask
 
         private void ModTarefaForm_Load(object sender, EventArgs e)
         {
+            CarregarComboBox();
+
             txtId.Text = _Codigo.ToString();
             txtLivro.Text = _Livro.ToString();
             CbSituacao.Text = _Situacao.ToString();
@@ -155,8 +157,6 @@ namespace FiscoTask
                 DadosProcessoBombeiro(txtLivro.Text, "DATA_REGISTRO", "DESC");
                 DadosDocumentos(txtLivro.Text, "Vencimentodoc", "DESC");
                 Anotacoes();
-                CarregarComboBox();
-
             }
             catch (Exception ex)
             {
@@ -347,6 +347,8 @@ namespace FiscoTask
         private void CarregarComboBox()
         {
             ListasComboBox listasComboBox = new ListasComboBox();
+
+
             cbFase.DataSource = listasComboBox.Fase();
             CbSituacao.DataSource = listasComboBox.Situacao();
         }
