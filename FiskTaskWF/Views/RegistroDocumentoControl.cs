@@ -43,7 +43,7 @@ namespace FiscoTask
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtLivro.Text) || string.IsNullOrWhiteSpace(txtVencimento.Text) || string.IsNullOrWhiteSpace(rtbObs.Text) || string.IsNullOrWhiteSpace(cbTipoDoc.Text))
+            if (string.IsNullOrWhiteSpace(txtLivro.Text) || string.IsNullOrWhiteSpace(txtVencimento.Text) || string.IsNullOrWhiteSpace(cbTipoDoc.Text))
             {
                 MessageBox.Show("Por favor, preencha todos os campos.");
                 return;

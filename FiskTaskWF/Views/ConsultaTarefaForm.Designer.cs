@@ -101,7 +101,6 @@ namespace FiscoTask
             cbSituacao.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbSituacao.FormattingEnabled = true;
             cbSituacao.ItemHeight = 15;
-            cbSituacao.Items.AddRange(new object[] { "Aguardando terceiro", "Pendência empresa", "Para avaliar", "Aguardando prefeitura", "Solicitar Vigilância", "Aguardando redação do PGPCD", "Fazer redação do PGPCD", "Levar na vigilância", "Vigilância solicitada", "Solicitar Bombeiro", "Aguardando pagamento bombeiro", "Aguardando baixa bombeiro", "Emissão taxa de alvará", "Ag. pagamento taxa de alvará", "Solicitar alvará", "Ag. prefeitura emitir alvará", "Pegar alvará físico na prefeitura", "Pronto" });
             cbSituacao.Location = new Point(926, 88);
             cbSituacao.Name = "cbSituacao";
             cbSituacao.Size = new Size(248, 23);
@@ -142,7 +141,6 @@ namespace FiscoTask
             cbTipo.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbTipo.FormattingEnabled = true;
             cbTipo.ItemHeight = 15;
-            cbTipo.Items.AddRange(new object[] { "Em andamento", "Encerrado" });
             cbTipo.Location = new Point(926, 132);
             cbTipo.Name = "cbTipo";
             cbTipo.Size = new Size(248, 23);

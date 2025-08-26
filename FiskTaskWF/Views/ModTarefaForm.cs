@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using FiscoTask.Models;
 
 namespace FiscoTask
 {
@@ -54,6 +55,8 @@ namespace FiscoTask
             _EntregaTaxaAlvara = EntregaTaxaAlvara;
             _Fase = fase;
             _Ativo = ativo;
+
+
 
         }
 
@@ -152,6 +155,7 @@ namespace FiscoTask
                 DadosProcessoBombeiro(txtLivro.Text, "DATA_REGISTRO", "DESC");
                 DadosDocumentos(txtLivro.Text, "Vencimentodoc", "DESC");
                 Anotacoes();
+                CarregarComboBox();
 
             }
             catch (Exception ex)
@@ -338,6 +342,13 @@ namespace FiscoTask
         {
             DadosProcessoBombeiro(txtLivro.Text, "DATA_REGISTRO", "DESC");
             DadosDocumentos(txtLivro.Text, "Vencimentodoc", "DESC");
+        }
+
+        private void CarregarComboBox()
+        {
+            ListasComboBox listasComboBox = new ListasComboBox();
+            cbFase.DataSource = listasComboBox.Fase();
+            CbSituacao.DataSource = listasComboBox.Situacao();
         }
     }
 }

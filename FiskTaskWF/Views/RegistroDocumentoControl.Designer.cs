@@ -45,7 +45,7 @@
             txtVencimento.Mask = "00/00/0000";
             txtVencimento.Name = "txtVencimento";
             txtVencimento.Size = new Size(72, 23);
-            txtVencimento.TabIndex = 48;
+            txtVencimento.TabIndex = 2;
             txtVencimento.ValidatingType = typeof(DateTime);
             // 
             // btnInsert
@@ -53,7 +53,7 @@
             btnInsert.Location = new Point(368, 17);
             btnInsert.Name = "btnInsert";
             btnInsert.Size = new Size(75, 23);
-            btnInsert.TabIndex = 47;
+            btnInsert.TabIndex = 4;
             btnInsert.Text = "Inserir";
             btnInsert.UseVisualStyleBackColor = true;
             btnInsert.Click += btnInsert_Click;
@@ -63,7 +63,7 @@
             rtbObs.Location = new Point(49, 104);
             rtbObs.Name = "rtbObs";
             rtbObs.Size = new Size(289, 168);
-            rtbObs.TabIndex = 46;
+            rtbObs.TabIndex = 3;
             rtbObs.Text = "";
             // 
             // cbTipoDoc
@@ -72,7 +72,7 @@
             cbTipoDoc.Location = new Point(128, 43);
             cbTipoDoc.Name = "cbTipoDoc";
             cbTipoDoc.Size = new Size(210, 23);
-            cbTipoDoc.TabIndex = 45;
+            cbTipoDoc.TabIndex = 1;
             cbTipoDoc.Click += cbTipoDoc_Click;
             // 
             // label17

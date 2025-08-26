@@ -104,6 +104,7 @@
             tabPage4 = new TabPage();
             registroDocumentoControl1 = new RegistroDocumentoControl();
             recControl1 = new RecControl();
+            listasComboBoxBindingSource = new BindingSource(components);
             groupBox2.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -116,6 +117,7 @@
             groupBox1.SuspendLayout();
             tabPage3.SuspendLayout();
             tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)listasComboBoxBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -151,7 +153,6 @@
             cbFase.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbFase.FormattingEnabled = true;
             cbFase.ItemHeight = 15;
-            cbFase.Items.AddRange(new object[] { "Aguardando terceiro", "Pendência empresa", "Para avaliar", "Aguardando prefeitura", "Solicitar Vigilância", "Aguardando redação do PGPCD", "Fazer redação do PGPCD", "Levar na vigilância", "Vigilância solicitada", "Solicitar Bombeiro", "Aguardando pagamento bombeiro", "Aguardando baixa bombeiro", "Emissão taxa de alvará", "Ag. pagamento taxa de alvará", "Solicitar alvará", "Ag. prefeitura emitir alvará", "Pegar alvará físico na prefeitura", "Pronto" });
             cbFase.Location = new Point(1407, 70);
             cbFase.Name = "cbFase";
             cbFase.Size = new Size(248, 23);
@@ -173,7 +174,6 @@
             CbSituacao.AutoCompleteSource = AutoCompleteSource.ListItems;
             CbSituacao.FormattingEnabled = true;
             CbSituacao.ItemHeight = 15;
-            CbSituacao.Items.AddRange(new object[] { "Em andamento", "Encerrado" });
             CbSituacao.Location = new Point(1407, 41);
             CbSituacao.Name = "CbSituacao";
             CbSituacao.Size = new Size(248, 23);
@@ -322,8 +322,8 @@
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(12, 44);
@@ -840,6 +840,10 @@
             recControl1.Size = new Size(942, 493);
             recControl1.TabIndex = 46;
             // 
+            // listasComboBoxBindingSource
+            // 
+            listasComboBoxBindingSource.DataSource = typeof(Models.ListasComboBox);
+            // 
             // ModTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -883,6 +887,7 @@
             groupBox1.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)listasComboBoxBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -978,5 +983,6 @@
         private TabPage tabPage4;
         private RegistroDocumentoControl registroDocumentoControl1;
         private Button button1;
+        private BindingSource listasComboBoxBindingSource;
     }
 }

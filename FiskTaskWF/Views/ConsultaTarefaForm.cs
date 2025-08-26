@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FiscoTask.Models;
 
 namespace FiscoTask
 {
@@ -21,6 +22,8 @@ namespace FiscoTask
             InitializeComponent();
 
             TarefaLoadind("Codigo", "DESC");
+            CarregarComboBox();
+
         }
 
 
@@ -41,9 +44,6 @@ namespace FiscoTask
         {
             txtPesquisa.Clear();
         }
-
-
-
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
@@ -258,6 +258,28 @@ namespace FiscoTask
             }
 
             tabela.DefaultView.RowFilter = filtroFinal;
+        }
+
+        private void CarregarComboBox()
+        {
+            ListasComboBox listasComboBox = new ListasComboBox();
+
+            // Desativa temporariamente os eventos para evitar que sejam disparados
+            cbTipo.SelectedIndexChanged -= cbTipo_SelectedIndexChanged;
+            cbSituacao.SelectedIndexChanged -= cbSituacao_SelectedIndexChanged;
+
+            //Define o DataSource dos ComboBoxes
+            cbTipo.DataSource = listasComboBox.Fase();
+            cbSituacao.DataSource = listasComboBox.Situacao();
+
+            // Limpe a seleção (agora que não há eventos para interferir)
+            cbTipo.SelectedIndex = -1;
+            cbSituacao.SelectedIndex = -1;
+
+            // Reativa os eventos para que funcionem normalmente quando o usuário interagir
+            cbTipo.SelectedIndexChanged += cbTipo_SelectedIndexChanged;
+            cbSituacao.SelectedIndexChanged += cbSituacao_SelectedIndexChanged;
+
         }
 
     }
