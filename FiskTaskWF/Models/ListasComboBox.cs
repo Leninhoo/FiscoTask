@@ -26,9 +26,9 @@ namespace FiscoTask.Models
                 "Aguardando baixa bombeiro",
                 "Aguardando prefeitura",
                 "Emissão taxa de alvará",
-                "Ag.pagamento taxa de alvará",
+                "Ag. pagamento taxa de alvará",
                 "Solicitar alvará",
-                "Ag.prefeitura emitir alvará",
+                "Ag. prefeitura emitir alvará",
                 "Pegar alvará físico na prefeitura",
                 "Baixa de empresa",
                 "Pronto"

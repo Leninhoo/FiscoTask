@@ -44,10 +44,11 @@
             cbSituacao = new ComboBox();
             label4 = new Label();
             label5 = new Label();
-            rtbObs = new RichTextBox();
             btnSalvar = new Button();
             btnCancelar = new Button();
             label6 = new Label();
+            recControl1 = new RecControl();
+            btnCarimbo = new Button();
             ((System.ComponentModel.ISupportInitialize)dgPesquisaEmpresa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).BeginInit();
             SuspendLayout();
@@ -147,7 +148,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(13, 155);
             label3.Name = "label3";
-            label3.Size = new Size(30, 15);
+            label3.Size = new Size(31, 15);
             label3.TabIndex = 10;
             label3.Text = "Tipo";
             // 
@@ -192,17 +193,9 @@
             label5.TabIndex = 14;
             label5.Text = "Observações e comentários";
             // 
-            // rtbObs
-            // 
-            rtbObs.Location = new Point(13, 309);
-            rtbObs.Name = "rtbObs";
-            rtbObs.Size = new Size(1081, 190);
-            rtbObs.TabIndex = 5;
-            rtbObs.Text = "";
-            // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(12, 536);
+            btnSalvar.Location = new Point(12, 812);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
             btnSalvar.TabIndex = 6;
@@ -212,7 +205,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(93, 536);
+            btnCancelar.Location = new Point(93, 812);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 7;
@@ -228,15 +221,34 @@
             label6.TabIndex = 15;
             label6.Text = "Pesquisar Empresa";
             // 
+            // recControl1
+            // 
+            recControl1.BorderStyle = BorderStyle.Fixed3D;
+            recControl1.Location = new Point(13, 317);
+            recControl1.Name = "recControl1";
+            recControl1.Size = new Size(942, 478);
+            recControl1.TabIndex = 16;
+            // 
+            // btnCarimbo
+            // 
+            btnCarimbo.Location = new Point(170, 278);
+            btnCarimbo.Name = "btnCarimbo";
+            btnCarimbo.Size = new Size(75, 23);
+            btnCarimbo.TabIndex = 17;
+            btnCarimbo.Text = "Inserir Data";
+            btnCarimbo.UseVisualStyleBackColor = true;
+            btnCarimbo.Click += btnCarimbo_Click;
+            // 
             // RegistroTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1133, 585);
+            ClientSize = new Size(1133, 847);
+            Controls.Add(btnCarimbo);
+            Controls.Add(recControl1);
             Controls.Add(label6);
             Controls.Add(btnCancelar);
             Controls.Add(btnSalvar);
-            Controls.Add(rtbObs);
             Controls.Add(label5);
             Controls.Add(cbSituacao);
             Controls.Add(label4);
@@ -250,6 +262,7 @@
             Name = "RegistroTarefaForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro de Tarefas";
+            Load += RegistroTarefaForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgPesquisaEmpresa).EndInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).EndInit();
             ResumeLayout(false);
@@ -273,9 +286,10 @@
         private ComboBox cbSituacao;
         private Label label4;
         private Label label5;
-        private RichTextBox rtbObs;
         private Button btnSalvar;
         private Button btnCancelar;
         private Label label6;
+        private RecControl recControl1;
+        private Button btnCarimbo;
     }
 }

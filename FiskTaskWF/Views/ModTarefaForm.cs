@@ -85,8 +85,8 @@ namespace FiscoTask
                 VigilanciaSanitaria = cbVigilanciaSanitaria.Checked,
                 TaxaAlvaraPgto = cbTaxaAlvaraPgto.Checked,
                 EntregaTaxaAlvara = cbEntregaTaxaAlvara.Checked,
-                Arquivo = fileData, // Atribui o conteúdo do documento ao campo Arquivo
-                Tipo = "" // Preencha conforme necessário, já que o campo existe na classe
+                Arquivo = fileData // Atribui o conteúdo do documento ao campo Arquivo
+                //Tipo = "" // Preencha conforme necessário, já que o campo existe na classe
 
             };
 
@@ -324,13 +324,10 @@ namespace FiscoTask
                 var richEditControl = recControl1.Rec;
 
                 // Define o texto do carimbo (pode ser personalizado)
-                string carimbo = $" \n\n--------------------------- \n{DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")} \n";
-
+                string carimbo = $"--------------------------- \n{DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")} \n";
                 // Insere o texto na posição atual do cursor
                 richEditControl.Document.InsertText(richEditControl.Document.CaretPosition, carimbo);
-
-                // Opcional: Move o cursor para o final do texto inserido
-                richEditControl.Document.CaretPosition = richEditControl.Document.Range.End;
+                richEditControl.Focus();
             }
             catch (Exception ex)
             {

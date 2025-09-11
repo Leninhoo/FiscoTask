@@ -67,7 +67,8 @@ namespace FiscoTask
                 cbEscitorio.Text, cbResponsavel.Text, txtProtocolo.Text, rtbObs.Text);
 
 
-            this.Close();
+            LimparCampos();
+            txtData.Focus();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -97,6 +98,25 @@ namespace FiscoTask
 
             this.Close();
 
+        }
+
+        private void LimparCampos()
+        {
+            txtID.Text = "";
+            txtData.Text = "";
+            cbTipo.Text = "";
+            txtRazao.Text = "";
+            txtCNPJ.Text = "";
+            txtLivro.Text = "";
+            cbEscitorio.Text = "";
+            cbResponsavel.Text = "";
+            txtProtocolo.Text = "";
+            rtbObs.Text = "";
+        }
+
+        private void RegAtosEmpresariaisForm_Load(object sender, EventArgs e)
+        {
+            txtData.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }

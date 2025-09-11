@@ -81,6 +81,7 @@ namespace FiscoTask
             cbSituacao.Text = "";
             cbTipo.SelectedItem = -1;
             cbTipo.Text = "";
+            txtPesquisa.Clear();
 
         }
 
