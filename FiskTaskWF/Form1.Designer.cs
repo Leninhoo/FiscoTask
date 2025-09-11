@@ -74,28 +74,30 @@
             // empresasToolStripMenuItem
             // 
             empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
-            empresasToolStripMenuItem.Size = new Size(180, 22);
+            empresasToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.E;
+            empresasToolStripMenuItem.Size = new Size(196, 22);
             empresasToolStripMenuItem.Text = "Empresas";
             empresasToolStripMenuItem.Click += empresasToolStripMenuItem_Click;
             // 
             // consultarSóciosToolStripMenuItem
             // 
             consultarSóciosToolStripMenuItem.Name = "consultarSóciosToolStripMenuItem";
-            consultarSóciosToolStripMenuItem.Size = new Size(180, 22);
+            consultarSóciosToolStripMenuItem.Size = new Size(196, 22);
             consultarSóciosToolStripMenuItem.Text = "Consultar Sócios";
             consultarSóciosToolStripMenuItem.Click += consultarSóciosToolStripMenuItem_Click;
             // 
             // responsávelInternoToolStripMenuItem
             // 
             responsávelInternoToolStripMenuItem.Name = "responsávelInternoToolStripMenuItem";
-            responsávelInternoToolStripMenuItem.Size = new Size(180, 22);
+            responsávelInternoToolStripMenuItem.Size = new Size(196, 22);
             responsávelInternoToolStripMenuItem.Text = "Responsável Interno";
             responsávelInternoToolStripMenuItem.Click += responsávelInternoToolStripMenuItem_Click;
             // 
             // homeToolStripMenuItem
             // 
             homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            homeToolStripMenuItem.Size = new Size(180, 22);
+            homeToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D0;
+            homeToolStripMenuItem.Size = new Size(196, 22);
             homeToolStripMenuItem.Text = "Home";
             homeToolStripMenuItem.Click += homeToolStripMenuItem_Click;
             // 
@@ -158,14 +160,16 @@
             // registroDeTarefasToolStripMenuItem
             // 
             registroDeTarefasToolStripMenuItem.Name = "registroDeTarefasToolStripMenuItem";
-            registroDeTarefasToolStripMenuItem.Size = new Size(177, 22);
+            registroDeTarefasToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D1;
+            registroDeTarefasToolStripMenuItem.Size = new Size(217, 22);
             registroDeTarefasToolStripMenuItem.Text = "Registro de Tarefas";
             registroDeTarefasToolStripMenuItem.Click += registroDeTarefasToolStripMenuItem_Click;
             // 
             // consultaDeTarefasToolStripMenuItem
             // 
             consultaDeTarefasToolStripMenuItem.Name = "consultaDeTarefasToolStripMenuItem";
-            consultaDeTarefasToolStripMenuItem.Size = new Size(177, 22);
+            consultaDeTarefasToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D2;
+            consultaDeTarefasToolStripMenuItem.Size = new Size(217, 22);
             consultaDeTarefasToolStripMenuItem.Text = "Consulta de Tarefas";
             consultaDeTarefasToolStripMenuItem.Click += consultaDeTarefasToolStripMenuItem_Click;
             // 
@@ -173,20 +177,22 @@
             // 
             atosEmpresariaisToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultarAtosToolStripMenuItem, registrarAtoToolStripMenuItem });
             atosEmpresariaisToolStripMenuItem.Name = "atosEmpresariaisToolStripMenuItem";
-            atosEmpresariaisToolStripMenuItem.Size = new Size(177, 22);
+            atosEmpresariaisToolStripMenuItem.Size = new Size(217, 22);
             atosEmpresariaisToolStripMenuItem.Text = "Atos Empresariais";
             // 
             // consultarAtosToolStripMenuItem
             // 
             consultarAtosToolStripMenuItem.Name = "consultarAtosToolStripMenuItem";
-            consultarAtosToolStripMenuItem.Size = new Size(152, 22);
+            consultarAtosToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D4;
+            consultarAtosToolStripMenuItem.Size = new Size(192, 22);
             consultarAtosToolStripMenuItem.Text = "Consultar Atos";
             consultarAtosToolStripMenuItem.Click += consultarAtosToolStripMenuItem_Click;
             // 
             // registrarAtoToolStripMenuItem
             // 
             registrarAtoToolStripMenuItem.Name = "registrarAtoToolStripMenuItem";
-            registrarAtoToolStripMenuItem.Size = new Size(152, 22);
+            registrarAtoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D3;
+            registrarAtoToolStripMenuItem.Size = new Size(192, 22);
             registrarAtoToolStripMenuItem.Text = "Registrar Ato";
             registrarAtoToolStripMenuItem.Click += registrarAtoToolStripMenuItem_Click;
             // 
