@@ -349,5 +349,12 @@ namespace FiscoTask
             cbFase.DataSource = listasComboBox.Fase();
             CbSituacao.DataSource = listasComboBox.Situacao();
         }
+
+        private void btnConcluir_Click(object sender, EventArgs e)
+        {
+            CbSituacao.SelectedItem = "Encerrado";
+            cbFase.SelectedItem = "Pronto";
+            cbAtivo.Checked = false;
+        }
     }
 }

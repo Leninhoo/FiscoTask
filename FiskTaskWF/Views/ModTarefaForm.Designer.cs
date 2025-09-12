@@ -50,26 +50,6 @@
             label14 = new Label();
             btnCarimbo = new Button();
             tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            button1 = new Button();
-            label13 = new Label();
-            dgDocumentos = new DataGridView();
-            idDocDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            livroDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            nOMEDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dtRegistroDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vencimentodocDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            tipoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            exercicioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dbDocumentsBindingSource1 = new BindingSource(components);
-            label12 = new Label();
-            dgBombeiro = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            livroDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nOMEDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            pROCESSODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dATAREGISTRODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dbBombeirosBindingSource1 = new BindingSource(components);
             tabPage2 = new TabPage();
             groupBox3 = new GroupBox();
             txtCEP = new TextBox();
@@ -99,22 +79,43 @@
             txtId = new TextBox();
             txtEmpresa = new TextBox();
             label8 = new Label();
+            tabPage1 = new TabPage();
+            button1 = new Button();
+            label13 = new Label();
+            dgDocumentos = new DataGridView();
+            idDocDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            livroDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            nOMEDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dtRegistroDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vencimentodocDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            tipoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            exercicioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dbDocumentsBindingSource1 = new BindingSource(components);
+            label12 = new Label();
+            dgBombeiro = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            livroDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nOMEDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pROCESSODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dATAREGISTRODataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dbBombeirosBindingSource1 = new BindingSource(components);
             tabPage3 = new TabPage();
             registrarBombeiroControl1 = new RegistrarBombeiroControl();
             tabPage4 = new TabPage();
             registroDocumentoControl1 = new RegistroDocumentoControl();
             recControl1 = new RecControl();
             listasComboBoxBindingSource = new BindingSource(components);
+            btnConcluir = new Button();
             groupBox2.SuspendLayout();
             tabControl1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            groupBox3.SuspendLayout();
+            groupBox1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgDocumentos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dbDocumentsBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgBombeiro).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dbBombeirosBindingSource1).BeginInit();
-            tabPage2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            groupBox1.SuspendLayout();
             tabPage3.SuspendLayout();
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listasComboBoxBindingSource).BeginInit();
@@ -331,193 +332,6 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1111, 339);
             tabControl1.TabIndex = 45;
-            // 
-            // tabPage1
-            // 
-            tabPage1.Controls.Add(button1);
-            tabPage1.Controls.Add(label13);
-            tabPage1.Controls.Add(dgDocumentos);
-            tabPage1.Controls.Add(label12);
-            tabPage1.Controls.Add(dgBombeiro);
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1103, 311);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Documentos e processos";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(961, 25);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 23);
-            button1.TabIndex = 46;
-            button1.Text = "Atualizar documentos";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(10, 159);
-            label13.Name = "label13";
-            label13.Size = new Size(135, 15);
-            label13.TabIndex = 45;
-            label13.Text = "Documentos vinculados";
-            // 
-            // dgDocumentos
-            // 
-            dgDocumentos.AllowUserToAddRows = false;
-            dgDocumentos.AllowUserToDeleteRows = false;
-            dgDocumentos.AutoGenerateColumns = false;
-            dgDocumentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgDocumentos.Columns.AddRange(new DataGridViewColumn[] { idDocDataGridViewTextBoxColumn, livroDataGridViewTextBoxColumn1, nOMEDataGridViewTextBoxColumn1, dtRegistroDataGridViewTextBoxColumn, vencimentodocDataGridViewTextBoxColumn, tipoDataGridViewTextBoxColumn, exercicioDataGridViewTextBoxColumn });
-            dgDocumentos.DataSource = dbDocumentsBindingSource1;
-            dgDocumentos.Location = new Point(11, 177);
-            dgDocumentos.Name = "dgDocumentos";
-            dgDocumentos.ReadOnly = true;
-            dgDocumentos.Size = new Size(1081, 121);
-            dgDocumentos.TabIndex = 44;
-            // 
-            // idDocDataGridViewTextBoxColumn
-            // 
-            idDocDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            idDocDataGridViewTextBoxColumn.DataPropertyName = "IdDoc";
-            idDocDataGridViewTextBoxColumn.HeaderText = "IdDoc";
-            idDocDataGridViewTextBoxColumn.Name = "idDocDataGridViewTextBoxColumn";
-            idDocDataGridViewTextBoxColumn.ReadOnly = true;
-            idDocDataGridViewTextBoxColumn.Width = 63;
-            // 
-            // livroDataGridViewTextBoxColumn1
-            // 
-            livroDataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            livroDataGridViewTextBoxColumn1.DataPropertyName = "Livro";
-            livroDataGridViewTextBoxColumn1.HeaderText = "Livro";
-            livroDataGridViewTextBoxColumn1.Name = "livroDataGridViewTextBoxColumn1";
-            livroDataGridViewTextBoxColumn1.ReadOnly = true;
-            livroDataGridViewTextBoxColumn1.Width = 58;
-            // 
-            // nOMEDataGridViewTextBoxColumn1
-            // 
-            nOMEDataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            nOMEDataGridViewTextBoxColumn1.DataPropertyName = "NOME";
-            nOMEDataGridViewTextBoxColumn1.HeaderText = "NOME";
-            nOMEDataGridViewTextBoxColumn1.Name = "nOMEDataGridViewTextBoxColumn1";
-            nOMEDataGridViewTextBoxColumn1.ReadOnly = true;
-            nOMEDataGridViewTextBoxColumn1.Width = 67;
-            // 
-            // dtRegistroDataGridViewTextBoxColumn
-            // 
-            dtRegistroDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dtRegistroDataGridViewTextBoxColumn.DataPropertyName = "DtRegistro";
-            dtRegistroDataGridViewTextBoxColumn.HeaderText = "DtRegistro";
-            dtRegistroDataGridViewTextBoxColumn.Name = "dtRegistroDataGridViewTextBoxColumn";
-            dtRegistroDataGridViewTextBoxColumn.ReadOnly = true;
-            dtRegistroDataGridViewTextBoxColumn.Width = 87;
-            // 
-            // vencimentodocDataGridViewTextBoxColumn
-            // 
-            vencimentodocDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            vencimentodocDataGridViewTextBoxColumn.DataPropertyName = "Vencimentodoc";
-            vencimentodocDataGridViewTextBoxColumn.HeaderText = "Vencimentodoc";
-            vencimentodocDataGridViewTextBoxColumn.Name = "vencimentodocDataGridViewTextBoxColumn";
-            vencimentodocDataGridViewTextBoxColumn.ReadOnly = true;
-            vencimentodocDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // tipoDataGridViewTextBoxColumn
-            // 
-            tipoDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            tipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo";
-            tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
-            tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
-            tipoDataGridViewTextBoxColumn.ReadOnly = true;
-            tipoDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // exercicioDataGridViewTextBoxColumn
-            // 
-            exercicioDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            exercicioDataGridViewTextBoxColumn.DataPropertyName = "Exercicio";
-            exercicioDataGridViewTextBoxColumn.HeaderText = "Exercicio";
-            exercicioDataGridViewTextBoxColumn.Name = "exercicioDataGridViewTextBoxColumn";
-            exercicioDataGridViewTextBoxColumn.ReadOnly = true;
-            exercicioDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dbDocumentsBindingSource1
-            // 
-            dbDocumentsBindingSource1.DataSource = typeof(DbDocuments);
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(10, 7);
-            label12.Name = "label12";
-            label12.Size = new Size(169, 15);
-            label12.TabIndex = 43;
-            label12.Text = "Processos bombeiro vinculado";
-            // 
-            // dgBombeiro
-            // 
-            dgBombeiro.AllowUserToAddRows = false;
-            dgBombeiro.AllowUserToDeleteRows = false;
-            dgBombeiro.AutoGenerateColumns = false;
-            dgBombeiro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgBombeiro.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, livroDataGridViewTextBoxColumn, nOMEDataGridViewTextBoxColumn, pROCESSODataGridViewTextBoxColumn, dATAREGISTRODataGridViewTextBoxColumn });
-            dgBombeiro.DataSource = dbBombeirosBindingSource1;
-            dgBombeiro.Location = new Point(11, 25);
-            dgBombeiro.Name = "dgBombeiro";
-            dgBombeiro.ReadOnly = true;
-            dgBombeiro.Size = new Size(772, 121);
-            dgBombeiro.TabIndex = 42;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // livroDataGridViewTextBoxColumn
-            // 
-            livroDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            livroDataGridViewTextBoxColumn.DataPropertyName = "Livro";
-            livroDataGridViewTextBoxColumn.HeaderText = "Livro";
-            livroDataGridViewTextBoxColumn.Name = "livroDataGridViewTextBoxColumn";
-            livroDataGridViewTextBoxColumn.ReadOnly = true;
-            livroDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // nOMEDataGridViewTextBoxColumn
-            // 
-            nOMEDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            nOMEDataGridViewTextBoxColumn.DataPropertyName = "NOME";
-            nOMEDataGridViewTextBoxColumn.HeaderText = "NOME";
-            nOMEDataGridViewTextBoxColumn.Name = "nOMEDataGridViewTextBoxColumn";
-            nOMEDataGridViewTextBoxColumn.ReadOnly = true;
-            nOMEDataGridViewTextBoxColumn.Width = 67;
-            // 
-            // pROCESSODataGridViewTextBoxColumn
-            // 
-            pROCESSODataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            pROCESSODataGridViewTextBoxColumn.DataPropertyName = "PROCESSO";
-            pROCESSODataGridViewTextBoxColumn.HeaderText = "PROCESSO";
-            pROCESSODataGridViewTextBoxColumn.Name = "pROCESSODataGridViewTextBoxColumn";
-            pROCESSODataGridViewTextBoxColumn.ReadOnly = true;
-            pROCESSODataGridViewTextBoxColumn.Width = 90;
-            // 
-            // dATAREGISTRODataGridViewTextBoxColumn
-            // 
-            dATAREGISTRODataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dATAREGISTRODataGridViewTextBoxColumn.DataPropertyName = "DATA_REGISTRO";
-            dATAREGISTRODataGridViewTextBoxColumn.HeaderText = "DATA_REGISTRO";
-            dATAREGISTRODataGridViewTextBoxColumn.Name = "dATAREGISTRODataGridViewTextBoxColumn";
-            dATAREGISTRODataGridViewTextBoxColumn.ReadOnly = true;
-            dATAREGISTRODataGridViewTextBoxColumn.Width = 119;
-            // 
-            // dbBombeirosBindingSource1
-            // 
-            dbBombeirosBindingSource1.DataSource = typeof(DbBombeiros);
             // 
             // tabPage2
             // 
@@ -796,6 +610,193 @@
             label8.TabIndex = 28;
             label8.Text = "Id";
             // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(label13);
+            tabPage1.Controls.Add(dgDocumentos);
+            tabPage1.Controls.Add(label12);
+            tabPage1.Controls.Add(dgBombeiro);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1103, 311);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Documentos e processos";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(961, 25);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 23);
+            button1.TabIndex = 46;
+            button1.Text = "Atualizar documentos";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(10, 159);
+            label13.Name = "label13";
+            label13.Size = new Size(135, 15);
+            label13.TabIndex = 45;
+            label13.Text = "Documentos vinculados";
+            // 
+            // dgDocumentos
+            // 
+            dgDocumentos.AllowUserToAddRows = false;
+            dgDocumentos.AllowUserToDeleteRows = false;
+            dgDocumentos.AutoGenerateColumns = false;
+            dgDocumentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgDocumentos.Columns.AddRange(new DataGridViewColumn[] { idDocDataGridViewTextBoxColumn, livroDataGridViewTextBoxColumn1, nOMEDataGridViewTextBoxColumn1, dtRegistroDataGridViewTextBoxColumn, vencimentodocDataGridViewTextBoxColumn, tipoDataGridViewTextBoxColumn, exercicioDataGridViewTextBoxColumn });
+            dgDocumentos.DataSource = dbDocumentsBindingSource1;
+            dgDocumentos.Location = new Point(11, 177);
+            dgDocumentos.Name = "dgDocumentos";
+            dgDocumentos.ReadOnly = true;
+            dgDocumentos.Size = new Size(1081, 121);
+            dgDocumentos.TabIndex = 44;
+            // 
+            // idDocDataGridViewTextBoxColumn
+            // 
+            idDocDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            idDocDataGridViewTextBoxColumn.DataPropertyName = "IdDoc";
+            idDocDataGridViewTextBoxColumn.HeaderText = "IdDoc";
+            idDocDataGridViewTextBoxColumn.Name = "idDocDataGridViewTextBoxColumn";
+            idDocDataGridViewTextBoxColumn.ReadOnly = true;
+            idDocDataGridViewTextBoxColumn.Width = 63;
+            // 
+            // livroDataGridViewTextBoxColumn1
+            // 
+            livroDataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            livroDataGridViewTextBoxColumn1.DataPropertyName = "Livro";
+            livroDataGridViewTextBoxColumn1.HeaderText = "Livro";
+            livroDataGridViewTextBoxColumn1.Name = "livroDataGridViewTextBoxColumn1";
+            livroDataGridViewTextBoxColumn1.ReadOnly = true;
+            livroDataGridViewTextBoxColumn1.Width = 58;
+            // 
+            // nOMEDataGridViewTextBoxColumn1
+            // 
+            nOMEDataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            nOMEDataGridViewTextBoxColumn1.DataPropertyName = "NOME";
+            nOMEDataGridViewTextBoxColumn1.HeaderText = "NOME";
+            nOMEDataGridViewTextBoxColumn1.Name = "nOMEDataGridViewTextBoxColumn1";
+            nOMEDataGridViewTextBoxColumn1.ReadOnly = true;
+            nOMEDataGridViewTextBoxColumn1.Width = 67;
+            // 
+            // dtRegistroDataGridViewTextBoxColumn
+            // 
+            dtRegistroDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtRegistroDataGridViewTextBoxColumn.DataPropertyName = "DtRegistro";
+            dtRegistroDataGridViewTextBoxColumn.HeaderText = "DtRegistro";
+            dtRegistroDataGridViewTextBoxColumn.Name = "dtRegistroDataGridViewTextBoxColumn";
+            dtRegistroDataGridViewTextBoxColumn.ReadOnly = true;
+            dtRegistroDataGridViewTextBoxColumn.Width = 87;
+            // 
+            // vencimentodocDataGridViewTextBoxColumn
+            // 
+            vencimentodocDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            vencimentodocDataGridViewTextBoxColumn.DataPropertyName = "Vencimentodoc";
+            vencimentodocDataGridViewTextBoxColumn.HeaderText = "Vencimentodoc";
+            vencimentodocDataGridViewTextBoxColumn.Name = "vencimentodocDataGridViewTextBoxColumn";
+            vencimentodocDataGridViewTextBoxColumn.ReadOnly = true;
+            vencimentodocDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // tipoDataGridViewTextBoxColumn
+            // 
+            tipoDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            tipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo";
+            tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
+            tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
+            tipoDataGridViewTextBoxColumn.ReadOnly = true;
+            tipoDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // exercicioDataGridViewTextBoxColumn
+            // 
+            exercicioDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            exercicioDataGridViewTextBoxColumn.DataPropertyName = "Exercicio";
+            exercicioDataGridViewTextBoxColumn.HeaderText = "Exercicio";
+            exercicioDataGridViewTextBoxColumn.Name = "exercicioDataGridViewTextBoxColumn";
+            exercicioDataGridViewTextBoxColumn.ReadOnly = true;
+            exercicioDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // dbDocumentsBindingSource1
+            // 
+            dbDocumentsBindingSource1.DataSource = typeof(DbDocuments);
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(10, 7);
+            label12.Name = "label12";
+            label12.Size = new Size(169, 15);
+            label12.TabIndex = 43;
+            label12.Text = "Processos bombeiro vinculado";
+            // 
+            // dgBombeiro
+            // 
+            dgBombeiro.AllowUserToAddRows = false;
+            dgBombeiro.AllowUserToDeleteRows = false;
+            dgBombeiro.AutoGenerateColumns = false;
+            dgBombeiro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgBombeiro.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, livroDataGridViewTextBoxColumn, nOMEDataGridViewTextBoxColumn, pROCESSODataGridViewTextBoxColumn, dATAREGISTRODataGridViewTextBoxColumn });
+            dgBombeiro.DataSource = dbBombeirosBindingSource1;
+            dgBombeiro.Location = new Point(11, 25);
+            dgBombeiro.Name = "dgBombeiro";
+            dgBombeiro.ReadOnly = true;
+            dgBombeiro.Size = new Size(772, 121);
+            dgBombeiro.TabIndex = 42;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Width = 42;
+            // 
+            // livroDataGridViewTextBoxColumn
+            // 
+            livroDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            livroDataGridViewTextBoxColumn.DataPropertyName = "Livro";
+            livroDataGridViewTextBoxColumn.HeaderText = "Livro";
+            livroDataGridViewTextBoxColumn.Name = "livroDataGridViewTextBoxColumn";
+            livroDataGridViewTextBoxColumn.ReadOnly = true;
+            livroDataGridViewTextBoxColumn.Width = 58;
+            // 
+            // nOMEDataGridViewTextBoxColumn
+            // 
+            nOMEDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            nOMEDataGridViewTextBoxColumn.DataPropertyName = "NOME";
+            nOMEDataGridViewTextBoxColumn.HeaderText = "NOME";
+            nOMEDataGridViewTextBoxColumn.Name = "nOMEDataGridViewTextBoxColumn";
+            nOMEDataGridViewTextBoxColumn.ReadOnly = true;
+            nOMEDataGridViewTextBoxColumn.Width = 67;
+            // 
+            // pROCESSODataGridViewTextBoxColumn
+            // 
+            pROCESSODataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            pROCESSODataGridViewTextBoxColumn.DataPropertyName = "PROCESSO";
+            pROCESSODataGridViewTextBoxColumn.HeaderText = "PROCESSO";
+            pROCESSODataGridViewTextBoxColumn.Name = "pROCESSODataGridViewTextBoxColumn";
+            pROCESSODataGridViewTextBoxColumn.ReadOnly = true;
+            pROCESSODataGridViewTextBoxColumn.Width = 90;
+            // 
+            // dATAREGISTRODataGridViewTextBoxColumn
+            // 
+            dATAREGISTRODataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dATAREGISTRODataGridViewTextBoxColumn.DataPropertyName = "DATA_REGISTRO";
+            dATAREGISTRODataGridViewTextBoxColumn.HeaderText = "DATA_REGISTRO";
+            dATAREGISTRODataGridViewTextBoxColumn.Name = "dATAREGISTRODataGridViewTextBoxColumn";
+            dATAREGISTRODataGridViewTextBoxColumn.ReadOnly = true;
+            dATAREGISTRODataGridViewTextBoxColumn.Width = 119;
+            // 
+            // dbBombeirosBindingSource1
+            // 
+            dbBombeirosBindingSource1.DataSource = typeof(DbBombeiros);
+            // 
             // tabPage3
             // 
             tabPage3.Controls.Add(registrarBombeiroControl1);
@@ -844,11 +845,23 @@
             // 
             listasComboBoxBindingSource.DataSource = typeof(Models.ListasComboBox);
             // 
+            // btnConcluir
+            // 
+            btnConcluir.BackColor = Color.FromArgb(128, 255, 128);
+            btnConcluir.Location = new Point(1577, 114);
+            btnConcluir.Name = "btnConcluir";
+            btnConcluir.Size = new Size(75, 23);
+            btnConcluir.TabIndex = 47;
+            btnConcluir.Text = "Concluir";
+            btnConcluir.UseVisualStyleBackColor = false;
+            btnConcluir.Click += btnConcluir_Click;
+            // 
             // ModTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1664, 930);
+            Controls.Add(btnConcluir);
             Controls.Add(recControl1);
             Controls.Add(tabControl1);
             Controls.Add(btnCarimbo);
@@ -874,17 +887,17 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             tabControl1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgDocumentos).EndInit();
             ((System.ComponentModel.ISupportInitialize)dbDocumentsBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgBombeiro).EndInit();
             ((System.ComponentModel.ISupportInitialize)dbBombeirosBindingSource1).EndInit();
-            tabPage2.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)listasComboBoxBindingSource).EndInit();
@@ -984,5 +997,6 @@
         private RegistroDocumentoControl registroDocumentoControl1;
         private Button button1;
         private BindingSource listasComboBoxBindingSource;
+        private Button btnConcluir;
     }
 }
