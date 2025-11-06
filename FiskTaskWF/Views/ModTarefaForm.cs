@@ -94,8 +94,8 @@ namespace FiscoTask
             MessageBox.Show("Tarefa atualizada com sucesso.");
 
 
-            _parentForm.TarefaLoadind("Codigo", "DESC");
-            _parentForm.ApagarPesquisa();
+            //_parentForm.TarefaLoadind("Codigo", "DESC");
+            //_parentForm.ApagarPesquisa();
 
             this.Close();
         }

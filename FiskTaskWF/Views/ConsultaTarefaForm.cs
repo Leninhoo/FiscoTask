@@ -34,11 +34,16 @@ namespace FiscoTask
             dgTarefas2.DataSource = table;
 
             int rowCount = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Situacao = 'Em Andamento'").Length;
-            lblTarefasPendentes.Text = $"O número de tarefas pendentes no total é de: {rowCount}";
+            lblTarefasPendentes.Text = $"O número de processos pendentes no total é de: {rowCount}";
 
             int rowCountAtivo = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Ativo = true").Length;
-            lblTarefasAtivas.Text = $"O número de tarefas ativas no total é de: {rowCountAtivo}";
+            lblTarefasAtivas.Text = $"O número de processos ativos no total é de: {rowCountAtivo}";
 
+            int rowCountPronto = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Fase = 'Pronto'").Length;
+            lblTarefasConcluidas.Text = $"O número de processos concluídos é de: {rowCountPronto}";
+
+            int rowCountSuspenso = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Situacao = 'Suspenso'").Length;
+            lblSuspensas.Text = $"O número de processos suspensos é de: {rowCountSuspenso}";
         }
         public void ApagarPesquisa()
         {
@@ -94,7 +99,7 @@ namespace FiscoTask
             if (dataTable != null)
             {
                 dataTable.DefaultView.RowFilter = string.Format(
-                    "Fase LIKE '%{0}%'", filtro
+                    "Situacao LIKE '%{0}%'", filtro
                 );
             }
 
@@ -110,7 +115,7 @@ namespace FiscoTask
             if (dataTable != null)
             {
                 dataTable.DefaultView.RowFilter = string.Format(
-                    "Situacao LIKE '%{0}%'", filtro
+                    "Fase LIKE '%{0}%'", filtro
                 );
             }
             cbSituacao.SelectedItem = -1;
@@ -283,5 +288,33 @@ namespace FiscoTask
 
         }
 
+        private void btnExportarTudo_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                var db = new DbTarefa();
+
+                DataTable dtCompleto = db.ReadTarefaDT();
+
+                if (dtCompleto != null && dtCompleto.Rows.Count > 0)
+                {
+                    ExportExcelTarefasCompleto.ExportarParaExcel(dtCompleto);
+                }
+                else
+                {
+                    MessageBox.Show("Não há dados para exportar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro ao exportar os dados: {ex.Message}", "Erro de Exportação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
