@@ -55,17 +55,7 @@ namespace FiscoTask
 
         }
 
-        private void consultaDeTarefasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConsultaTarefaForm consult = new ConsultaTarefaForm();
-            consult.Show();
-        }
 
-        private void registroDeTarefasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RegistroTarefaForm registro = new RegistroTarefaForm();
-            registro.Show();
-        }
 
         private void consutarProcessosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -121,6 +111,30 @@ namespace FiscoTask
         {
             var updatedb = new UpdateDataBase();
             updatedb.Show();
+        }
+
+        private void cadastrarProcessoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var registrarProcesso = new RegistroProcesso();
+            registrarProcesso.Show();
+        }
+
+        private void consultaDeTarefasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ConsultaTarefaForm consult = new ConsultaTarefaForm();
+            consult.Show();
+        }
+
+        private void registroDeTarefasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            RegistroTarefaForm registro = new RegistroTarefaForm();
+            registro.Show();
+        }
+
+        private void consultarProcessosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaProcessoForm consultaProcesso = new ConsultaProcessoForm();
+            consultaProcesso.Show();
         }
     }
 }

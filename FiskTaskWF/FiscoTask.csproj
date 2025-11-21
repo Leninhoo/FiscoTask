@@ -15,14 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="33.0.1" />
-    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="CsvHelper" Version="33.1.0" />
+    <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="DevExpress.Win.Design" Version="24.2.7" />
     <PackageReference Include="EntityFramework.Firebird" Version="10.1.0" />
-    <PackageReference Include="EPPlus" Version="7.5.3" />
-    <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="10.3.2" />
-    <PackageReference Include="MySqlConnector" Version="2.4.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="EPPlus" Version="8.2.1" />
+    <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="10.3.4" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3650-prerelease" />
+    <PackageReference Include="MySqlConnector" Version="2.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -119,6 +120,9 @@
     </None>
     <None Update="FirebirdEmbeddedArchives\plugins\udr_engine.pdb">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="wwwroot\editor.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

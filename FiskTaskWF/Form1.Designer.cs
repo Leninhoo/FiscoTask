@@ -43,14 +43,18 @@
             registrarProcessoToolStripMenuItem = new ToolStripMenuItem();
             consutarProcessosToolStripMenuItem = new ToolStripMenuItem();
             tarefasToolStripMenuItem = new ToolStripMenuItem();
-            registroDeTarefasToolStripMenuItem = new ToolStripMenuItem();
-            consultaDeTarefasToolStripMenuItem = new ToolStripMenuItem();
             atosEmpresariaisToolStripMenuItem = new ToolStripMenuItem();
             consultarAtosToolStripMenuItem = new ToolStripMenuItem();
             registrarAtoToolStripMenuItem = new ToolStripMenuItem();
+            alvarásToolStripMenuItem = new ToolStripMenuItem();
+            consultaDeTarefasToolStripMenuItem = new ToolStripMenuItem();
+            registroDeTarefasToolStripMenuItem = new ToolStripMenuItem();
+            processosToolStripMenuItem = new ToolStripMenuItem();
+            cadastrarProcessoToolStripMenuItem = new ToolStripMenuItem();
             ajustesToolStripMenuItem = new ToolStripMenuItem();
             atualizarBancoDeDadosToolStripMenuItem = new ToolStripMenuItem();
             Logo = new PictureBox();
+            consultarProcessosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
@@ -152,32 +156,16 @@
             // 
             // tarefasToolStripMenuItem
             // 
-            tarefasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registroDeTarefasToolStripMenuItem, consultaDeTarefasToolStripMenuItem, atosEmpresariaisToolStripMenuItem });
+            tarefasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { atosEmpresariaisToolStripMenuItem, alvarásToolStripMenuItem, processosToolStripMenuItem });
             tarefasToolStripMenuItem.Name = "tarefasToolStripMenuItem";
             tarefasToolStripMenuItem.Size = new Size(56, 20);
             tarefasToolStripMenuItem.Text = "Tarefas";
-            // 
-            // registroDeTarefasToolStripMenuItem
-            // 
-            registroDeTarefasToolStripMenuItem.Name = "registroDeTarefasToolStripMenuItem";
-            registroDeTarefasToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D1;
-            registroDeTarefasToolStripMenuItem.Size = new Size(217, 22);
-            registroDeTarefasToolStripMenuItem.Text = "Registro de Tarefas";
-            registroDeTarefasToolStripMenuItem.Click += registroDeTarefasToolStripMenuItem_Click;
-            // 
-            // consultaDeTarefasToolStripMenuItem
-            // 
-            consultaDeTarefasToolStripMenuItem.Name = "consultaDeTarefasToolStripMenuItem";
-            consultaDeTarefasToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D2;
-            consultaDeTarefasToolStripMenuItem.Size = new Size(217, 22);
-            consultaDeTarefasToolStripMenuItem.Text = "Consulta de Tarefas";
-            consultaDeTarefasToolStripMenuItem.Click += consultaDeTarefasToolStripMenuItem_Click;
             // 
             // atosEmpresariaisToolStripMenuItem
             // 
             atosEmpresariaisToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultarAtosToolStripMenuItem, registrarAtoToolStripMenuItem });
             atosEmpresariaisToolStripMenuItem.Name = "atosEmpresariaisToolStripMenuItem";
-            atosEmpresariaisToolStripMenuItem.Size = new Size(217, 22);
+            atosEmpresariaisToolStripMenuItem.Size = new Size(180, 22);
             atosEmpresariaisToolStripMenuItem.Text = "Atos Empresariais";
             // 
             // consultarAtosToolStripMenuItem
@@ -195,6 +183,43 @@
             registrarAtoToolStripMenuItem.Size = new Size(192, 22);
             registrarAtoToolStripMenuItem.Text = "Registrar Ato";
             registrarAtoToolStripMenuItem.Click += registrarAtoToolStripMenuItem_Click;
+            // 
+            // alvarásToolStripMenuItem
+            // 
+            alvarásToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultaDeTarefasToolStripMenuItem, registroDeTarefasToolStripMenuItem });
+            alvarásToolStripMenuItem.Name = "alvarásToolStripMenuItem";
+            alvarásToolStripMenuItem.Size = new Size(180, 22);
+            alvarásToolStripMenuItem.Text = "Alvarás";
+            // 
+            // consultaDeTarefasToolStripMenuItem
+            // 
+            consultaDeTarefasToolStripMenuItem.Name = "consultaDeTarefasToolStripMenuItem";
+            consultaDeTarefasToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D2;
+            consultaDeTarefasToolStripMenuItem.Size = new Size(269, 22);
+            consultaDeTarefasToolStripMenuItem.Text = "Consulta Processos Alvará";
+            consultaDeTarefasToolStripMenuItem.Click += consultaDeTarefasToolStripMenuItem_Click_1;
+            // 
+            // registroDeTarefasToolStripMenuItem
+            // 
+            registroDeTarefasToolStripMenuItem.Name = "registroDeTarefasToolStripMenuItem";
+            registroDeTarefasToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D1;
+            registroDeTarefasToolStripMenuItem.Size = new Size(269, 22);
+            registroDeTarefasToolStripMenuItem.Text = "Registros de Processos Alvará";
+            registroDeTarefasToolStripMenuItem.Click += registroDeTarefasToolStripMenuItem_Click_1;
+            // 
+            // processosToolStripMenuItem
+            // 
+            processosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarProcessoToolStripMenuItem, consultarProcessosToolStripMenuItem });
+            processosToolStripMenuItem.Name = "processosToolStripMenuItem";
+            processosToolStripMenuItem.Size = new Size(180, 22);
+            processosToolStripMenuItem.Text = "Processos";
+            // 
+            // cadastrarProcessoToolStripMenuItem
+            // 
+            cadastrarProcessoToolStripMenuItem.Name = "cadastrarProcessoToolStripMenuItem";
+            cadastrarProcessoToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarProcessoToolStripMenuItem.Text = "Cadastrar Processo";
+            cadastrarProcessoToolStripMenuItem.Click += cadastrarProcessoToolStripMenuItem_Click;
             // 
             // ajustesToolStripMenuItem
             // 
@@ -220,6 +245,13 @@
             Logo.SizeMode = PictureBoxSizeMode.Zoom;
             Logo.TabIndex = 1;
             Logo.TabStop = false;
+            // 
+            // consultarProcessosToolStripMenuItem
+            // 
+            consultarProcessosToolStripMenuItem.Name = "consultarProcessosToolStripMenuItem";
+            consultarProcessosToolStripMenuItem.Size = new Size(180, 22);
+            consultarProcessosToolStripMenuItem.Text = "Consultar Processos";
+            consultarProcessosToolStripMenuItem.Click += consultarProcessosToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -252,8 +284,6 @@
         private PictureBox Logo;
         private ToolStripMenuItem homeToolStripMenuItem;
         private ToolStripMenuItem tarefasToolStripMenuItem;
-        private ToolStripMenuItem registroDeTarefasToolStripMenuItem;
-        private ToolStripMenuItem consultaDeTarefasToolStripMenuItem;
         private ToolStripMenuItem bombeirosToolStripMenuItem;
         private ToolStripMenuItem registrarProcessoToolStripMenuItem;
         private ToolStripMenuItem consutarProcessosToolStripMenuItem;
@@ -267,5 +297,11 @@
         private ToolStripMenuItem registrarAtoToolStripMenuItem;
         private ToolStripMenuItem ajustesToolStripMenuItem;
         private ToolStripMenuItem atualizarBancoDeDadosToolStripMenuItem;
+        private ToolStripMenuItem alvarásToolStripMenuItem;
+        private ToolStripMenuItem consultaDeTarefasToolStripMenuItem;
+        private ToolStripMenuItem registroDeTarefasToolStripMenuItem;
+        private ToolStripMenuItem processosToolStripMenuItem;
+        private ToolStripMenuItem cadastrarProcessoToolStripMenuItem;
+        private ToolStripMenuItem consultarProcessosToolStripMenuItem;
     }
 }
