@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiscoTask.DataBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -138,6 +139,18 @@ namespace FiscoTask
                 rtbNotas.Text = "ID inválida. Por favor, insira um número válido.";
             }
 
+            AtualizarInformacoes();
+
+
+        }
+
+        private void AtualizarInformacoes()
+        {
+            DadosProcessoBombeiro(txtLivro.Text, "DATA_REGISTRO", "DESC");
+            DadosDocumentos(txtLivro.Text, "Vencimentodoc", "DESC");
+            DadosTarefas(txtLivro.Text, "Dtregistro", "DESC");
+            DadosProcessos(txtLivro.Text, "DataModificacao", "DESC");
+
             LoadSocios("SOCIO", "ASC", txtLivro.Text);
             DescobrirEscritorio(int.Parse(txtLivro.Text));
         }
@@ -192,7 +205,7 @@ namespace FiscoTask
 
             string QSA = empresa.qsa != null && empresa.qsa.Count > 0
                 ? string.Join("\n", empresa.qsa.Select(s => $"{s.nome_socio} - {s.qualificacao_socio}")) : "Nenhum sócio cadastrado.";
-      
+
 
 
             if (empresa != null)
@@ -246,14 +259,75 @@ namespace FiscoTask
                                     $"Opção pelo simples: {empresa.opcao_pelo_simples} - Data: {empresa.data_opcao_pelo_simples} - Data da Exclusão: {empresa.data_exclusao_do_simples}\n" +
                                     $"Opção pelo MEI: {empresa.opcao_pelo_mei} - Data: {empresa.data_opcao_pelo_mei} - Data da Exclusão: {empresa.data_exclusao_do_mei}\n" +
                                     $"Capital Social: {empresa.capital_social}\n" +
-                                    $"Porte da empresa: {empresa.codigo_porte} - {empresa.porte} - {empresa.descricao_porte}\n" 
-                                    
+                                    $"Porte da empresa: {empresa.codigo_porte} - {empresa.porte} - {empresa.descricao_porte}\n"
+
                                     ;
             }
             else
             {
                 rtbInfoCNPJ.Text = "Empresa não encontrada.";
             }
+        }
+
+        private void DadosProcessoBombeiro(string livro, string coluna, string ordem)
+        {
+            DbBombeiros dbbombeiros = new DbBombeiros();
+            string filtroBombeiro = livro;
+            var table = dbbombeiros.ReadBombeiro();
+            if (!string.IsNullOrEmpty(filtroBombeiro))
+            {
+                table.DefaultView.RowFilter = $"LIVRO = '{filtroBombeiro}'";
+            }
+            table.DefaultView.Sort = $"{coluna} {ordem}";
+            dgBombeiro.DataSource = table.DefaultView.ToTable();
+
+
+        }
+        private void DadosDocumentos(string livro, string coluna, string ordem)
+        {
+            DbDocuments dbdocuments = new DbDocuments();
+            string filtro = livro;
+            var table = dbdocuments.ReadDocDT();
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                table.DefaultView.RowFilter = $"Livro = '{filtro}'";
+            }
+            table.DefaultView.Sort = $"{coluna} {ordem}";
+            dgDocumentos.DataSource = table.DefaultView.ToTable();
+
+
+        }
+
+        private void DadosTarefas(string livro, string coluna, string ordem)
+        {
+            DbTarefa dbtarefa = new DbTarefa();
+            string filtro = livro;
+            var table = dbtarefa.ReadTarefaDT();
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                table.DefaultView.RowFilter = $"EMPRESA = '{filtro}'";
+            }
+            table.DefaultView.Sort = $"{coluna} {ordem}";
+            dgTarefas.DataSource = table.DefaultView.ToTable();
+        }
+
+        private void DadosProcessos(string livro, string coluna, string ordem)
+        {
+            DbProcessos dbprocessos = new DbProcessos();
+            string filtro = livro;
+            var table = dbprocessos.ReadProcessos();
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                table.DefaultView.RowFilter = $"Empresa = {filtro}";
+            }
+            table.DefaultView.Sort = $"{coluna} {ordem}";
+            dgProcessos.DataSource = table.DefaultView.ToTable();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ConsultaIndEmpresa_Load(null, null);
         }
     }
 }

@@ -63,8 +63,13 @@ namespace FiscoTask
             lblTarefasPendentes = new Label();
             clbDocumentos = new CheckedListBox();
             lblTarefasAtivas = new Label();
+            lblTarefasConcluidas = new Label();
+            gbInfos = new GroupBox();
+            lblSuspensas = new Label();
+            btnExportarTudo = new Button();
             ((ISupportInitialize)dgTarefas2).BeginInit();
             ((ISupportInitialize)dbTarefaBindingSource3).BeginInit();
+            gbInfos.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -173,9 +178,9 @@ namespace FiscoTask
             btnExport.ImageAlign = ContentAlignment.MiddleLeft;
             btnExport.Location = new Point(28, 238);
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(93, 38);
+            btnExport.Size = new Size(175, 38);
             btnExport.TabIndex = 8;
-            btnExport.Text = "Exportar";
+            btnExport.Text = "Exportar Dados Filtrados";
             btnExport.TextAlign = ContentAlignment.MiddleRight;
             btnExport.UseVisualStyleBackColor = true;
             btnExport.Click += btnExport_Click;
@@ -336,7 +341,7 @@ namespace FiscoTask
             // lblTarefasPendentes
             // 
             lblTarefasPendentes.AutoSize = true;
-            lblTarefasPendentes.Location = new Point(1002, 9);
+            lblTarefasPendentes.Location = new Point(6, 19);
             lblTarefasPendentes.Name = "lblTarefasPendentes";
             lblTarefasPendentes.Size = new Size(277, 15);
             lblTarefasPendentes.TabIndex = 21;
@@ -355,20 +360,65 @@ namespace FiscoTask
             // lblTarefasAtivas
             // 
             lblTarefasAtivas.AutoSize = true;
-            lblTarefasAtivas.Location = new Point(1002, 24);
+            lblTarefasAtivas.Location = new Point(6, 34);
             lblTarefasAtivas.Name = "lblTarefasAtivas";
             lblTarefasAtivas.Size = new Size(176, 15);
             lblTarefasAtivas.TabIndex = 24;
             lblTarefasAtivas.Text = "O número de tarefas ativas é de:";
+            // 
+            // lblTarefasConcluidas
+            // 
+            lblTarefasConcluidas.AutoSize = true;
+            lblTarefasConcluidas.BackColor = Color.FromArgb(192, 255, 192);
+            lblTarefasConcluidas.Location = new Point(6, 49);
+            lblTarefasConcluidas.Name = "lblTarefasConcluidas";
+            lblTarefasConcluidas.Size = new Size(203, 15);
+            lblTarefasConcluidas.TabIndex = 25;
+            lblTarefasConcluidas.Text = "O número de tarefas concluídas é de:";
+            // 
+            // gbInfos
+            // 
+            gbInfos.Controls.Add(lblSuspensas);
+            gbInfos.Controls.Add(lblTarefasPendentes);
+            gbInfos.Controls.Add(lblTarefasConcluidas);
+            gbInfos.Controls.Add(lblTarefasAtivas);
+            gbInfos.Location = new Point(237, 9);
+            gbInfos.Name = "gbInfos";
+            gbInfos.Size = new Size(351, 100);
+            gbInfos.TabIndex = 26;
+            gbInfos.TabStop = false;
+            gbInfos.Text = "Informações";
+            // 
+            // lblSuspensas
+            // 
+            lblSuspensas.AutoSize = true;
+            lblSuspensas.Location = new Point(6, 64);
+            lblSuspensas.Name = "lblSuspensas";
+            lblSuspensas.Size = new Size(199, 15);
+            lblSuspensas.TabIndex = 26;
+            lblSuspensas.Text = "O número de tarefas suspensas é de:";
+            // 
+            // btnExportarTudo
+            // 
+            btnExportarTudo.Image = Properties.Resources.file_type_excel_icon_130611__1_;
+            btnExportarTudo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExportarTudo.Location = new Point(209, 238);
+            btnExportarTudo.Name = "btnExportarTudo";
+            btnExportarTudo.Size = new Size(175, 38);
+            btnExportarTudo.TabIndex = 27;
+            btnExportarTudo.Text = "Exportar todos os Dados";
+            btnExportarTudo.TextAlign = ContentAlignment.MiddleRight;
+            btnExportarTudo.UseVisualStyleBackColor = true;
+            btnExportarTudo.Click += btnExportarTudo_Click;
             // 
             // ConsultaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1344, 650);
-            Controls.Add(lblTarefasAtivas);
+            Controls.Add(btnExportarTudo);
+            Controls.Add(gbInfos);
             Controls.Add(clbDocumentos);
-            Controls.Add(lblTarefasPendentes);
             Controls.Add(cbEmAndamento);
             Controls.Add(dgTarefas2);
             Controls.Add(btnExport);
@@ -387,6 +437,8 @@ namespace FiscoTask
             Text = "Consultar tarefas";
             ((ISupportInitialize)dgTarefas2).EndInit();
             ((ISupportInitialize)dbTarefaBindingSource3).EndInit();
+            gbInfos.ResumeLayout(false);
+            gbInfos.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -425,5 +477,9 @@ namespace FiscoTask
         private DataGridViewTextBoxColumn Dtregistro;
         private DataGridViewTextBoxColumn CNPJs;
         private Label lblTarefasAtivas;
+        private Label lblTarefasConcluidas;
+        private GroupBox gbInfos;
+        private Label lblSuspensas;
+        private Button btnExportarTudo;
     }
 }

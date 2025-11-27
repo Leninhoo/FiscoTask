@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using MySqlConnector;
 using Dapper;
 using System.Data;
+using FiscoTask.DataBase;
 
 namespace FiscoTask
 {
-    public class DbTarefa : Dbase
+    public class DbTarefa : BancoDados<DbTarefa>
     {
         public int Codigo { get; set; }
         public int Empresa { get; set; }
@@ -31,54 +32,39 @@ namespace FiscoTask
         public string? CIDADE { get; set; }
 
         
-
+        protected override string NomeTabela => "Tarefas";
+        protected override string CampoCodigo => "Codigo";
 
 
         public void CreateTarefa (DbTarefa dbTarefa)
         {
-            try
-            {
-                using (var connection = new MySqlConnection(stringconnection))
-                {
-                    string query = @"
+            string query = @"
                                     INSERT INTO Tarefas
                                         (Empresa, Situacao, Obs, Dtregistro, Tipo, Bombeiro, VigilanciaSanitaria, TaxaAlvaraPgto, EntregaTaxaAlvara, Fase, Ativo, Arquivo)
                                     VALUES
                                         ( @Empresa, @Situacao, @Obs, @Dtregistro, @Tipo, @Bombeiro, @VigilanciaSanitaria, @TaxaAlvaraPgto, @EntregaTaxaAlvara, @Fase, @Ativo, @Arquivo)";
 
-                    connection.Execute(query, new
-                    {
-                        dbTarefa.Empresa,
-                        dbTarefa.Situacao,
-                        dbTarefa.Obs,
-                        dbTarefa.Dtregistro,
-                        dbTarefa.Tipo,
-                        dbTarefa.Bombeiro,
-                        dbTarefa.VigilanciaSanitaria,
-                        dbTarefa.TaxaAlvaraPgto,
-                        dbTarefa.EntregaTaxaAlvara,
-                        dbTarefa.Fase,
-                        dbTarefa.Ativo,
-                        dbTarefa.Arquivo,
+            Create(query, new
+                {
+                dbTarefa.Empresa,
+                dbTarefa.Situacao,
+                dbTarefa.Obs,
+                dbTarefa.Dtregistro,
+                dbTarefa.Tipo,
+                dbTarefa.Bombeiro,
+                dbTarefa.VigilanciaSanitaria,
+                dbTarefa.TaxaAlvaraPgto,
+                dbTarefa.EntregaTaxaAlvara,
+                dbTarefa.Fase,
+                dbTarefa.Ativo,
+                dbTarefa.Arquivo
+            });
 
-                    });
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Erro ao inserir Tarefa: {ex.Message}");
-            }
         }
 
         public void UptadeTarefa(DbTarefa dbTarefa)
         {
-            try
-            {
-                using (var connection = new MySqlConnection(stringconnection))
-                {
-                    string query = @"
+            string query = @"
                                     UPDATE Tarefas
                                     SET
                                         Empresa = @Empresa,
@@ -93,63 +79,34 @@ namespace FiscoTask
                                         Ativo = @Ativo,
                                         Arquivo = @Arquivo
                                     WHERE Codigo = @Codigo";
-
-                    connection.Execute(query, new
-                    {
-                        dbTarefa.Codigo,
-                        dbTarefa.Empresa,
-                        dbTarefa.Situacao,
-                        dbTarefa.Obs,
-                        dbTarefa.Tipo,
-                        dbTarefa.Bombeiro,
-                        dbTarefa.VigilanciaSanitaria,
-                        dbTarefa.TaxaAlvaraPgto,
-                        dbTarefa.EntregaTaxaAlvara,
-                        dbTarefa.Fase,
-                        dbTarefa.Ativo,
-                        dbTarefa.Arquivo
-
-
-                    });
-
-                }
-
-            }
-            catch (Exception ex)
+            Update(query, new
             {
-                throw new Exception($"Erro ao Atualizar Tarefa: {ex.Message}");
-            }
+                dbTarefa.Codigo,
+                dbTarefa.Empresa,
+                dbTarefa.Situacao,
+                dbTarefa.Obs,
+                dbTarefa.Tipo,
+                dbTarefa.Bombeiro,
+                dbTarefa.VigilanciaSanitaria,
+                dbTarefa.TaxaAlvaraPgto,
+                dbTarefa.EntregaTaxaAlvara,
+                dbTarefa.Fase,
+                dbTarefa.Ativo,
+                dbTarefa.Arquivo
+            });
 
         }
         
 
         public void DeleteTarefa(int codigo)
         {
-            try
-            {
-                using (var connection = new MySqlConnection(stringconnection))
-                {
-                    string query = @"DELETE FROM Tarefas WHERE Codigo = @Codigo";
-
-                    connection.Execute(query, new { Codigo = codigo });
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Erro ao excluir Tarefa: {ex.Message}");
-            }
+            Delete(codigo);
         }
 
       
         public DataTable ReadTarefaDT()
         {
-            try
-            {
-                using (var connection = new MySqlConnection(stringconnection))
-                {
-                    string query = @"
+            string query = @"
                                     SELECT 
                                         Tarefas.*, 
                                         vwEmpresas.Nome, 
@@ -161,32 +118,12 @@ namespace FiscoTask
                                         vwEmpresas
                                     ON 
                                         Tarefas.Empresa = vwEmpresas.EMPRESA";
-
-                    DataTable data = new DataTable();
-                    using (var adapter = new MySqlDataAdapter(query, connection))
-                    {
-                        adapter.Fill(data);
-                        
-                    }
-
-                    return data;
-
-                }
-            }
-            catch
-            {
-                return new DataTable();
-
-            }
+            return ExecuteQueryDataTable(query);
 
         }
         public DbTarefa ReadTarefaByCodigo(int codigo)
         {
-            try
-            {
-                using (var connection = new MySqlConnection(stringconnection))
-                {
-                    string query = @"
+            string query = @"
                 SELECT
                     Tarefas.*,
                     vwEmpresas.Nome,
@@ -200,14 +137,10 @@ namespace FiscoTask
                     Tarefas.Empresa = vwEmpresas.EMPRESA
                 WHERE
                     Tarefas.Codigo = @Codigo";
-                    return connection.QueryFirstOrDefault<DbTarefa>(query, new { Codigo = codigo });
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Erro ao buscar Tarefa: {ex.Message}");
-            }
+
+            return ReadByCode(codigo, query);
         }
+
 
     }
 }

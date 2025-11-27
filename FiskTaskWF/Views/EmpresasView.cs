@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.DataAccess.Native.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +35,10 @@ namespace FiscoTask
         {
             var table = empresaView.ReadEmpresasDT();
             table.DefaultView.Sort = $"{coluna} {ordem}";
-            dgEmpresas.DataSource = table ;
+            dgEmpresas.DataSource = table;
+
+            txtLivro.Clear();
+            txtPesquisa.Clear();
         }
 
 
@@ -42,7 +46,7 @@ namespace FiscoTask
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             string filtro = txtPesquisa.Text.Replace("'", "''"); // Evitar erros com apóstrofos
-            var dataTable = (dgEmpresas.DataSource as DataTable);
+            var dataTable = (dgEmpresas.DataSource as System.Data.DataTable);
 
             if (dataTable != null)
             {
@@ -99,6 +103,26 @@ namespace FiscoTask
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             Loadempresas("NOME", "ASC");
+        }
+
+
+        private void btnPesquisaLivro_Click(object sender, EventArgs e)
+        {
+            string filtro = txtLivro.Text.Trim();
+
+            if (int.TryParse(filtro, out int id))
+            {
+                var dataTable = (dgEmpresas.DataSource as System.Data.DataTable);
+
+                if (dataTable != null)
+                {
+                    dataTable.DefaultView.RowFilter = $"EMPRESA = {id}";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, insira um número válido para o ID da empresa.");
+            }
         }
     }
 }

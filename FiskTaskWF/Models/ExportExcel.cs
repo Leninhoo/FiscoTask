@@ -21,7 +21,7 @@ namespace FiscoTask
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
-                        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                        ExcelPackage.License.SetNonCommercialPersonal("AndreCruz");
                         using (ExcelPackage package = new ExcelPackage())
                         {
                             var ws = package.Workbook.Worksheets.Add("Dados Exportados");
