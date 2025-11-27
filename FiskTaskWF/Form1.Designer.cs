@@ -51,10 +51,12 @@
             registroDeTarefasToolStripMenuItem = new ToolStripMenuItem();
             processosToolStripMenuItem = new ToolStripMenuItem();
             cadastrarProcessoToolStripMenuItem = new ToolStripMenuItem();
+            consultarProcessosToolStripMenuItem = new ToolStripMenuItem();
             ajustesToolStripMenuItem = new ToolStripMenuItem();
             atualizarBancoDeDadosToolStripMenuItem = new ToolStripMenuItem();
+            editorToolStripMenuItem = new ToolStripMenuItem();
             Logo = new PictureBox();
-            consultarProcessosToolStripMenuItem = new ToolStripMenuItem();
+            converterParaDBParaRTFToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             SuspendLayout();
@@ -165,7 +167,7 @@
             // 
             atosEmpresariaisToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultarAtosToolStripMenuItem, registrarAtoToolStripMenuItem });
             atosEmpresariaisToolStripMenuItem.Name = "atosEmpresariaisToolStripMenuItem";
-            atosEmpresariaisToolStripMenuItem.Size = new Size(180, 22);
+            atosEmpresariaisToolStripMenuItem.Size = new Size(167, 22);
             atosEmpresariaisToolStripMenuItem.Text = "Atos Empresariais";
             // 
             // consultarAtosToolStripMenuItem
@@ -188,7 +190,7 @@
             // 
             alvarásToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultaDeTarefasToolStripMenuItem, registroDeTarefasToolStripMenuItem });
             alvarásToolStripMenuItem.Name = "alvarásToolStripMenuItem";
-            alvarásToolStripMenuItem.Size = new Size(180, 22);
+            alvarásToolStripMenuItem.Size = new Size(167, 22);
             alvarásToolStripMenuItem.Text = "Alvarás";
             // 
             // consultaDeTarefasToolStripMenuItem
@@ -211,19 +213,28 @@
             // 
             processosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarProcessoToolStripMenuItem, consultarProcessosToolStripMenuItem });
             processosToolStripMenuItem.Name = "processosToolStripMenuItem";
-            processosToolStripMenuItem.Size = new Size(180, 22);
+            processosToolStripMenuItem.Size = new Size(167, 22);
             processosToolStripMenuItem.Text = "Processos";
             // 
             // cadastrarProcessoToolStripMenuItem
             // 
             cadastrarProcessoToolStripMenuItem.Name = "cadastrarProcessoToolStripMenuItem";
-            cadastrarProcessoToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarProcessoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.D1;
+            cadastrarProcessoToolStripMenuItem.Size = new Size(252, 22);
             cadastrarProcessoToolStripMenuItem.Text = "Cadastrar Processo";
             cadastrarProcessoToolStripMenuItem.Click += cadastrarProcessoToolStripMenuItem_Click;
             // 
+            // consultarProcessosToolStripMenuItem
+            // 
+            consultarProcessosToolStripMenuItem.Name = "consultarProcessosToolStripMenuItem";
+            consultarProcessosToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Shift | Keys.D2;
+            consultarProcessosToolStripMenuItem.Size = new Size(252, 22);
+            consultarProcessosToolStripMenuItem.Text = "Consultar Processos";
+            consultarProcessosToolStripMenuItem.Click += consultarProcessosToolStripMenuItem_Click;
+            // 
             // ajustesToolStripMenuItem
             // 
-            ajustesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { atualizarBancoDeDadosToolStripMenuItem });
+            ajustesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { atualizarBancoDeDadosToolStripMenuItem, editorToolStripMenuItem, converterParaDBParaRTFToolStripMenuItem });
             ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
             ajustesToolStripMenuItem.Size = new Size(57, 20);
             ajustesToolStripMenuItem.Text = "Ajustes";
@@ -231,9 +242,16 @@
             // atualizarBancoDeDadosToolStripMenuItem
             // 
             atualizarBancoDeDadosToolStripMenuItem.Name = "atualizarBancoDeDadosToolStripMenuItem";
-            atualizarBancoDeDadosToolStripMenuItem.Size = new Size(208, 22);
+            atualizarBancoDeDadosToolStripMenuItem.Size = new Size(218, 22);
             atualizarBancoDeDadosToolStripMenuItem.Text = "Atualizar Banco de Dados";
             atualizarBancoDeDadosToolStripMenuItem.Click += atualizarBancoDeDadosToolStripMenuItem_Click;
+            // 
+            // editorToolStripMenuItem
+            // 
+            editorToolStripMenuItem.Name = "editorToolStripMenuItem";
+            editorToolStripMenuItem.Size = new Size(218, 22);
+            editorToolStripMenuItem.Text = "Editor";
+            editorToolStripMenuItem.Click += editorToolStripMenuItem_Click;
             // 
             // Logo
             // 
@@ -246,12 +264,12 @@
             Logo.TabIndex = 1;
             Logo.TabStop = false;
             // 
-            // consultarProcessosToolStripMenuItem
+            // converterParaDBParaRTFToolStripMenuItem
             // 
-            consultarProcessosToolStripMenuItem.Name = "consultarProcessosToolStripMenuItem";
-            consultarProcessosToolStripMenuItem.Size = new Size(180, 22);
-            consultarProcessosToolStripMenuItem.Text = "Consultar Processos";
-            consultarProcessosToolStripMenuItem.Click += consultarProcessosToolStripMenuItem_Click;
+            converterParaDBParaRTFToolStripMenuItem.Name = "converterParaDBParaRTFToolStripMenuItem";
+            converterParaDBParaRTFToolStripMenuItem.Size = new Size(218, 22);
+            converterParaDBParaRTFToolStripMenuItem.Text = "Converter para DB para RTF";
+            converterParaDBParaRTFToolStripMenuItem.Click += converterParaDBParaRTFToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -303,5 +321,7 @@
         private ToolStripMenuItem processosToolStripMenuItem;
         private ToolStripMenuItem cadastrarProcessoToolStripMenuItem;
         private ToolStripMenuItem consultarProcessosToolStripMenuItem;
+        private ToolStripMenuItem editorToolStripMenuItem;
+        private ToolStripMenuItem converterParaDBParaRTFToolStripMenuItem;
     }
 }

@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             btnCarimbo = new Button();
-            recArquivo = new RecControl();
             label1 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             groupBox2 = new GroupBox();
+            txtRazao = new TextBox();
+            label4 = new Label();
             txtResponsavel = new TextBox();
             txtIdProcesso = new TextBox();
             label11 = new Label();
@@ -71,6 +72,7 @@
             btnCancelar = new Button();
             btnApagar = new Button();
             btnSalvar = new Button();
+            rtfEditor = new FiscoTask.Controls.RtfEditor();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -88,14 +90,6 @@
             btnCarimbo.Text = "Adicionar Data";
             btnCarimbo.UseVisualStyleBackColor = false;
             btnCarimbo.Click += btnCarimbo_Click;
-            // 
-            // recArquivo
-            // 
-            recArquivo.BorderStyle = BorderStyle.Fixed3D;
-            recArquivo.Location = new Point(12, 417);
-            recArquivo.Name = "recArquivo";
-            recArquivo.Size = new Size(942, 480);
-            recArquivo.TabIndex = 27;
             // 
             // label1
             // 
@@ -136,6 +130,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(txtRazao);
+            groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(txtResponsavel);
             groupBox2.Controls.Add(txtIdProcesso);
             groupBox2.Controls.Add(label11);
@@ -150,14 +146,31 @@
             groupBox2.Controls.Add(txtEmpresa);
             groupBox2.Location = new Point(15, 15);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(349, 222);
+            groupBox2.Size = new Size(509, 250);
             groupBox2.TabIndex = 50;
             groupBox2.TabStop = false;
             groupBox2.Text = "Informações Registro";
             // 
+            // txtRazao
+            // 
+            txtRazao.Location = new Point(60, 89);
+            txtRazao.Name = "txtRazao";
+            txtRazao.ReadOnly = true;
+            txtRazao.Size = new Size(443, 23);
+            txtRazao.TabIndex = 50;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 92);
+            label4.Name = "label4";
+            label4.Size = new Size(38, 15);
+            label4.TabIndex = 51;
+            label4.Text = "Razão";
+            // 
             // txtResponsavel
             // 
-            txtResponsavel.Location = new Point(60, 176);
+            txtResponsavel.Location = new Point(60, 202);
             txtResponsavel.Name = "txtResponsavel";
             txtResponsavel.ReadOnly = true;
             txtResponsavel.Size = new Size(283, 23);
@@ -174,7 +187,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(6, 179);
+            label11.Location = new Point(6, 205);
             label11.Name = "label11";
             label11.Size = new Size(35, 15);
             label11.TabIndex = 34;
@@ -191,16 +204,16 @@
             // 
             // txtDataRegistro
             // 
-            txtDataRegistro.Location = new Point(60, 147);
+            txtDataRegistro.Location = new Point(60, 173);
             txtDataRegistro.Name = "txtDataRegistro";
             txtDataRegistro.ReadOnly = true;
-            txtDataRegistro.Size = new Size(283, 23);
+            txtDataRegistro.Size = new Size(443, 23);
             txtDataRegistro.TabIndex = 11;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(6, 150);
+            label10.Location = new Point(6, 176);
             label10.Name = "label10";
             label10.Size = new Size(50, 15);
             label10.TabIndex = 32;
@@ -208,24 +221,24 @@
             // 
             // txtCNPJ
             // 
-            txtCNPJ.Location = new Point(60, 89);
+            txtCNPJ.Location = new Point(60, 115);
             txtCNPJ.Name = "txtCNPJ";
             txtCNPJ.ReadOnly = true;
-            txtCNPJ.Size = new Size(283, 23);
+            txtCNPJ.Size = new Size(443, 23);
             txtCNPJ.TabIndex = 9;
             // 
             // txtCidade
             // 
-            txtCidade.Location = new Point(60, 118);
+            txtCidade.Location = new Point(60, 144);
             txtCidade.Name = "txtCidade";
             txtCidade.ReadOnly = true;
-            txtCidade.Size = new Size(283, 23);
+            txtCidade.Size = new Size(443, 23);
             txtCidade.TabIndex = 10;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 92);
+            label2.Location = new Point(6, 118);
             label2.Name = "label2";
             label2.Size = new Size(34, 15);
             label2.TabIndex = 24;
@@ -234,7 +247,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 121);
+            label3.Location = new Point(6, 147);
             label3.Name = "label3";
             label3.Size = new Size(44, 15);
             label3.TabIndex = 30;
@@ -245,16 +258,16 @@
             label7.AutoSize = true;
             label7.Location = new Point(6, 63);
             label7.Name = "label7";
-            label7.Size = new Size(52, 15);
+            label7.Size = new Size(33, 15);
             label7.TabIndex = 26;
-            label7.Text = "Empresa";
+            label7.Text = "Livro";
             // 
             // txtEmpresa
             // 
             txtEmpresa.Location = new Point(60, 60);
             txtEmpresa.Name = "txtEmpresa";
             txtEmpresa.ReadOnly = true;
-            txtEmpresa.Size = new Size(283, 23);
+            txtEmpresa.Size = new Size(86, 23);
             txtEmpresa.TabIndex = 8;
             // 
             // label9
@@ -491,18 +504,25 @@
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
+            // rtfEditor
+            // 
+            rtfEditor.Location = new Point(26, 435);
+            rtfEditor.Name = "rtfEditor";
+            rtfEditor.Size = new Size(904, 462);
+            rtfEditor.TabIndex = 41;
+            // 
             // ModProcessoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(980, 961);
+            Controls.Add(rtfEditor);
             Controls.Add(btnCancelar);
             Controls.Add(btnApagar);
             Controls.Add(btnSalvar);
             Controls.Add(tabControl1);
             Controls.Add(label1);
             Controls.Add(btnCarimbo);
-            Controls.Add(recArquivo);
             Name = "ModProcessoForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Alterar Processo";
@@ -522,7 +542,6 @@
         #endregion
 
         private Button btnCarimbo;
-        private RecControl recArquivo;
         private Label label1;
         private TabControl tabControl1;
         private TabPage tabPage1;
@@ -564,5 +583,8 @@
         private Label label3;
         private Label label7;
         private TextBox txtEmpresa;
+        private TextBox txtRazao;
+        private Label label4;
+        private Controls.RtfEditor rtfEditor;
     }
 }

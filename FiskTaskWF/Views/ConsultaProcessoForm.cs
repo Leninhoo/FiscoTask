@@ -22,10 +22,11 @@ namespace FiscoTask.Views
 
         public void AtualizarFormulario()
         {
-            CarregarProcessos("Dtregistro", "DESC");
+            CarregarProcessos("DataModificacao", "DESC");
             dbProcessos.CarregarComboBox("TipoProcesso", cbTipo);
             dbProcessos.CarregarComboBox("Situacao", cbSituacao);
             dbProcessos.CarregarComboBox("Andamento", cbAndamento);
+            ContarProcessos();
 
             cbSituacao.SelectedItem = -1;
             cbSituacao.Text = "";
@@ -139,6 +140,19 @@ namespace FiscoTask.Views
         private void button1_Click(object sender, EventArgs e)
         {
             AtualizarFormulario();
+        }
+
+        private void ContarProcessos()
+        {
+            int rowCount = ((DataTable)dgProcessos.DataSource).DefaultView.ToTable().Select("Situacao = 'Em Andamento'").Length;
+            lblQuantidade.Text = $"A quantidade de processos ativos é de: {rowCount}";
+
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            var ExportExcel = new ExportExcel();
+            ExportExcel.ExportarParaExcel(dgProcessos);
         }
     }
 }

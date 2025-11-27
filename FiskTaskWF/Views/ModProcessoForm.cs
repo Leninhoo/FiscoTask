@@ -1,4 +1,5 @@
 ﻿using FiscoTask.DataBase;
+using FiscoTask.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,8 +39,8 @@ namespace FiscoTask.Views
             // e preencher os campos do formulário.
 
             dbProcessos.CarregarComboBox("TipoProcesso", cbTipo);
-            dbProcessos.CarregarComboBox("Situacao", cbSituacao);
-            dbProcessos.CarregarComboBox("Andamento", cbAndamento);
+            CarregarComboBox();
+
 
             txtIdProcesso.Text = codigoProcesso.ToString();
 
@@ -52,7 +53,8 @@ namespace FiscoTask.Views
                 cbTipo.Text = dbProcessos.TipoProcesso;
                 txtCNPJ.Text = dbProcessos.CNPJ;
                 txtCidade.Text = dbProcessos.CIDADE;
-                txtDataRegistro.Text = dbProcessos.Dtregistro;
+                txtDataRegistro.Text = dbProcessos.Dtregistro.ToString("f");
+                txtRazao.Text = dbProcessos.NOME;
             }
             DadosEmpresas();
             DadosResponsavel();
@@ -149,13 +151,11 @@ namespace FiscoTask.Views
                     byte[] fileData = processo.Arquivo;
                     using (MemoryStream ms = new MemoryStream(fileData))
                     {
-                        recArquivo.Rec.LoadDocument(ms, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+                        rtfEditor.rtb.LoadFile(ms, RichTextBoxStreamType.RichText);
                     }
                 }
                 else
                 {
-                    // Limpa o editor se não houver arquivo no banco
-                    recArquivo.Rec.CreateNewDocument();
                     MessageBox.Show("Nenhuma anotação encontrada. Um novo documento foi criado.");
                 }
             }
@@ -170,14 +170,11 @@ namespace FiscoTask.Views
         {
             try
             {
-                // Obtém o RichEditControl do UserControl
-                var richEditControl = recArquivo.Rec;
-
                 // Define o texto do carimbo (pode ser personalizado)
                 string carimbo = $"--------------------------- \n{DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")} \n";
-                // Insere o texto na posição atual do cursor
-                richEditControl.Document.InsertText(richEditControl.Document.CaretPosition, carimbo);
-                richEditControl.Focus();
+                rtfEditor.rtb.SelectedText = carimbo;
+                rtfEditor.rtb.Focus();
+                rtfEditor.rtb.SelectionStart = rtfEditor.rtb.Text.Length; //cursor para o final do texto.
             }
             catch (Exception ex)
             {
@@ -217,8 +214,8 @@ namespace FiscoTask.Views
                     Situacao = cbSituacao.Text,
                     Andamento = cbAndamento.Text,
                     TipoProcesso = cbTipo.Text,
-                    Dtregistro = txtDataRegistro.Text,
-                    Arquivo = ObterArquivoComoByteArray()
+                    Arquivo = ObterArquivoComoByteArray(),
+                    DataModificacao = DateTime.Now
                 });
                 MessageBox.Show("Processo salvo com sucesso.");
                 _parentForm.AtualizarFormulario();
@@ -237,10 +234,18 @@ namespace FiscoTask.Views
             byte[] filedata;
             using (MemoryStream ms = new MemoryStream())
             {
-                recArquivo.Rec.SaveDocument(ms, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+                rtfEditor.rtb.SaveFile(ms, RichTextBoxStreamType.RichText);
                 filedata = ms.ToArray();
                 return filedata;
             }
+        }
+
+
+        private void CarregarComboBox()
+        {
+            ListasComboBox listas = new ListasComboBox();
+            cbAndamento.DataSource = listas.AndamentosProcesso();
+            cbSituacao.DataSource = listas.Situacao();
         }
     }
 }

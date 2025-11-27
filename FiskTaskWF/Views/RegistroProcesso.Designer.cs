@@ -44,6 +44,7 @@
             NOME = new DataGridViewTextBoxColumn();
             CNPJ = new DataGridViewTextBoxColumn();
             CIDADE = new DataGridViewTextBoxColumn();
+            UF = new DataGridViewTextBoxColumn();
             empresaViewBindingSource = new BindingSource(components);
             txtPesquisa = new TextBox();
             label7 = new Label();
@@ -54,10 +55,10 @@
             label9 = new Label();
             cbTipo = new ComboBox();
             listasComboBoxBindingSource = new BindingSource(components);
-            recArquivo = new RecControl();
             btnSalvar = new Button();
             btnCancelar = new Button();
             btnCarimbo = new Button();
+            rtfEditor = new FiscoTask.Controls.RtfEditor();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgPesquisaEmpresa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).BeginInit();
@@ -89,7 +90,7 @@
             txtID.Name = "txtID";
             txtID.ReadOnly = true;
             txtID.Size = new Size(53, 23);
-            txtID.TabIndex = 8;
+            txtID.TabIndex = 80;
             // 
             // txtRazao
             // 
@@ -97,7 +98,7 @@
             txtRazao.Name = "txtRazao";
             txtRazao.ReadOnly = true;
             txtRazao.Size = new Size(335, 23);
-            txtRazao.TabIndex = 10;
+            txtRazao.TabIndex = 108;
             // 
             // label3
             // 
@@ -123,7 +124,7 @@
             txtCidade.Name = "txtCidade";
             txtCidade.ReadOnly = true;
             txtCidade.Size = new Size(179, 23);
-            txtCidade.TabIndex = 14;
+            txtCidade.TabIndex = 140;
             // 
             // label5
             // 
@@ -140,16 +141,16 @@
             txtCNPJ.Name = "txtCNPJ";
             txtCNPJ.ReadOnly = true;
             txtCNPJ.Size = new Size(208, 23);
-            txtCNPJ.TabIndex = 12;
+            txtCNPJ.TabIndex = 120;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dgPesquisaEmpresa);
             groupBox1.Controls.Add(txtPesquisa);
             groupBox1.Controls.Add(label7);
-            groupBox1.Location = new Point(677, 50);
+            groupBox1.Location = new Point(549, 50);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(529, 198);
+            groupBox1.Size = new Size(657, 198);
             groupBox1.TabIndex = 16;
             groupBox1.TabStop = false;
             groupBox1.Text = "Pesquisar empresa";
@@ -160,11 +161,12 @@
             dgPesquisaEmpresa.AllowUserToDeleteRows = false;
             dgPesquisaEmpresa.AutoGenerateColumns = false;
             dgPesquisaEmpresa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgPesquisaEmpresa.Columns.AddRange(new DataGridViewColumn[] { EMPRESA, NOME, CNPJ, CIDADE });
+            dgPesquisaEmpresa.Columns.AddRange(new DataGridViewColumn[] { EMPRESA, NOME, CNPJ, CIDADE, UF });
             dgPesquisaEmpresa.DataSource = empresaViewBindingSource;
             dgPesquisaEmpresa.Location = new Point(7, 82);
             dgPesquisaEmpresa.Name = "dgPesquisaEmpresa";
-            dgPesquisaEmpresa.Size = new Size(516, 110);
+            dgPesquisaEmpresa.ReadOnly = true;
+            dgPesquisaEmpresa.Size = new Size(632, 110);
             dgPesquisaEmpresa.TabIndex = 19;
             dgPesquisaEmpresa.CellDoubleClick += dgPesquisaEmpresa_CellDoubleClick;
             // 
@@ -174,6 +176,7 @@
             EMPRESA.DataPropertyName = "EMPRESA";
             EMPRESA.HeaderText = "EMPRESA";
             EMPRESA.Name = "EMPRESA";
+            EMPRESA.ReadOnly = true;
             EMPRESA.Width = 83;
             // 
             // NOME
@@ -182,6 +185,7 @@
             NOME.DataPropertyName = "NOME";
             NOME.HeaderText = "NOME";
             NOME.Name = "NOME";
+            NOME.ReadOnly = true;
             NOME.Width = 67;
             // 
             // CNPJ
@@ -189,12 +193,21 @@
             CNPJ.DataPropertyName = "CNPJ";
             CNPJ.HeaderText = "CNPJ";
             CNPJ.Name = "CNPJ";
+            CNPJ.ReadOnly = true;
             // 
             // CIDADE
             // 
             CIDADE.DataPropertyName = "CIDADE";
             CIDADE.HeaderText = "CIDADE";
             CIDADE.Name = "CIDADE";
+            CIDADE.ReadOnly = true;
+            // 
+            // UF
+            // 
+            UF.DataPropertyName = "UF";
+            UF.HeaderText = "UF";
+            UF.Name = "UF";
+            UF.ReadOnly = true;
             // 
             // empresaViewBindingSource
             // 
@@ -205,7 +218,7 @@
             txtPesquisa.Location = new Point(65, 22);
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.Size = new Size(345, 23);
-            txtPesquisa.TabIndex = 18;
+            txtPesquisa.TabIndex = 1;
             txtPesquisa.TextChanged += txtPesquisa_TextChanged;
             // 
             // label7
@@ -223,7 +236,7 @@
             cbSituacao.Location = new Point(75, 113);
             cbSituacao.Name = "cbSituacao";
             cbSituacao.Size = new Size(224, 23);
-            cbSituacao.TabIndex = 17;
+            cbSituacao.TabIndex = 2;
             // 
             // label6
             // 
@@ -249,7 +262,7 @@
             cbAndamento.Location = new Point(92, 142);
             cbAndamento.Name = "cbAndamento";
             cbAndamento.Size = new Size(224, 23);
-            cbAndamento.TabIndex = 19;
+            cbAndamento.TabIndex = 3;
             // 
             // label9
             // 
@@ -266,26 +279,18 @@
             cbTipo.Location = new Point(103, 171);
             cbTipo.Name = "cbTipo";
             cbTipo.Size = new Size(230, 23);
-            cbTipo.TabIndex = 21;
+            cbTipo.TabIndex = 4;
             // 
             // listasComboBoxBindingSource
             // 
             listasComboBoxBindingSource.DataSource = typeof(Models.ListasComboBox);
-            // 
-            // recArquivo
-            // 
-            recArquivo.BorderStyle = BorderStyle.Fixed3D;
-            recArquivo.Location = new Point(17, 266);
-            recArquivo.Name = "recArquivo";
-            recArquivo.Size = new Size(942, 480);
-            recArquivo.TabIndex = 23;
             // 
             // btnSalvar
             // 
             btnSalvar.Location = new Point(16, 774);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
-            btnSalvar.TabIndex = 24;
+            btnSalvar.TabIndex = 6;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
@@ -295,7 +300,7 @@
             btnCancelar.Location = new Point(97, 774);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
-            btnCancelar.TabIndex = 25;
+            btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
@@ -311,15 +316,22 @@
             btnCarimbo.UseVisualStyleBackColor = false;
             btnCarimbo.Click += btnCarimbo_Click;
             // 
+            // rtfEditor
+            // 
+            rtfEditor.Location = new Point(17, 316);
+            rtfEditor.Name = "rtfEditor";
+            rtfEditor.Size = new Size(819, 435);
+            rtfEditor.TabIndex = 141;
+            // 
             // RegistroProcesso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1218, 809);
+            Controls.Add(rtfEditor);
             Controls.Add(btnCarimbo);
             Controls.Add(btnCancelar);
             Controls.Add(btnSalvar);
-            Controls.Add(recArquivo);
             Controls.Add(label9);
             Controls.Add(cbTipo);
             Controls.Add(label8);
@@ -370,14 +382,15 @@
         private ComboBox cbAndamento;
         private Label label9;
         private ComboBox cbTipo;
+        private BindingSource listasComboBoxBindingSource;
+        private Button btnSalvar;
+        private Button btnCancelar;
+        private Button btnCarimbo;
         private DataGridViewTextBoxColumn EMPRESA;
         private DataGridViewTextBoxColumn NOME;
         private DataGridViewTextBoxColumn CNPJ;
         private DataGridViewTextBoxColumn CIDADE;
-        private BindingSource listasComboBoxBindingSource;
-        private RecControl recArquivo;
-        private Button btnSalvar;
-        private Button btnCancelar;
-        private Button btnCarimbo;
+        private DataGridViewTextBoxColumn UF;
+        private Controls.RtfEditor rtfEditor;
     }
 }

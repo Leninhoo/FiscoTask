@@ -91,6 +91,23 @@ namespace FiscoTask.DataBase
             }
         }
 
+        public virtual T ReadByCode(int codigo, string query)
+        {
+            try
+            {
+                using (var connection = new MySqlConnection(stringConnection))
+                {
+                    return connection.QueryFirstOrDefault<T>(query, new { Codigo = codigo });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao buscar em {NomeTabela}: {ex.Message}", ex);
+            }
+        }
+
+
+
         public virtual List<T> GetAll()
         {
             try

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgProcessos = new DataGridView();
             Codigo = new DataGridViewTextBoxColumn();
             Empresa = new DataGridViewTextBoxColumn();
@@ -39,6 +42,7 @@
             Andamento = new DataGridViewTextBoxColumn();
             Filtro = new DataGridViewTextBoxColumn();
             DtRegistro = new DataGridViewTextBoxColumn();
+            DataModificacao = new DataGridViewTextBoxColumn();
             dbProcessosBindingSource = new BindingSource(components);
             txtPesquisa = new TextBox();
             Pesquisar = new Label();
@@ -51,9 +55,13 @@
             cbSituacao = new ComboBox();
             label1 = new Label();
             button1 = new Button();
+            groupBox2 = new GroupBox();
+            lblQuantidade = new Label();
+            btnExcel = new Button();
             ((System.ComponentModel.ISupportInitialize)dgProcessos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dbProcessosBindingSource).BeginInit();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // dgProcessos
@@ -62,11 +70,19 @@
             dgProcessos.AllowUserToDeleteRows = false;
             dgProcessos.AutoGenerateColumns = false;
             dgProcessos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgProcessos.Columns.AddRange(new DataGridViewColumn[] { Codigo, Empresa, Nome, Cidade, TipoProcesso, Situacao, Andamento, Filtro, DtRegistro });
+            dgProcessos.Columns.AddRange(new DataGridViewColumn[] { Codigo, Empresa, Nome, Cidade, TipoProcesso, Situacao, Andamento, Filtro, DtRegistro, DataModificacao });
             dgProcessos.DataSource = dbProcessosBindingSource;
             dgProcessos.Location = new Point(12, 219);
             dgProcessos.Name = "dgProcessos";
             dgProcessos.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgProcessos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgProcessos.Size = new Size(989, 298);
             dgProcessos.TabIndex = 0;
             dgProcessos.CellDoubleClick += dgProcessos_CellDoubleClick;
@@ -147,10 +163,21 @@
             // 
             DtRegistro.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             DtRegistro.DataPropertyName = "Dtregistro";
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy HH:mm";
+            DtRegistro.DefaultCellStyle = dataGridViewCellStyle1;
             DtRegistro.HeaderText = "Data de Registro";
             DtRegistro.Name = "DtRegistro";
             DtRegistro.ReadOnly = true;
             DtRegistro.Width = 108;
+            // 
+            // DataModificacao
+            // 
+            DataModificacao.DataPropertyName = "DataModificacao";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy HH:mm";
+            DataModificacao.DefaultCellStyle = dataGridViewCellStyle2;
+            DataModificacao.HeaderText = "Data de Modificação";
+            DataModificacao.Name = "DataModificacao";
+            DataModificacao.ReadOnly = true;
             // 
             // dbProcessosBindingSource
             // 
@@ -262,11 +289,45 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(lblQuantidade);
+            groupBox2.Location = new Point(265, 21);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(359, 100);
+            groupBox2.TabIndex = 8;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Informações processos";
+            // 
+            // lblQuantidade
+            // 
+            lblQuantidade.AutoSize = true;
+            lblQuantidade.Location = new Point(6, 32);
+            lblQuantidade.Name = "lblQuantidade";
+            lblQuantidade.Size = new Size(214, 15);
+            lblQuantidade.TabIndex = 0;
+            lblQuantidade.Text = "A quantidade de processos ativos é de: ";
+            // 
+            // btnExcel
+            // 
+            btnExcel.Image = Properties.Resources.file_type_excel_icon_130611__1_;
+            btnExcel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExcel.Location = new Point(667, 164);
+            btnExcel.Name = "btnExcel";
+            btnExcel.Size = new Size(182, 36);
+            btnExcel.TabIndex = 9;
+            btnExcel.Text = "Exportar dados para Excel";
+            btnExcel.TextAlign = ContentAlignment.MiddleRight;
+            btnExcel.UseVisualStyleBackColor = true;
+            btnExcel.Click += btnExcel_Click;
+            // 
             // ConsultaProcessoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1112, 546);
+            Controls.Add(btnExcel);
+            Controls.Add(groupBox2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(groupBox1);
@@ -279,6 +340,8 @@
             ((System.ComponentModel.ISupportInitialize)dbProcessosBindingSource).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -289,15 +352,6 @@
         private TextBox txtPesquisa;
         private Label Pesquisar;
         private BindingSource dbProcessosBindingSource;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Empresa;
-        private DataGridViewTextBoxColumn Nome;
-        private DataGridViewTextBoxColumn Cidade;
-        private DataGridViewTextBoxColumn TipoProcesso;
-        private DataGridViewTextBoxColumn Situacao;
-        private DataGridViewTextBoxColumn Andamento;
-        private DataGridViewTextBoxColumn Filtro;
-        private DataGridViewTextBoxColumn DtRegistro;
         private GroupBox groupBox1;
         private Label label9;
         private ComboBox cbTipo;
@@ -307,5 +361,18 @@
         private ComboBox cbSituacao;
         private Label label1;
         private Button button1;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Empresa;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewTextBoxColumn Cidade;
+        private DataGridViewTextBoxColumn TipoProcesso;
+        private DataGridViewTextBoxColumn Situacao;
+        private DataGridViewTextBoxColumn Andamento;
+        private DataGridViewTextBoxColumn Filtro;
+        private DataGridViewTextBoxColumn DtRegistro;
+        private DataGridViewTextBoxColumn DataModificacao;
+        private GroupBox groupBox2;
+        private Label lblQuantidade;
+        private Button btnExcel;
     }
 }

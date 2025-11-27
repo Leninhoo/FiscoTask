@@ -136,5 +136,17 @@ namespace FiscoTask
             ConsultaProcessoForm consultaProcesso = new ConsultaProcessoForm();
             consultaProcesso.Show();
         }
+
+        private void editorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditorForm editorForm = new EditorForm();
+            editorForm.Show();
+        }
+
+        private void converterParaDBParaRTFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewConversorRTF conversorRTF = new ViewConversorRTF();
+            conversorRTF.Show();
+        }
     }
 }

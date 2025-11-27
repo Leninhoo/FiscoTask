@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Dapper;
+using MySqlConnector;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySqlConnector;
-using Dapper;
-using System.Data;
 
 namespace FiscoTask.DataBase
 {
@@ -17,7 +17,8 @@ namespace FiscoTask.DataBase
         public string? Andamento { get; set; }
         public string? Filtro { get; set; }
         public string? Obs { get; set; }
-        public string? Dtregistro { get; set; }
+        public DateTime Dtregistro { get; set; }
+        public DateTime DataModificacao { get; set; }
         public string? TipoProcesso { get; set; }
         public byte[]? Arquivo { get; set; }
 
@@ -61,7 +62,7 @@ namespace FiscoTask.DataBase
                                         Andamento = @Andamento,
                                         Filtro = @Filtro,
                                         Obs = @Obs,
-                                        Dtregistro = @Dtregistro,
+                                        DataModificacao = @DataModificacao,
                                         TipoProcesso = @TipoProcesso,
                                         Arquivo = @Arquivo                                        
                                     WHERE Codigo = @Codigo";
@@ -74,7 +75,7 @@ namespace FiscoTask.DataBase
                 dbProcessos.Andamento,
                 dbProcessos.Filtro,
                 dbProcessos.Obs,
-                dbProcessos.Dtregistro,
+                dbProcessos.DataModificacao,
                 dbProcessos.TipoProcesso,
                 dbProcessos.Arquivo
             });
@@ -87,7 +88,7 @@ namespace FiscoTask.DataBase
             Delete(codigo);
         }
 
-        
+
         public DbProcessos ReadProcessoByCode(int codigo)
         {
             string query = @"
@@ -100,8 +101,8 @@ namespace FiscoTask.DataBase
                 INNER JOIN vwEmpresas ON Processos.Empresa = vwEmpresas.EMPRESA
                 WHERE Processos.Codigo = @Codigo";
 
-            var resultado = ExecuteQuery(query, new { Codigo = codigo });
-            return resultado.Count > 0 ? resultado[0] : null;
+            
+            return ReadByCode(codigo, query);
         }
 
         /// Buscar todas as tarefas como DataTable
@@ -137,5 +138,7 @@ namespace FiscoTask.DataBase
             }
 
         }
+
+               
     }
 }

@@ -51,6 +51,9 @@
             btnAtualizar = new Button();
             label2 = new Label();
             label3 = new Label();
+            label1 = new Label();
+            txtLivro = new TextBox();
+            btnPesquisaLivro = new Button();
             ((System.ComponentModel.ISupportInitialize)dgEmpresas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).BeginInit();
             SuspendLayout();
@@ -104,7 +107,7 @@
             NOMEFANTASIA.HeaderText = "NOMEFANTASIA";
             NOMEFANTASIA.Name = "NOMEFANTASIA";
             NOMEFANTASIA.ReadOnly = true;
-            NOMEFANTASIA.Width = 119;
+            NOMEFANTASIA.Width = 120;
             // 
             // ENDERECO
             // 
@@ -138,7 +141,7 @@
             COMPLEMENTO.HeaderText = "COMPLEMENTO";
             COMPLEMENTO.Name = "COMPLEMENTO";
             COMPLEMENTO.ReadOnly = true;
-            COMPLEMENTO.Width = 119;
+            COMPLEMENTO.Width = 120;
             // 
             // CIDADE
             // 
@@ -218,7 +221,7 @@
             // 
             // txtPesquisa
             // 
-            txtPesquisa.Location = new Point(153, 144);
+            txtPesquisa.Location = new Point(153, 136);
             txtPesquisa.Name = "txtPesquisa";
             txtPesquisa.Size = new Size(527, 23);
             txtPesquisa.TabIndex = 1;
@@ -237,7 +240,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(37, 147);
+            label2.Location = new Point(37, 139);
             label2.Name = "label2";
             label2.Size = new Size(110, 15);
             label2.TabIndex = 5;
@@ -253,10 +256,39 @@
             label3.TabIndex = 6;
             label3.Text = "Lista de empresas cadastradas";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(37, 168);
+            label1.Name = "label1";
+            label1.Size = new Size(86, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Pesquisar Livro";
+            // 
+            // txtLivro
+            // 
+            txtLivro.Location = new Point(153, 165);
+            txtLivro.Name = "txtLivro";
+            txtLivro.Size = new Size(144, 23);
+            txtLivro.TabIndex = 2;
+            // 
+            // btnPesquisaLivro
+            // 
+            btnPesquisaLivro.Location = new Point(303, 168);
+            btnPesquisaLivro.Name = "btnPesquisaLivro";
+            btnPesquisaLivro.Size = new Size(104, 23);
+            btnPesquisaLivro.TabIndex = 3;
+            btnPesquisaLivro.Text = "Pesquisar livro";
+            btnPesquisaLivro.UseVisualStyleBackColor = true;
+            btnPesquisaLivro.Click += btnPesquisaLivro_Click;
+            // 
             // EmpresasView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnPesquisaLivro);
+            Controls.Add(label1);
+            Controls.Add(txtLivro);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(btnAtualizar);
@@ -295,5 +327,8 @@
         private Button btnAtualizar;
         private Label label2;
         private Label label3;
+        private Label label1;
+        private TextBox txtLivro;
+        private Button btnPesquisaLivro;
     }
 }

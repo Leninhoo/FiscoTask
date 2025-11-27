@@ -33,7 +33,7 @@ namespace FiscoTask.Models
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
-                        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                        ExcelPackage.License.SetNonCommercialPersonal("AndreCruz");
                         using (var package = new ExcelPackage())
                         {
                             var ws = package.Workbook.Worksheets.Add("Dados Exportados");

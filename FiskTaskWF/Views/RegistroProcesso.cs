@@ -1,4 +1,5 @@
 ﻿using FiscoTask.DataBase;
+using FiscoTask.Models;
 using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,9 @@ namespace FiscoTask.Views
             InitializeComponent();
             LoadEmpresas();
             dbProcessos.CarregarComboBox("TipoProcesso", cbTipo);
-            dbProcessos.CarregarComboBox("Situacao", cbSituacao);
-            dbProcessos.CarregarComboBox("Andamento", cbAndamento);
+            CarregarComboBox();
+
+
         }
 
         public void LoadEmpresas()
@@ -55,11 +57,12 @@ namespace FiscoTask.Views
                 var nomeEmpresa = dgPesquisaEmpresa.Rows[e.RowIndex].Cells["NOME"].Value?.ToString();
                 var cnpjEmpresa = dgPesquisaEmpresa.Rows[e.RowIndex].Cells["CNPJ"].Value?.ToString();
                 var cidadeEmpresa = dgPesquisaEmpresa.Rows[e.RowIndex].Cells["CIDADE"].Value?.ToString();
+                var ufEmpresa = dgPesquisaEmpresa.Rows[e.RowIndex].Cells["UF"].Value?.ToString();
 
                 txtID.Text = livroId;
                 txtRazao.Text = nomeEmpresa;
                 txtCNPJ.Text = cnpjEmpresa;
-                txtCidade.Text = cidadeEmpresa;
+                txtCidade.Text = $"{cidadeEmpresa} - {ufEmpresa}";
             }
         }
 
@@ -69,14 +72,13 @@ namespace FiscoTask.Views
         {
             try
             {
-                // Obtém o RichEditControl do UserControl
-                var richEditControl = recArquivo.Rec;
 
                 // Define o texto do carimbo (pode ser personalizado)
                 string carimbo = $"--------------------------- \n{DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")} \n";
-                // Insere o texto na posição atual do cursor
-                richEditControl.Document.InsertText(richEditControl.Document.CaretPosition, carimbo);
-                richEditControl.Focus();
+                rtfEditor.rtb.SelectedText = carimbo;
+                rtfEditor.rtb.Focus();
+                rtfEditor.rtb.SelectionStart = rtfEditor.rtb.Text.Length; //cursor para o final do texto.
+
             }
             catch (Exception ex)
             {
@@ -91,12 +93,11 @@ namespace FiscoTask.Views
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            var dbProcessos = new DbProcessos();
             // Converte o conteúdo do RichEditControl para bytes (formato .docx)
             byte[] fileData;
             using (MemoryStream ms = new MemoryStream())
             {
-                recArquivo.Rec.SaveDocument(ms, DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+                rtfEditor.rtb.SaveFile(ms, RichTextBoxStreamType.RichText);
                 fileData = ms.ToArray();
             }
             var NewProcesso = new DbProcessos
@@ -104,15 +105,45 @@ namespace FiscoTask.Views
                 Empresa = int.Parse(txtID.Text),
                 Situacao = cbSituacao.Text,
                 Andamento = cbAndamento.Text,
-                Dtregistro = DateTime.Now.ToString("yyyy-MM-dd"),
+                Dtregistro = DateTime.Now,
                 TipoProcesso = cbTipo.Text,
                 Arquivo = fileData
             };
 
             dbProcessos.CreateProcesso(NewProcesso);
             MessageBox.Show("Processo registrado com sucesso!");
-            this.Close();
 
+            LimparFormulario();
+
+        }
+
+        private void LimparFormulario()
+        {
+            txtPesquisa.Clear();
+            txtID.Clear();
+            txtRazao.Clear();
+            txtCNPJ.Clear();
+            txtCidade.Clear();
+            cbSituacao.SelectedItem = -1;
+            cbSituacao.Text = "";
+            cbTipo.SelectedItem = -1;
+            cbTipo.Text = "";
+            cbAndamento.SelectedItem = -1;
+            cbAndamento.Text = "";
+            rtfEditor.rtb.Clear();
+
+            dbProcessos.CarregarComboBox("TipoProcesso", cbTipo);
+
+            CarregarComboBox();
+
+            txtPesquisa.Focus();
+        }
+
+        private void CarregarComboBox()
+        {
+            ListasComboBox listas = new ListasComboBox();
+            cbAndamento.DataSource = listas.AndamentosProcesso();
+            cbSituacao.DataSource = listas.Situacao();
         }
     }
 }

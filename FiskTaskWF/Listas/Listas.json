@@ -1,0 +1,60 @@
+{
+  "Fase": [
+    "Aguardando terceiro",
+    "Pendêcia empresa",
+    "Para avaliar",
+    "Solicitar Vigilância",
+    "Aguardando redação do PGPCD",
+    "Fazer redação do PGPCD",
+    "Encaminhar para vigilância",
+    "Vigilância solicitada",
+    "Solicitar Bombeiro",
+    "Aguardando pagamento bombeiro",
+    "Aguardando baixa bombeiro",
+    "Aguardando prefeitura",
+    "Emissão taxa de alvará",
+    "Ag. pagamento taxa de alvará",
+    "Solicitar alvará",
+    "Ag. prefeitura emitir alvará",
+    "Pegar alvará físico na prefeitura",
+    "Baixa de empresa",
+    "Pronto"
+  ],
+  "Situacao": [
+    "Em andamento",
+    "Encerrado",
+    "Suspenso"
+  ],
+  "TipoProcesso": [
+    "Alvará",
+    "Bombeiro",
+    "Vigilância Sanitária",
+    "Consulta Jurídica",
+    "Documentos gerais",
+    "Outro",
+    "Segunda via alvará",
+    "Licença de transporte",
+    "Alteração Ata/Documento",
+    "Licença Sanitária",
+    "Corpo de Bombeiros",
+    "Regularização de Empresa",
+    "CNES",
+    "Registro GMS"
+  ],
+  "AndamentosProcesso": [
+    "Avaliar",
+    "Em análise",
+    "Aguardando documentos",
+    "Aguardando aprovação",
+    "Encaminhado para órgão competente",
+    "Aguardando resposta de órgão compentente",
+    "Aguardando resposta do cliente",
+    "Preencher Formulário",
+    "Todos os documentos reunidos",
+    "Pedir Licença Sanitária",
+    "Pedir Alvará",
+    "Pedir CLCB",
+    "Não finalizado",
+    "Finalizado"
+  ]
+}
