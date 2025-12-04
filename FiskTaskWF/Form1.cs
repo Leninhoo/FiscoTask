@@ -21,8 +21,6 @@ namespace FiscoTask
             ConsultaDocsView.Visible = false;
             this.Controls.Add(ConsultaDocsView);
 
-
-
         }
 
         private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,13 +67,13 @@ namespace FiscoTask
             registroBombeiro.Show();
         }
 
-        private void respons·velInternoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void respons√°velInternoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaResponsavel consultaResponsavel = new ConsultaResponsavel();
             consultaResponsavel.Show();
         }
 
-        private void consultarSÛciosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultarS√≥ciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaSociosForm constaSocio = new ConsultaSociosForm();
             constaSocio.Show();

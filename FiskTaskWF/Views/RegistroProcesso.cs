@@ -62,6 +62,7 @@ namespace FiscoTask.Views
                 txtID.Text = livroId;
                 txtRazao.Text = nomeEmpresa;
                 txtCNPJ.Text = cnpjEmpresa;
+                txtCnpjLimpo.Text = Helpers.FormatarCNPJs(cnpjEmpresa ?? "");
                 txtCidade.Text = $"{cidadeEmpresa} - {ufEmpresa}";
             }
         }
@@ -123,6 +124,7 @@ namespace FiscoTask.Views
             txtID.Clear();
             txtRazao.Clear();
             txtCNPJ.Clear();
+            txtCnpjLimpo.Clear();
             txtCidade.Clear();
             cbSituacao.SelectedItem = -1;
             cbSituacao.Text = "";

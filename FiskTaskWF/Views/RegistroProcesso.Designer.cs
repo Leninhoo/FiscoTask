@@ -59,6 +59,8 @@
             btnCancelar = new Button();
             btnCarimbo = new Button();
             rtfEditor = new FiscoTask.Controls.RtfEditor();
+            txtCnpjLimpo = new TextBox();
+            label10 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgPesquisaEmpresa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)empresaViewBindingSource).BeginInit();
@@ -233,7 +235,7 @@
             // cbSituacao
             // 
             cbSituacao.FormattingEnabled = true;
-            cbSituacao.Location = new Point(75, 113);
+            cbSituacao.Location = new Point(75, 145);
             cbSituacao.Name = "cbSituacao";
             cbSituacao.Size = new Size(224, 23);
             cbSituacao.TabIndex = 2;
@@ -241,7 +243,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(17, 116);
+            label6.Location = new Point(17, 148);
             label6.Name = "label6";
             label6.Size = new Size(52, 15);
             label6.TabIndex = 18;
@@ -250,7 +252,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(16, 145);
+            label8.Location = new Point(16, 177);
             label8.Name = "label8";
             label8.Size = new Size(70, 15);
             label8.TabIndex = 20;
@@ -259,7 +261,7 @@
             // cbAndamento
             // 
             cbAndamento.FormattingEnabled = true;
-            cbAndamento.Location = new Point(92, 142);
+            cbAndamento.Location = new Point(92, 174);
             cbAndamento.Name = "cbAndamento";
             cbAndamento.Size = new Size(224, 23);
             cbAndamento.TabIndex = 3;
@@ -267,7 +269,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(16, 174);
+            label9.Location = new Point(16, 206);
             label9.Name = "label9";
             label9.Size = new Size(81, 15);
             label9.TabIndex = 22;
@@ -276,7 +278,7 @@
             // cbTipo
             // 
             cbTipo.FormattingEnabled = true;
-            cbTipo.Location = new Point(103, 171);
+            cbTipo.Location = new Point(103, 203);
             cbTipo.Name = "cbTipo";
             cbTipo.Size = new Size(230, 23);
             cbTipo.TabIndex = 4;
@@ -323,11 +325,30 @@
             rtfEditor.Size = new Size(819, 435);
             rtfEditor.TabIndex = 141;
             // 
+            // txtCnpjLimpo
+            // 
+            txtCnpjLimpo.Location = new Point(92, 108);
+            txtCnpjLimpo.Name = "txtCnpjLimpo";
+            txtCnpjLimpo.ReadOnly = true;
+            txtCnpjLimpo.Size = new Size(190, 23);
+            txtCnpjLimpo.TabIndex = 143;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(16, 116);
+            label10.Name = "label10";
+            label10.Size = new Size(71, 15);
+            label10.TabIndex = 142;
+            label10.Text = "CNPJ Limpo";
+            // 
             // RegistroProcesso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1218, 809);
+            Controls.Add(txtCnpjLimpo);
+            Controls.Add(label10);
             Controls.Add(rtfEditor);
             Controls.Add(btnCarimbo);
             Controls.Add(btnCancelar);
@@ -392,5 +413,7 @@
         private DataGridViewTextBoxColumn CIDADE;
         private DataGridViewTextBoxColumn UF;
         private Controls.RtfEditor rtfEditor;
+        private TextBox txtCnpjLimpo;
+        private Label label10;
     }
 }

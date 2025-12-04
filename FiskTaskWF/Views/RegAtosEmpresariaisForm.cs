@@ -68,7 +68,7 @@ namespace FiscoTask
 
 
             LimparCampos();
-            txtData.Focus();
+            AtualizarFormulario();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -114,9 +114,15 @@ namespace FiscoTask
             rtbObs.Text = "";
         }
 
-        private void RegAtosEmpresariaisForm_Load(object sender, EventArgs e)
+        private void AtualizarFormulario()
         {
             txtData.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            txtData.Focus();
+        }
+
+        private void RegAtosEmpresariaisForm_Load(object sender, EventArgs e)
+        {
+            AtualizarFormulario();
         }
     }
 }

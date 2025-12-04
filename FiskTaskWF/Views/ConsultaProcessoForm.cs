@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FiscoTask.Models;
 
 namespace FiscoTask.Views
 {
     public partial class ConsultaProcessoForm : Form
     {
         DbProcessos dbProcessos = new DbProcessos();
+
         public ConsultaProcessoForm()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace FiscoTask.Views
             cbAndamento.SelectedItem = -1;
             cbAndamento.Text = "";
             txtPesquisa.Clear();
+            cbPendentes.Checked = false;
 
         }
 
@@ -149,10 +152,32 @@ namespace FiscoTask.Views
 
         }
 
+        private void FiltrarSituacao(string filtro)
+        {
+            var tabela = (DataTable)dgProcessos.DataSource;
+            if (tabela == null) return;
+
+            string stringFiltro = $"Situacao <> '{filtro}'";
+
+            tabela.DefaultView.RowFilter = stringFiltro;
+        }
+
         private void btnExcel_Click(object sender, EventArgs e)
         {
             var ExportExcel = new ExportExcel();
             ExportExcel.ExportarParaExcel(dgProcessos);
+        }
+
+        private void cbPendentes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbPendentes.Checked)
+            {
+                FiltrarSituacao("Encerrado");
+            }
+            else
+            {
+                AtualizarFormulario();
+            }
         }
     }
 }

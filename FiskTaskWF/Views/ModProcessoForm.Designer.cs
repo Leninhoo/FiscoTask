@@ -73,6 +73,8 @@
             btnApagar = new Button();
             btnSalvar = new Button();
             rtfEditor = new FiscoTask.Controls.RtfEditor();
+            txtCnpjFormatado = new TextBox();
+            label12 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -130,6 +132,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(label12);
+            groupBox2.Controls.Add(txtCnpjFormatado);
             groupBox2.Controls.Add(txtRazao);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(txtResponsavel);
@@ -224,7 +228,7 @@
             txtCNPJ.Location = new Point(60, 115);
             txtCNPJ.Name = "txtCNPJ";
             txtCNPJ.ReadOnly = true;
-            txtCNPJ.Size = new Size(443, 23);
+            txtCNPJ.Size = new Size(203, 23);
             txtCNPJ.TabIndex = 9;
             // 
             // txtCidade
@@ -511,6 +515,23 @@
             rtfEditor.Size = new Size(904, 462);
             rtfEditor.TabIndex = 41;
             // 
+            // txtCnpjFormatado
+            // 
+            txtCnpjFormatado.Location = new Point(321, 115);
+            txtCnpjFormatado.Name = "txtCnpjFormatado";
+            txtCnpjFormatado.ReadOnly = true;
+            txtCnpjFormatado.Size = new Size(182, 23);
+            txtCnpjFormatado.TabIndex = 52;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(274, 118);
+            label12.Name = "label12";
+            label12.Size = new Size(41, 15);
+            label12.TabIndex = 53;
+            label12.Text = "Limpo";
+            // 
             // ModProcessoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -586,5 +607,7 @@
         private TextBox txtRazao;
         private Label label4;
         private Controls.RtfEditor rtfEditor;
+        private Label label12;
+        private TextBox txtCnpjFormatado;
     }
 }

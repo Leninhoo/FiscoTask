@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscoTask", "FiskTaskWF\FiscoTask.csproj", "{D61768BB-4C6C-45A8-85D8-440ED728567E}"
 EndProject
@@ -10,6 +10,9 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		DesktopSelf|Any CPU = DesktopSelf|Any CPU
+		DesktopSelf|x64 = DesktopSelf|x64
+		DesktopSelf|x86 = DesktopSelf|x86
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
@@ -21,6 +24,12 @@ Global
 		{D61768BB-4C6C-45A8-85D8-440ED728567E}.Debug|x64.Build.0 = Debug|Any CPU
 		{D61768BB-4C6C-45A8-85D8-440ED728567E}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{D61768BB-4C6C-45A8-85D8-440ED728567E}.Debug|x86.Build.0 = Debug|Any CPU
+		{D61768BB-4C6C-45A8-85D8-440ED728567E}.DesktopSelf|Any CPU.ActiveCfg = DesktopSelf|Any CPU
+		{D61768BB-4C6C-45A8-85D8-440ED728567E}.DesktopSelf|Any CPU.Build.0 = DesktopSelf|Any CPU
+		{D61768BB-4C6C-45A8-85D8-440ED728567E}.DesktopSelf|x64.ActiveCfg = DesktopSelf|x64
+		{D61768BB-4C6C-45A8-85D8-440ED728567E}.DesktopSelf|x64.Build.0 = DesktopSelf|x64
+		{D61768BB-4C6C-45A8-85D8-440ED728567E}.DesktopSelf|x86.ActiveCfg = DesktopSelf|Any CPU
+		{D61768BB-4C6C-45A8-85D8-440ED728567E}.DesktopSelf|x86.Build.0 = DesktopSelf|Any CPU
 		{D61768BB-4C6C-45A8-85D8-440ED728567E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D61768BB-4C6C-45A8-85D8-440ED728567E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D61768BB-4C6C-45A8-85D8-440ED728567E}.Release|x64.ActiveCfg = Release|Any CPU

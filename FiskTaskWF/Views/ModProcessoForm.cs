@@ -52,6 +52,7 @@ namespace FiscoTask.Views
                 cbAndamento.Text = dbProcessos.Andamento;
                 cbTipo.Text = dbProcessos.TipoProcesso;
                 txtCNPJ.Text = dbProcessos.CNPJ;
+                txtCnpjFormatado.Text = Helpers.FormatarCNPJs(dbProcessos.CNPJ);
                 txtCidade.Text = dbProcessos.CIDADE;
                 txtDataRegistro.Text = dbProcessos.Dtregistro.ToString("f");
                 txtRazao.Text = dbProcessos.NOME;

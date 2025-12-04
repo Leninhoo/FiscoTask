@@ -2,12 +2,15 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyVersion></AssemblyVersion>
     <ApplicationIcon>Gemini_Generated_Image_glfn3oglfn3oglfn.ico</ApplicationIcon>
+    <UseWPF>False</UseWPF>
+    <Configurations>Debug;Release;DesktopSelf</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

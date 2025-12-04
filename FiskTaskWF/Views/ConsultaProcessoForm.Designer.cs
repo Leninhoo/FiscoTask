@@ -58,6 +58,7 @@
             groupBox2 = new GroupBox();
             lblQuantidade = new Label();
             btnExcel = new Button();
+            cbPendentes = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dgProcessos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dbProcessosBindingSource).BeginInit();
             groupBox1.SuspendLayout();
@@ -321,11 +322,23 @@
             btnExcel.UseVisualStyleBackColor = true;
             btnExcel.Click += btnExcel_Click;
             // 
+            // cbPendentes
+            // 
+            cbPendentes.AutoSize = true;
+            cbPendentes.Location = new Point(12, 194);
+            cbPendentes.Name = "cbPendentes";
+            cbPendentes.Size = new Size(216, 19);
+            cbPendentes.TabIndex = 10;
+            cbPendentes.Text = "Exibir somente processos pendentes";
+            cbPendentes.UseVisualStyleBackColor = true;
+            cbPendentes.CheckedChanged += cbPendentes_CheckedChanged;
+            // 
             // ConsultaProcessoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1112, 546);
+            Controls.Add(cbPendentes);
             Controls.Add(btnExcel);
             Controls.Add(groupBox2);
             Controls.Add(button1);
@@ -374,5 +387,6 @@
         private GroupBox groupBox2;
         private Label lblQuantidade;
         private Button btnExcel;
+        private CheckBox cbPendentes;
     }
 }
