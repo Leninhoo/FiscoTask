@@ -341,9 +341,7 @@ namespace FiscoTask
             // cbEmAndamento
             // 
             cbEmAndamento.AutoSize = true;
-            cbEmAndamento.Checked = true;
-            cbEmAndamento.CheckState = CheckState.Checked;
-            cbEmAndamento.Location = new Point(156, 219);
+            cbEmAndamento.Location = new Point(156, 210);
             cbEmAndamento.Name = "cbEmAndamento";
             cbEmAndamento.Size = new Size(131, 19);
             cbEmAndamento.TabIndex = 20;

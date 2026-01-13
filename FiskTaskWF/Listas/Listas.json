@@ -12,6 +12,8 @@
     "Solicitar Bombeiro",
     "Aguardando pagamento bombeiro",
     "Aguardando baixa bombeiro",
+    "Aguardando Vistoria Bombeiro",
+    "Entrar em contato com a Prefeitura",
     "Aguardando prefeitura",
     "Emissão taxa de alvará",
     "Ag. pagamento taxa de alvará",
@@ -70,5 +72,10 @@
     "2028",
     "2029",
     "2030"
+  ],
+  "TipoAtoEmpresarial": [
+    "Abertura",
+    "Alteração",
+    "Baixa"
   ]
 }
