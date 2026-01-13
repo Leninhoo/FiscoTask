@@ -62,6 +62,7 @@ namespace FiscoTask
                 //Obs = rtbObs.Text,
                 Dtregistro = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"),
                 Arquivo = fileData, // Atribui o conteúdo do documento ao campo Arquivo
+                AnoContexto = $"{DateTime.Now.Year}"
 
             }; 
 
