@@ -13,6 +13,14 @@ namespace FiscoTask
         public Form1()
         {
             InitializeComponent();
+            AtualizarFormulario();
+
+        }
+
+        #region Métodos
+
+        private void AtualizarFormulario()
+        {
             ConsultaEmpresa.Dock = DockStyle.Fill;
             ConsultaEmpresa.Visible = false;
             this.Controls.Add(ConsultaEmpresa);
@@ -20,16 +28,16 @@ namespace FiscoTask
             ConsultaDocsView.Dock = DockStyle.Fill;
             ConsultaDocsView.Visible = false;
             this.Controls.Add(ConsultaDocsView);
-
         }
+
+        #endregion
+
 
         private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaEmpresa.Visible = true;
             ConsultaEmpresa.BringToFront();
         }
-
-
 
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -78,8 +86,6 @@ namespace FiscoTask
             ConsultaSociosForm constaSocio = new ConsultaSociosForm();
             constaSocio.Show();
         }
-
-
 
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {

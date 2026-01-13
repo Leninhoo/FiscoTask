@@ -50,6 +50,7 @@ namespace FiscoTask
             CIDADE = new DataGridViewTextBoxColumn();
             Situacao = new DataGridViewTextBoxColumn();
             Fase = new DataGridViewTextBoxColumn();
+            AnoContexto = new DataGridViewTextBoxColumn();
             Ativo = new DataGridViewCheckBoxColumn();
             EntregaTaxaAlvara = new DataGridViewCheckBoxColumn();
             Bombeiro = new DataGridViewCheckBoxColumn();
@@ -67,6 +68,8 @@ namespace FiscoTask
             gbInfos = new GroupBox();
             lblSuspensas = new Label();
             btnExportarTudo = new Button();
+            label5 = new Label();
+            cbAnoContexto = new ComboBox();
             ((ISupportInitialize)dgTarefas2).BeginInit();
             ((ISupportInitialize)dbTarefaBindingSource3).BeginInit();
             gbInfos.SuspendLayout();
@@ -191,7 +194,7 @@ namespace FiscoTask
             dgTarefas2.AllowUserToDeleteRows = false;
             dgTarefas2.AutoGenerateColumns = false;
             dgTarefas2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgTarefas2.Columns.AddRange(new DataGridViewColumn[] { Codigo, Empresa, NOME, CIDADE, Situacao, Fase, Ativo, EntregaTaxaAlvara, Bombeiro, VigilanciaSanitaria, TaxaAlvaraPgto, Obs, Dtregistro, CNPJs });
+            dgTarefas2.Columns.AddRange(new DataGridViewColumn[] { Codigo, Empresa, NOME, CIDADE, Situacao, Fase, AnoContexto, Ativo, EntregaTaxaAlvara, Bombeiro, VigilanciaSanitaria, TaxaAlvaraPgto, Obs, Dtregistro, CNPJs });
             dgTarefas2.DataSource = dbTarefaBindingSource3;
             dgTarefas2.Location = new Point(28, 292);
             dgTarefas2.Name = "dgTarefas2";
@@ -253,6 +256,15 @@ namespace FiscoTask
             Fase.Name = "Fase";
             Fase.ReadOnly = true;
             Fase.Width = 55;
+            // 
+            // AnoContexto
+            // 
+            AnoContexto.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            AnoContexto.DataPropertyName = "AnoContexto";
+            AnoContexto.HeaderText = "AnoContexto";
+            AnoContexto.Name = "AnoContexto";
+            AnoContexto.ReadOnly = true;
+            AnoContexto.Width = 102;
             // 
             // Ativo
             // 
@@ -411,11 +423,34 @@ namespace FiscoTask
             btnExportarTudo.UseVisualStyleBackColor = true;
             btnExportarTudo.Click += btnExportarTudo_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(926, 22);
+            label5.Name = "label5";
+            label5.Size = new Size(78, 15);
+            label5.TabIndex = 29;
+            label5.Text = "Ano contexto";
+            // 
+            // cbAnoContexto
+            // 
+            cbAnoContexto.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbAnoContexto.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbAnoContexto.FormattingEnabled = true;
+            cbAnoContexto.ItemHeight = 15;
+            cbAnoContexto.Location = new Point(926, 40);
+            cbAnoContexto.Name = "cbAnoContexto";
+            cbAnoContexto.Size = new Size(248, 23);
+            cbAnoContexto.TabIndex = 28;
+            cbAnoContexto.SelectedIndexChanged += cbAnoContexto_SelectedIndexChanged;
+            // 
             // ConsultaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1344, 650);
+            Controls.Add(label5);
+            Controls.Add(cbAnoContexto);
             Controls.Add(btnExportarTudo);
             Controls.Add(gbInfos);
             Controls.Add(clbDocumentos);
@@ -462,12 +497,18 @@ namespace FiscoTask
         private CheckBox cbEmAndamento;
         private Label lblTarefasPendentes;
         private CheckedListBox clbDocumentos;
+        private Label lblTarefasAtivas;
+        private Label lblTarefasConcluidas;
+        private GroupBox gbInfos;
+        private Label lblSuspensas;
+        private Button btnExportarTudo;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Empresa;
         private DataGridViewTextBoxColumn NOME;
         private DataGridViewTextBoxColumn CIDADE;
         private DataGridViewTextBoxColumn Situacao;
         private DataGridViewTextBoxColumn Fase;
+        private DataGridViewTextBoxColumn AnoContexto;
         private DataGridViewCheckBoxColumn Ativo;
         private DataGridViewCheckBoxColumn EntregaTaxaAlvara;
         private DataGridViewCheckBoxColumn Bombeiro;
@@ -476,10 +517,7 @@ namespace FiscoTask
         private DataGridViewTextBoxColumn Obs;
         private DataGridViewTextBoxColumn Dtregistro;
         private DataGridViewTextBoxColumn CNPJs;
-        private Label lblTarefasAtivas;
-        private Label lblTarefasConcluidas;
-        private GroupBox gbInfos;
-        private Label lblSuspensas;
-        private Button btnExportarTudo;
+        private Label label5;
+        private ComboBox cbAnoContexto;
     }
 }

@@ -51,7 +51,33 @@ namespace FiscoTask
 
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e) => SalvarRegistro();
+        private void btnExcluir_Click(object sender, EventArgs e) => ExcluirRegistro();
+        private void btnCancelar_Click(object sender, EventArgs e) => this.Close();
+        private void RegAtosEmpresariaisForm_Load(object sender, EventArgs e) => AtualizarFormulario();
+
+
+        #region Métodos
+        private void ExcluirRegistro()
+        {
+            if (txtID.Text == "")
+            {
+                MessageBox.Show("Não há registro selecionado para exclusão");
+            }
+            else
+            {
+                var dialogResut = MessageBox.Show("Deseja realmente cancelar este registro?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); ;
+
+                if (dialogResut == DialogResult.Yes)
+                {
+                    dbatos.DeleteAtos(int.Parse(txtID.Text));
+                }
+
+
+                this.Close();
+            }
+        }
+        private void SalvarRegistro()
         {
             int Id;
             if (txtID.Text == "")
@@ -70,36 +96,6 @@ namespace FiscoTask
             LimparCampos();
             AtualizarFormulario();
         }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (txtID.Text == "")
-            {
-                MessageBox.Show("Não há registro selecionado para exclusão");
-            }
-            else
-            {
-                var dialogResut = MessageBox.Show("Deseja realmente cancelar este registro?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); ;
-
-                if (dialogResut == DialogResult.Yes)
-                {
-                    dbatos.DeleteAtos(int.Parse(txtID.Text));
-                }
-
-
-                this.Close();
-            }
-
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-
-        }
-
         private void LimparCampos()
         {
             txtID.Text = "";
@@ -113,16 +109,11 @@ namespace FiscoTask
             txtProtocolo.Text = "";
             rtbObs.Text = "";
         }
-
         private void AtualizarFormulario()
         {
             txtData.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txtData.Focus();
         }
-
-        private void RegAtosEmpresariaisForm_Load(object sender, EventArgs e)
-        {
-            AtualizarFormulario();
-        }
+        #endregion
     }
 }

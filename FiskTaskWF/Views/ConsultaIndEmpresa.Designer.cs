@@ -153,6 +153,7 @@
             tipoProcessoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dbProcessosBindingSource = new BindingSource(components);
             button2 = new Button();
+            txtCnpjFormatado = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgSocios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dbSocioBindingSource).BeginInit();
             Informações.SuspendLayout();
@@ -680,6 +681,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtCnpjFormatado);
             groupBox1.Controls.Add(txtIE);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(txtResponsavel);
@@ -812,7 +814,7 @@
             txtCNPJ.Location = new Point(95, 80);
             txtCNPJ.Name = "txtCNPJ";
             txtCNPJ.ReadOnly = true;
-            txtCNPJ.Size = new Size(394, 23);
+            txtCNPJ.Size = new Size(201, 23);
             txtCNPJ.TabIndex = 6;
             // 
             // label4
@@ -1276,6 +1278,14 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // txtCnpjFormatado
+            // 
+            txtCnpjFormatado.Location = new Point(302, 80);
+            txtCnpjFormatado.Name = "txtCnpjFormatado";
+            txtCnpjFormatado.ReadOnly = true;
+            txtCnpjFormatado.Size = new Size(187, 23);
+            txtCnpjFormatado.TabIndex = 19;
+            // 
             // ConsultaIndEmpresa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1453,5 +1463,6 @@
         private DataGridViewTextBoxColumn dtregistroDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn DataModificacao;
         private DataGridViewTextBoxColumn tipoProcessoDataGridViewTextBoxColumn;
+        private TextBox txtCnpjFormatado;
     }
 }

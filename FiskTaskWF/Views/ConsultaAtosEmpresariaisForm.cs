@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FiscoTask.Models;
 
 namespace FiscoTask
 {
@@ -20,38 +21,20 @@ namespace FiscoTask
             AtosEmpresariaisLoading("ID", "DESC");
         }
 
+
+        #region Métodos
+
         public void AtosEmpresariaisLoading(string coluna, string ordem)
         {
             var table = dbatos.ReadAtosEmpresariais();
             table.DefaultView.Sort = $"{coluna} {ordem}";
             dgAtosEmpresariais.DataSource = table;
         }
-
         public void ApagarPesquisa()
         {
             txtPesquisa.Clear();
         }
-
-        private void txtPesquisa_TextChanged(object sender, EventArgs e)
-        {
-            string filtro = txtPesquisa.Text.Replace("'", "''"); // Evitar erros com apóstrofos
-            var dataTable = (dgAtosEmpresariais.DataSource as DataTable);
-
-            if (dataTable != null)
-            {
-                dataTable.DefaultView.RowFilter = string.Format(
-                    "RAZAO LIKE '%{0}%' OR CNPJ LIKE '%{0}%' OR LIVRO LIKE '%{0}%'",
-                    filtro
-                );
-            }
-        }
-
-        private void btnAtualizar_Click(object sender, EventArgs e)
-        {
-            AtosEmpresariaisLoading("ID", "DESC");
-        }
-
-        private void dgAtosEmpresariais_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void AbrirFormularioAlteracao(DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -82,14 +65,36 @@ namespace FiscoTask
                     OBS);
 
                 formDetalhes.ShowDialog();
-
-
             }
         }
-
-        private void btnExport_Click(object sender, EventArgs e)
+        private void FiltroPesquisa()
         {
+            string filtro = txtPesquisa.Text.Replace("'", "''"); // Evitar erros com apóstrofos
+            var dataTable = (dgAtosEmpresariais.DataSource as DataTable);
 
+            if (dataTable != null)
+            {
+                dataTable.DefaultView.RowFilter = string.Format(
+                    "RAZAO LIKE '%{0}%' OR CNPJ LIKE '%{0}%' OR LIVRO LIKE '%{0}%'",
+                    filtro
+                );
+            }
         }
+        private void ExportarDadosParaExcel()
+        {
+            ExportExcel.ExportarParaExcel(dgAtosEmpresariais);
+        }
+
+        #endregion
+
+
+
+
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e) => FiltroPesquisa();
+        private void btnAtualizar_Click(object sender, EventArgs e) => AtosEmpresariaisLoading("ID", "DESC");
+        private void dgAtosEmpresariais_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => AbrirFormularioAlteracao(e);
+        private void btnExport_Click(object sender, EventArgs e) => ExportarDadosParaExcel();
+
     }
 }

@@ -1,6 +1,7 @@
 {
   "Fase": [
     "Aguardando terceiro",
+    "Aguardando cliente",
     "Pendêcia empresa",
     "Para avaliar",
     "Solicitar Vigilância",
@@ -56,5 +57,18 @@
     "Pedir CLCB",
     "Não finalizado",
     "Finalizado"
+  ],
+  "AnoContexto": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029",
+    "2030"
   ]
 }

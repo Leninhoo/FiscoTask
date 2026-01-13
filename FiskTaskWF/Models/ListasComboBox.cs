@@ -56,6 +56,7 @@ namespace FiscoTask.Models
         public List<string> Situacao() => GetLista("Situacao");
         public List<string> TipoProcesso() => GetLista("TipoProcesso");
         public List<string> AndamentosProcesso() => GetLista("AndamentosProcesso");
+        public List<string> AnoContexto() => GetLista("AnoContexto");
 
         // ---------- Helpers ----------
         private List<string> GetLista(string chave)

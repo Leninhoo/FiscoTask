@@ -45,6 +45,7 @@
             openFileDialog1 = new OpenFileDialog();
             saveFileDialog1 = new SaveFileDialog();
             numTamanho = new NumericUpDown();
+            btnTabela = new ToolStripButton();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numTamanho).BeginInit();
             SuspendLayout();
@@ -68,7 +69,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnNegrito, btnSublinhado, btnItalico, btnTachado, btnCor, cbFonte, toolStripSeparator1, btnAlinharEsquerda, btnAlinharCentro, btnAlinharDireita });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnNegrito, btnSublinhado, btnItalico, btnTachado, btnCor, cbFonte, toolStripSeparator1, btnAlinharEsquerda, btnAlinharCentro, btnAlinharDireita, btnTabela });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(569, 25);
@@ -188,6 +189,16 @@
             numTamanho.Value = new decimal(new int[] { 12, 0, 0, 0 });
             numTamanho.ValueChanged += numTamanho_ValueChanged;
             // 
+            // btnTabela
+            // 
+            btnTabela.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnTabela.Image = (Image)resources.GetObject("btnTabela.Image");
+            btnTabela.ImageTransparentColor = Color.Magenta;
+            btnTabela.Name = "btnTabela";
+            btnTabela.Size = new Size(23, 22);
+            btnTabela.Text = "toolStripButton1";
+            btnTabela.Click += btnTabela_Click;
+            // 
             // RtfEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -221,5 +232,6 @@
         private ToolStripButton btnAlinharCentro;
         private ToolStripButton btnAlinharDireita;
         public RichTextBox rtb;
+        private ToolStripButton btnTabela;
     }
 }

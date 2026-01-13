@@ -1,4 +1,5 @@
-﻿using FiscoTask.DataBase;
+﻿using DevExpress.Data.Utils;
+using FiscoTask.DataBase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,7 @@ namespace FiscoTask
             txtLivro.Text = _EMPRESA.ToString();
             txtNome.Text = _NOME.ToString();
             txtCNPJ.Text = _CNPJ.ToString();
+            txtCnpjFormatado.Text = FiscoTask.Models.Helpers.FormatarCNPJs(_CNPJ.ToString());
             txtNomeFantasia.Text = _NOMEFANTASIA.ToString();
             txtRegime.Text = _REGIME.ToString();
             txtEmail.Text = _E_MAIL.ToString();

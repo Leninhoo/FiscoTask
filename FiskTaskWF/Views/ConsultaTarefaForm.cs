@@ -23,6 +23,8 @@ namespace FiscoTask
 
             TarefaLoadind("Codigo", "DESC");
             CarregarComboBox();
+            FiltroAnoContexto($"{DateTime.Now.Year}");
+            ContadoresLabel();
 
         }
 
@@ -33,17 +35,6 @@ namespace FiscoTask
             table.DefaultView.Sort = $"{coluna} {ordem}";
             dgTarefas2.DataSource = table;
 
-            int rowCount = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Situacao = 'Em Andamento'").Length;
-            lblTarefasPendentes.Text = $"O número de processos pendentes no total é de: {rowCount}";
-
-            int rowCountAtivo = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Ativo = true").Length;
-            lblTarefasAtivas.Text = $"O número de processos ativos no total é de: {rowCountAtivo}";
-
-            int rowCountPronto = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Fase = 'Pronto'").Length;
-            lblTarefasConcluidas.Text = $"O número de processos concluídos é de: {rowCountPronto}";
-
-            int rowCountSuspenso = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select("Situacao = 'Suspenso'").Length;
-            lblSuspensas.Text = $"O número de processos suspensos é de: {rowCountSuspenso}";
         }
         public void ApagarPesquisa()
         {
@@ -87,6 +78,7 @@ namespace FiscoTask
             cbTipo.SelectedItem = -1;
             cbTipo.Text = "";
             txtPesquisa.Clear();
+            FiltroAnoContexto($"{DateTime.Now.Year}");
 
         }
 
@@ -277,6 +269,7 @@ namespace FiscoTask
             //Define o DataSource dos ComboBoxes
             cbTipo.DataSource = listasComboBox.Fase();
             cbSituacao.DataSource = listasComboBox.Situacao();
+            cbAnoContexto.DataSource = listasComboBox.AnoContexto();
 
             // Limpe a seleção (agora que não há eventos para interferir)
             cbTipo.SelectedIndex = -1;
@@ -285,6 +278,8 @@ namespace FiscoTask
             // Reativa os eventos para que funcionem normalmente quando o usuário interagir
             cbTipo.SelectedIndexChanged += cbTipo_SelectedIndexChanged;
             cbSituacao.SelectedIndexChanged += cbSituacao_SelectedIndexChanged;
+
+            cbAnoContexto.Text = $"{DateTime.Now.Year}";
 
         }
 
@@ -307,7 +302,7 @@ namespace FiscoTask
                     MessageBox.Show("Não há dados para exportar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro ao exportar os dados: {ex.Message}", "Erro de Exportação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -315,6 +310,34 @@ namespace FiscoTask
             {
                 this.Cursor = Cursors.Default;
             }
+        }
+        private void FiltroAnoContexto(string filtro)
+        {
+            var dataTable = (dgTarefas2.DataSource as DataTable);
+            if (dataTable != null)
+            {
+                dataTable.DefaultView.RowFilter = string.Format(
+                    "AnoContexto LIKE '%{0}%'", filtro
+                );
+            }
+            ContadoresLabel();
+
+        }
+        private void cbAnoContexto_SelectedIndexChanged(object sender, EventArgs e) => FiltroAnoContexto(cbAnoContexto.Text.Replace("'", "''"));
+
+        private void ContadoresLabel()
+        {
+            int rowCount = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select($"Situacao = 'Em Andamento' AND AnoContexto = '{cbAnoContexto.Text.Replace("'", "''")}'").Length;
+            lblTarefasPendentes.Text = $"O número de processos pendentes no total é de: {rowCount}";
+
+            int rowCountAtivo = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select($"Ativo = true AND AnoContexto = '{cbAnoContexto.Text.Replace("'", "''")}'").Length;
+            lblTarefasAtivas.Text = $"O número de processos ativos no total é de: {rowCountAtivo}";
+
+            int rowCountPronto = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select($"Fase = 'Pronto' AND AnoContexto = '{cbAnoContexto.Text.Replace("'", "''")}'").Length;
+            lblTarefasConcluidas.Text = $"O número de processos concluídos é de: {rowCountPronto}";
+
+            int rowCountSuspenso = ((DataTable)dgTarefas2.DataSource).DefaultView.ToTable().Select($"Situacao = 'Suspenso' AND AnoContexto = '{cbAnoContexto.Text.Replace("'", "''")}'").Length;
+            lblSuspensas.Text = $"O número de processos suspensos é de: {rowCountSuspenso}";
         }
     }
 }

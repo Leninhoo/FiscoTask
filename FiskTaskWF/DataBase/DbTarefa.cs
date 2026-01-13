@@ -25,7 +25,8 @@ namespace FiscoTask
         public bool EntregaTaxaAlvara { get; set; }
         public string? Fase { get; set; }
         public bool Ativo { get; set; }
-        public byte[]? Arquivo { get; set; } 
+        public byte[]? Arquivo { get; set; }
+        public string? AnoContexto { get; set; }
 
         public string? NOME { get; set; }
         public string? CNPJ { get; set; }
@@ -40,9 +41,11 @@ namespace FiscoTask
         {
             string query = @"
                                     INSERT INTO Tarefas
-                                        (Empresa, Situacao, Obs, Dtregistro, Tipo, Bombeiro, VigilanciaSanitaria, TaxaAlvaraPgto, EntregaTaxaAlvara, Fase, Ativo, Arquivo)
+                                        (Empresa, Situacao, Obs, Dtregistro, Tipo, Bombeiro, VigilanciaSanitaria, 
+                                        TaxaAlvaraPgto, EntregaTaxaAlvara, Fase, Ativo, Arquivo, AnoContexto)
                                     VALUES
-                                        ( @Empresa, @Situacao, @Obs, @Dtregistro, @Tipo, @Bombeiro, @VigilanciaSanitaria, @TaxaAlvaraPgto, @EntregaTaxaAlvara, @Fase, @Ativo, @Arquivo)";
+                                        ( @Empresa, @Situacao, @Obs, @Dtregistro, @Tipo, @Bombeiro, @VigilanciaSanitaria, 
+                                        @TaxaAlvaraPgto, @EntregaTaxaAlvara, @Fase, @Ativo, @Arquivo, @AnoContexto)";
 
             Create(query, new
                 {
@@ -57,7 +60,8 @@ namespace FiscoTask
                 dbTarefa.EntregaTaxaAlvara,
                 dbTarefa.Fase,
                 dbTarefa.Ativo,
-                dbTarefa.Arquivo
+                dbTarefa.Arquivo,
+                dbTarefa.AnoContexto
             });
 
         }

@@ -76,7 +76,6 @@ namespace FiscoTask
             {
                 Codigo = _Codigo,
                 Empresa = _Livro,
-                //Tipo = CbSituacao.Text,
                 Fase = cbFase.Text,
                 Ativo = cbAtivo.Checked,
                 Situacao = CbSituacao.Text,
@@ -86,7 +85,6 @@ namespace FiscoTask
                 TaxaAlvaraPgto = cbTaxaAlvaraPgto.Checked,
                 EntregaTaxaAlvara = cbEntregaTaxaAlvara.Checked,
                 Arquivo = fileData // Atribui o conteúdo do documento ao campo Arquivo
-                //Tipo = "" // Preencha conforme necessário, já que o campo existe na classe
 
             };
 
@@ -97,7 +95,7 @@ namespace FiscoTask
             //_parentForm.TarefaLoadind("Codigo", "DESC");
             //_parentForm.ApagarPesquisa();
 
-            this.Close();
+            //this.Close();
         }
 
         private void btnApagar_Click(object sender, EventArgs e)

@@ -18,14 +18,12 @@ namespace FiscoTask.Controls
         {
             InitializeComponent();
             ConfiguracaoInicial();
-
-
         }
 
         //Conteúdo RTF com formatação preservada.
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ConteudoRTF
-        {            
+        {
             get => rtb.Rtf;
             set
             {
@@ -123,6 +121,34 @@ namespace FiscoTask.Controls
             SincronizarBotoes(); // Atualiza botões
         }
 
+        private void InserirTabela(int linhas, int colunas)
+        {
+            string rtf = "{\\rtf1\\ansi\\plain\\fs24\n";
+
+            // Inserir cabeçalho da tabela
+            rtf += "{\\table\n";
+
+            // Inserir linhas
+            for (int i = 0; i < linhas; i++)
+            {
+                rtf += "{\\row\n";
+                for (int j = 0; j < colunas; j++)
+                {
+                    rtf += "{\\cell\n";
+                    if (j == colunas - 1) rtf += "{\\cell}\n"; // última célula
+                    else rtf += "{\\cell}\n";
+                }
+                rtf += "{\\row}\n";
+            }
+
+            rtf += "\\table}\n}"; // fechar tabela
+
+            // Adicionar ao RichTextBox
+            rtb.Rtf = rtf;
+            SincronizarBotoes(); // Atualiza UI
+        }
+
+
         #endregion
 
 
@@ -149,6 +175,9 @@ namespace FiscoTask.Controls
 
 
 
+        private void btnTabela_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
 
